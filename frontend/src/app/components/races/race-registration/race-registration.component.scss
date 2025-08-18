@@ -1,0 +1,376 @@
+.race-registration-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.loading-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .py-5 {
+    padding: 3rem 0;
+  }
+  
+  .mt-3 {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 1.1rem;
+  }
+}
+
+.registration-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  
+  .back-button {
+    margin-right: 16px;
+    color: #1976d2;
+    
+    &:hover {
+      background: rgba(25, 118, 210, 0.1);
+    }
+  }
+  
+  .header-content {
+    flex: 1;
+    
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .race-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 8px 0 0 0;
+      color: #666;
+      font-size: 1.1rem;
+      
+      mat-icon {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.race-summary-card {
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  .race-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    
+    .summary-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      
+      mat-icon {
+        color: #1976d2;
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+      }
+      
+      div {
+        display: flex;
+        flex-direction: column;
+        
+        strong {
+          font-weight: 600;
+          color: #333;
+          margin-bottom: 4px;
+        }
+        
+        span {
+          color: #666;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+}
+
+.registration-form-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  mat-card-header {
+    background: linear-gradient(135deg, #1976d2, #1565c0);
+    color: white;
+    border-radius: 12px 12px 0 0;
+    padding: 24px;
+    margin: -24px -24px 24px -24px;
+    
+    mat-card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    mat-card-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      margin: 8px 0 0 0;
+    }
+  }
+}
+
+.form-section {
+  margin-bottom: 40px;
+  
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e0e0e0;
+    
+    mat-icon {
+      color: #1976d2;
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -12px;
+    
+    .col-md-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+      padding: 0 12px;
+      margin-bottom: 16px;
+      
+      @media (max-width: 768px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+    
+    .col-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding: 0 12px;
+      margin-bottom: 16px;
+    }
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .checkbox-field {
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    
+    mat-checkbox {
+      font-size: 1rem;
+    }
+  }
+}
+
+.waiver-section {
+  background: #f8f9fa;
+  padding: 24px;
+  border-radius: 8px;
+  border-left: 4px solid #1976d2;
+  
+  .waiver-content {
+    p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: #555;
+      font-size: 0.95rem;
+    }
+    
+    mat-checkbox {
+      margin-bottom: 16px;
+      
+      strong {
+        color: #333;
+      }
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #e0e0e0;
+  
+  .cancel-button {
+    color: #666;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .submit-button {
+    min-width: 200px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    
+    &:disabled {
+      opacity: 0.6;
+    }
+    
+    mat-spinner {
+      margin-right: 8px;
+    }
+    
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+// Material Form Field Customizations
+::ng-deep {
+  .mat-form-field {
+    .mat-form-field-outline {
+      border-radius: 8px;
+    }
+    
+    .mat-form-field-label {
+      font-weight: 500;
+    }
+    
+    &.mat-focused {
+      .mat-form-field-outline-thick {
+        border-color: #1976d2;
+      }
+      
+      .mat-form-field-label {
+        color: #1976d2;
+      }
+    }
+  }
+  
+  .mat-select-panel {
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  }
+  
+  .mat-option {
+    &:hover {
+      background: rgba(25, 118, 210, 0.1);
+    }
+    
+    &.mat-selected {
+      background: rgba(25, 118, 210, 0.15);
+      color: #1976d2;
+    }
+  }
+  
+  .mat-checkbox {
+    .mat-checkbox-frame {
+      border-radius: 4px;
+    }
+    
+    &.mat-checkbox-checked {
+      .mat-checkbox-background {
+        background-color: #1976d2;
+      }
+    }
+  }
+  
+  .mat-error {
+    font-size: 0.85rem;
+    margin-top: 4px;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .race-registration-container {
+    padding: 16px;
+  }
+  
+  .registration-header {
+    .header-content {
+      h1 {
+        font-size: 1.5rem;
+      }
+      
+      .race-info {
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  .race-summary {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 12px;
+    
+    .cancel-button,
+    .submit-button {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .race-registration-container {
+    padding: 12px;
+  }
+  
+  .registration-header {
+    margin-bottom: 20px;
+    
+    .header-content {
+      h1 {
+        font-size: 1.3rem;
+      }
+    }
+  }
+  
+  .form-section {
+    margin-bottom: 30px;
+    
+    .section-title {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .waiver-section {
+    padding: 16px;
+  }
+} 

@@ -1,0 +1,160 @@
+<div class="prizes-container">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Prize Money</h1>
+      <p class="hero-subtitle">Compete for exciting cash prizes in multiple categories</p>
+      <div class="total-prize" *ngIf="currentPrizes">
+        <span class="prize-amount">{{ formatCurrency(currentPrizes.totalPrize) }}</span>
+        <span class="prize-label">Total Prize Pool</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Race Selection -->
+  <div class="race-selection" *ngIf="!selectedRace">
+    <h2>Select Your Race Distance</h2>
+    <div class="race-buttons">
+      <button 
+        class="race-btn" 
+        *ngFor="let distance of raceDistances" 
+        (click)="selectRace(distance)"
+        [class.selected]="selectedRace === distance">
+        <span class="race-distance">{{ distance.toUpperCase() }}</span>
+        <span class="race-prize">{{ formatCurrency(allPrizes[distance].totalPrize) }}</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Prize Details -->
+  <div class="prize-details" *ngIf="currentPrizes">
+    <div class="prize-header">
+      <h2>{{ currentPrizes.distance }} Prize Distribution</h2>
+      <div class="prize-summary">
+        <div class="summary-item">
+          <span class="summary-value">{{ formatCurrency(currentPrizes.totalPrize) }}</span>
+          <span class="summary-label">Total Prize Pool</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-value">{{ currentPrizes.categories.overall.length }}</span>
+          <span class="summary-label">Overall Winners</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-value">{{ currentPrizes.categories.ageGroups.length }}</span>
+          <span class="summary-label">Age Categories</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-value">{{ currentPrizes.specialPrizes.length }}</span>
+          <span class="summary-label">Special Prizes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overall Category Prizes -->
+    <div class="overall-section">
+      <h3>Overall Category</h3>
+      <div class="prize-table-container">
+        <table class="prize-table">
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>Male</th>
+              <th>Female</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prize of currentPrizes.categories.overall" class="prize-row">
+              <td class="position-cell">
+                <div class="position-badge">{{ prize.position }}</div>
+              </td>
+              <td class="prize-cell">{{ formatCurrency(prize.male) }}</td>
+              <td class="prize-cell">{{ formatCurrency(prize.female) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Age Group Categories -->
+    <div class="age-groups-section">
+      <h3>Age Group Categories</h3>
+      <div class="age-groups-grid">
+        <div class="age-group-card" *ngFor="let group of currentPrizes.categories.ageGroups">
+          <div class="age-group-header">
+            <h4>{{ group.groupName }}</h4>
+            <span class="age-range">{{ group.ageRange }} years</span>
+          </div>
+          <div class="age-group-table">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Pos</th>
+                  <th>Male</th>
+                  <th>Female</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let prize of group.prizes" class="mini-row">
+                  <td class="mini-position">{{ prize.position }}</td>
+                  <td class="mini-prize">{{ formatCurrency(prize.male) }}</td>
+                  <td class="mini-prize">{{ formatCurrency(prize.female) }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Special Prizes -->
+    <div class="special-prizes-section">
+      <h3>Special Prizes</h3>
+      <div class="special-prizes-grid">
+        <div class="special-prize-card" *ngFor="let prize of currentPrizes.specialPrizes">
+          <div class="special-prize-icon">🏆</div>
+          <div class="special-prize-content">
+            <h4>{{ prize.name }}</h4>
+            <p class="special-prize-description">{{ prize.description }}</p>
+            <div class="special-prize-amount">{{ formatCurrency(prize.amount) }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prize Rules -->
+    <div class="rules-section">
+      <h3>Prize Rules & Regulations</h3>
+      <div class="rules-grid">
+        <div class="rule-card" *ngFor="let rule of prizeRules">
+          <div class="rule-icon">📋</div>
+          <div class="rule-content">
+            <h4>{{ rule.title }}</h4>
+            <p>{{ rule.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions-section">
+      <div class="action-buttons">
+        <button class="action-btn primary" (click)="downloadPrizeInfo()">
+          <i class="btn-icon">📄</i>
+          Download Prize Info
+        </button>
+        <button class="action-btn secondary" (click)="shareOnSocial('facebook')">
+          <i class="btn-icon">📱</i>
+          Share on Social
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <div class="back-section" *ngIf="selectedRace">
+    <button class="back-btn" (click)="goBack()">
+      <i class="btn-icon">←</i>
+      Back to Race Selection
+    </button>
+  </div>
+</div> 

@@ -1,0 +1,253 @@
+<div class="race-registration-container">
+  <!-- Loading state -->
+  <div class="loading-section" *ngIf="loading">
+    <div class="text-center py-5">
+      <mat-spinner></mat-spinner>
+      <p class="mt-3">Loading race details...</p>
+    </div>
+  </div>
+
+  <!-- Registration form -->
+  <div class="registration-content" *ngIf="!loading && race">
+    <!-- Header -->
+    <div class="registration-header">
+      <button mat-icon-button (click)="goBack()" class="back-button">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div class="header-content">
+        <h1>Register for {{ race.name }}</h1>
+        <p class="race-info">
+          <mat-icon>straighten</mat-icon>
+          {{ race.distance }} • {{ race.registrationFee | currency:race.currency:'symbol':'1.0-0' }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Race Summary Card -->
+    <mat-card class="race-summary-card">
+      <mat-card-content>
+        <div class="race-summary">
+          <div class="summary-item">
+            <mat-icon>schedule</mat-icon>
+            <div>
+              <strong>Start Time</strong>
+              <span>{{ race.startTime | date:'fullDate' }} at {{ race.startTime | date:'shortTime' }}</span>
+            </div>
+          </div>
+          <div class="summary-item">
+            <mat-icon>timer</mat-icon>
+            <div>
+              <strong>End Time</strong>
+              <span>{{ race.endTime | date:'fullDate' }} at {{ race.endTime | date:'shortTime' }}</span>
+            </div>
+          </div>
+          <div class="summary-item">
+            <mat-icon>payments</mat-icon>
+            <div>
+              <strong>Registration Fee</strong>
+              <span>{{ race.registrationFee | currency:race.currency:'symbol':'1.0-0' }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Registration Form -->
+    <mat-card class="registration-form-card">
+      <mat-card-header>
+        <mat-card-title>Registration Details</mat-card-title>
+        <mat-card-subtitle>Please provide the following information to complete your registration</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+          
+          <!-- Kit Details Section -->
+          <div class="form-section">
+            <h3 class="section-title">
+              <mat-icon>checkroom</mat-icon>
+              Kit Details
+            </h3>
+            
+            <div class="row">
+              <!-- T-Shirt Size -->
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>T-Shirt Size *</mat-label>
+                  <mat-select formControlName="tshirtSize" required>
+                    <mat-option *ngFor="let size of tShirtSizes" [value]="size.value">
+                      {{ size.label }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-icon matSuffix>checkroom</mat-icon>
+                  <mat-error *ngIf="registrationForm.get('tshirtSize')?.invalid && registrationForm.get('tshirtSize')?.touched">
+                    {{ getErrorMessage('tshirtSize') }}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              
+              <!-- Dietary Requirements -->
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Dietary Requirements</mat-label>
+                  <input matInput formControlName="dietaryRequirements" 
+                         placeholder="e.g., Vegetarian, Vegan, Allergies">
+                  <mat-icon matSuffix>restaurant</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <!-- Race Experience Section -->
+          <div class="form-section">
+            <h3 class="section-title">
+              <mat-icon>fitness_center</mat-icon>
+              Race Experience
+            </h3>
+            
+            <div class="row">
+              <!-- Estimated Finish Time -->
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Estimated Finish Time</mat-label>
+                  <input matInput formControlName="estimatedFinishTime" 
+                         placeholder="e.g., 2:30:00 or 1 hour 45 minutes">
+                  <mat-icon matSuffix>timer</mat-icon>
+                </mat-form-field>
+              </div>
+              
+              <!-- Previous Marathon Experience -->
+              <div class="col-md-6">
+                <div class="checkbox-field">
+                  <mat-checkbox formControlName="previousMarathonExperience">
+                    I have previous marathon/running experience
+                  </mat-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Emergency Contact Section -->
+          <div class="form-section">
+            <h3 class="section-title">
+              <mat-icon>contact_emergency</mat-icon>
+              Emergency Contact
+            </h3>
+            
+            <div class="row">
+              <!-- Emergency Contact Name -->
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Emergency Contact Name *</mat-label>
+                  <input matInput formControlName="emergencyContactName" 
+                         placeholder="Full name" required>
+                  <mat-icon matSuffix>person</mat-icon>
+                  <mat-error *ngIf="registrationForm.get('emergencyContactName')?.invalid && registrationForm.get('emergencyContactName')?.touched">
+                    {{ getErrorMessage('emergencyContactName') }}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              
+              <!-- Emergency Contact Phone -->
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Emergency Contact Phone *</mat-label>
+                  <input matInput formControlName="emergencyContactPhone" 
+                         placeholder="+255 XXX XXX XXX" required>
+                  <mat-icon matSuffix>phone</mat-icon>
+                  <mat-error *ngIf="registrationForm.get('emergencyContactPhone')?.invalid && registrationForm.get('emergencyContactPhone')?.touched">
+                    {{ getErrorMessage('emergencyContactPhone') }}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <!-- Medical Information Section -->
+          <div class="form-section">
+            <h3 class="section-title">
+              <mat-icon>medical_information</mat-icon>
+              Medical Information
+            </h3>
+            
+            <div class="row">
+              <div class="col-12">
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Medical Conditions or Allergies</mat-label>
+                  <textarea matInput formControlName="medicalConditions" 
+                            rows="3" placeholder="Please list any medical conditions, allergies, or medications we should be aware of"></textarea>
+                  <mat-icon matSuffix>local_hospital</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Section -->
+          <div class="form-section">
+            <h3 class="section-title">
+              <mat-icon>payment</mat-icon>
+              Payment Method
+            </h3>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Preferred Payment Method *</mat-label>
+                  <mat-select formControlName="paymentMethod" required>
+                    <mat-option *ngFor="let method of paymentMethods" [value]="method.value">
+                      {{ method.label }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-icon matSuffix>credit_card</mat-icon>
+                  <mat-error *ngIf="registrationForm.get('paymentMethod')?.invalid && registrationForm.get('paymentMethod')?.touched">
+                    {{ getErrorMessage('paymentMethod') }}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <!-- Waiver Section -->
+          <div class="form-section waiver-section">
+            <h3 class="section-title">
+              <mat-icon>gavel</mat-icon>
+              Liability Waiver
+            </h3>
+            
+            <div class="waiver-content">
+              <p>
+                By participating in this race, I acknowledge that I understand the risks involved in distance running. 
+                I certify that I am physically fit and have trained sufficiently for this event. I agree to abide by 
+                all race rules and decisions of race officials. I assume all risks associated with running in this event 
+                and release the organizers from all liability.
+              </p>
+              
+              <mat-checkbox formControlName="waiverAccepted" required>
+                <strong>I have read and accept the liability waiver and terms of participation *</strong>
+              </mat-checkbox>
+              
+              <mat-error *ngIf="registrationForm.get('waiverAccepted')?.invalid && registrationForm.get('waiverAccepted')?.touched">
+                {{ getErrorMessage('waiverAccepted') }}
+              </mat-error>
+            </div>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="form-actions">
+            <button mat-button type="button" (click)="goBack()" class="cancel-button">
+              Cancel
+            </button>
+            <button mat-raised-button color="primary" type="submit" 
+                    [disabled]="registrationForm.invalid || isSubmitting"
+                    class="submit-button">
+              <mat-spinner diameter="20" *ngIf="isSubmitting"></mat-spinner>
+              <mat-icon *ngIf="!isSubmitting">person_add</mat-icon>
+              <span *ngIf="!isSubmitting">Complete Registration</span>
+              <span *ngIf="isSubmitting">Processing...</span>
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div> 

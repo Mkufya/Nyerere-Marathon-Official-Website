@@ -1,0 +1,166 @@
+<div class="route-container">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Race Routes</h1>
+      <p class="hero-subtitle">Explore the scenic routes of Nyerere Marathon</p>
+      <div class="race-badge" *ngIf="selectedRace">
+        <span class="badge-text">{{ selectedRace.toUpperCase() }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Race Selection -->
+  <div class="race-selection" *ngIf="!selectedRace">
+    <h2>Select Your Race Distance</h2>
+    <div class="race-buttons">
+      <button 
+        class="race-btn" 
+        *ngFor="let distance of raceDistances" 
+        (click)="selectRace(distance)"
+        [class.selected]="selectedRace === distance">
+        {{ distance.toUpperCase() }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Route Details -->
+  <div class="route-details" *ngIf="currentRoute">
+    <div class="route-header">
+      <h2>{{ currentRoute.name }} Route</h2>
+      <div class="route-stats">
+        <div class="stat">
+          <span class="stat-value">{{ currentRoute.distance }}</span>
+          <span class="stat-label">Distance</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">{{ currentRoute.difficulty }}</span>
+          <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">{{ currentRoute.estimatedTime }}</span>
+          <span class="stat-label">Est. Time</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Route Map -->
+    <div class="route-map-section">
+      <h3>Route Map</h3>
+      <div class="map-container">
+        <div class="map-placeholder">
+          <i class="map-icon">🗺️</i>
+          <p>Interactive Route Map</p>
+          <p class="map-description">{{ currentRoute.description }}</p>
+        </div>
+        <div class="map-actions">
+          <button class="action-btn primary" (click)="openMap()">
+            <i class="btn-icon">📍</i>
+            View Full Map
+          </button>
+          <button class="action-btn secondary" (click)="getDirections()">
+            <i class="btn-icon">🧭</i>
+            Get Directions
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Route Waypoints -->
+    <div class="waypoints-section">
+      <h3>Key Waypoints</h3>
+      <div class="waypoints-grid">
+        <div 
+          class="waypoint-card" 
+          *ngFor="let waypoint of currentRoute.waypoints; let i = index">
+          <div class="waypoint-number">{{ i + 1 }}</div>
+          <div class="waypoint-info">
+            <h4>{{ waypoint.location }}</h4>
+            <p class="waypoint-distance">{{ waypoint.km }}km</p>
+            <p class="waypoint-description">{{ waypoint.description }}</p>
+            <div class="waypoint-services" *ngIf="waypoint.services.length > 0">
+              <span 
+                class="service-tag" 
+                *ngFor="let service of waypoint.services">
+                {{ service }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Route Highlights -->
+    <div class="highlights-section">
+      <h3>Route Highlights</h3>
+      <div class="highlights-grid">
+        <div class="highlight-card" *ngFor="let highlight of currentRoute.highlights">
+          <div class="highlight-icon">🏞️</div>
+          <div class="highlight-content">
+            <p>{{ highlight }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weather & Safety -->
+    <div class="weather-safety-section">
+      <div class="weather-card">
+        <h3>Weather Considerations</h3>
+        <div class="weather-info">
+          <div class="weather-item">
+            <span class="weather-icon">🌡️</span>
+            <span>Temperature: {{ currentRoute.weather.temperature }}</span>
+          </div>
+          <div class="weather-item">
+            <span class="weather-icon">💧</span>
+            <span>Humidity: {{ currentRoute.weather.humidity }}</span>
+          </div>
+          <div class="weather-item">
+            <span class="weather-icon">💨</span>
+            <span>Wind: {{ currentRoute.weather.wind }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="safety-card">
+        <h3>Safety Information</h3>
+        <ul class="safety-list">
+          <li *ngFor="let safety of currentRoute.safety">
+            <span class="safety-icon">⚠️</span>
+            {{ safety }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Download Links -->
+    <div class="downloads-section">
+      <h3>Download Route Materials</h3>
+      <div class="downloads-grid">
+        <div 
+          class="download-card" 
+          *ngFor="let download of currentRoute.downloads"
+          (click)="downloadFile(download.type, download.url)">
+          <div class="download-icon">📄</div>
+          <div class="download-info">
+            <h4>{{ download.format }}</h4>
+            <p>{{ download.type }}</p>
+            <span class="download-size">{{ download.size }}</span>
+          </div>
+          <div class="download-button">
+            <i class="btn-icon">⬇️</i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <div class="back-section" *ngIf="selectedRace">
+    <button class="back-btn" (click)="goBack()">
+      <i class="btn-icon">←</i>
+      Back to Race Selection
+    </button>
+  </div>
+</div> 

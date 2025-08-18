@@ -1,0 +1,348 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'https://fonts.googleapis.com/css2?family=Roboto:ital,ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap';
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+/* 🎨 Brand Color Palette Variables */
+:root {
+  /* Primary Brand Colors */
+  --primary-navy: #232D63;      /* Headers, nav bar, footer background */
+  --primary-sky-blue: #0674BC;  /* Buttons, links, interactive hover states */
+  --primary-green: #7EBF42;     /* Success messages, confirmation boxes, icons */
+  --primary-yellow: #FAE418;    /* Highlights, badges, alerts, CTA backgrounds */
+  --primary-soft-blue: #45AAE0; /* Secondary elements, card backgrounds, accent borders */
+  
+  /* Extended Color Variations */
+  --navy-dark: #1a2350;         /* Darker navy for hover states */
+  --sky-blue-dark: #055a9b;     /* Darker sky blue for hover states */
+  --green-dark: #6ba136;        /* Darker green for hover states */
+  --yellow-dark: #e6cd16;       /* Darker yellow for hover states */
+  --soft-blue-dark: #3a98cc;    /* Darker soft blue for hover states */
+  --red: #FF4444;               /* Red color for alerts and live indicators */
+  
+  /* Text and Background Variations */
+  --text-on-navy: #ffffff;
+  --text-on-sky-blue: #ffffff;
+  --text-on-green: #ffffff;
+  --text-on-yellow: #232D63;
+  --text-on-soft-blue: #232D63;
+  
+  /* Neutral Colors */
+  --text-primary: #232D63;
+  --text-secondary: #666666;
+  --text-muted: #888888;
+  --background-light: #f8f9fa;
+  --background-white: #ffffff;
+  --border-light: #e9ecef;
+  
+  /* Status Colors */
+  --success: var(--primary-green);
+  --warning: var(--primary-yellow);
+  --info: var(--primary-soft-blue);
+  --primary: var(--primary-sky-blue);
+}
+
+html, body { 
+  height: 100%; 
+  margin: 0; 
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-primary);
+}
+
+/* Body spacing is now handled by the app component main-content margin-top */
+/* This prevents double spacing between navbar and content */
+
+/* Brand Button Styles */
+.btn-primary {
+  background-color: var(--primary-sky-blue);
+  color: var(--text-on-sky-blue);
+  border: 1px solid var(--primary-sky-blue);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--sky-blue-dark);
+  border-color: var(--sky-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(6, 116, 188, 0.3);
+}
+
+.btn-success {
+  background-color: var(--primary-green);
+  color: var(--text-on-green);
+  border: 1px solid var(--primary-green);
+}
+
+.btn-success:hover {
+  background-color: var(--green-dark);
+  border-color: var(--green-dark);
+}
+
+.btn-warning {
+  background-color: var(--primary-yellow);
+  color: var(--text-on-yellow);
+  border: 1px solid var(--primary-yellow);
+}
+
+.btn-warning:hover {
+  background-color: var(--yellow-dark);
+  border-color: var(--yellow-dark);
+}
+
+/* Link Styles */
+a {
+  color: var(--primary-sky-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--sky-blue-dark);
+  text-decoration: underline;
+}
+
+/* Card Styles with Brand Colors */
+.card-primary {
+  border-color: var(--primary-soft-blue);
+  background-color: var(--background-white);
+}
+
+.card-primary .card-header {
+  background-color: var(--primary-soft-blue);
+  color: var(--text-on-soft-blue);
+  border-bottom-color: var(--primary-soft-blue);
+}
+
+/* Alert/Badge Styles */
+.alert-success {
+  background-color: var(--primary-green);
+  color: var(--text-on-green);
+  border-color: var(--green-dark);
+}
+
+.alert-warning {
+  background-color: var(--primary-yellow);
+  color: var(--text-on-yellow);
+  border-color: var(--yellow-dark);
+}
+
+.alert-info {
+  background-color: var(--primary-soft-blue);
+  color: var(--text-on-soft-blue);
+  border-color: var(--soft-blue-dark);
+}
+
+.badge-primary {
+  background-color: var(--primary-sky-blue);
+  color: var(--text-on-sky-blue);
+}
+
+.badge-success {
+  background-color: var(--primary-green);
+  color: var(--text-on-green);
+}
+
+.badge-warning {
+  background-color: var(--primary-yellow);
+  color: var(--text-on-yellow);
+}
+
+/* Bootstrap-like utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.col-12 { flex: 0 0 100%; max-width: 100%; padding: 0 15px; }
+.col-11 { flex: 0 0 91.666667%; max-width: 91.666667%; padding: 0 15px; }
+.col-10 { flex: 0 0 83.333333%; max-width: 83.333333%; padding: 0 15px; }
+.col-9 { flex: 0 0 75%; max-width: 75%; padding: 0 15px; }
+.col-8 { flex: 0 0 66.666667%; max-width: 66.666667%; padding: 0 15px; }
+.col-7 { flex: 0 0 58.333333%; max-width: 58.333333%; padding: 0 15px; }
+.col-6 { flex: 0 0 50%; max-width: 50%; padding: 0 15px; }
+.col-5 { flex: 0 0 41.666667%; max-width: 41.666667%; padding: 0 15px; }
+.col-4 { flex: 0 0 33.333333%; max-width: 33.333333%; padding: 0 15px; }
+.col-3 { flex: 0 0 25%; max-width: 25%; padding: 0 15px; }
+.col-2 { flex: 0 0 16.666667%; max-width: 16.666667%; padding: 0 15px; }
+.col-1 { flex: 0 0 8.333333%; max-width: 8.333333%; padding: 0 15px; }
+
+@media (min-width: 768px) {
+  .col-md-12 { flex: 0 0 100%; max-width: 100%; }
+  .col-md-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+  .col-md-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+  .col-md-9 { flex: 0 0 75%; max-width: 75%; }
+  .col-md-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+  .col-md-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+  .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+  .col-md-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+  .col-md-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+  .col-md-3 { flex: 0 0 25%; max-width: 25%; }
+  .col-md-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+  .col-md-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+}
+
+@media (min-width: 992px) {
+  .col-lg-12 { flex: 0 0 100%; max-width: 100%; }
+  .col-lg-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+  .col-lg-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+  .col-lg-9 { flex: 0 0 75%; max-width: 75%; }
+  .col-lg-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+  .col-lg-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+  .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+  .col-lg-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+  .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+  .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+  .col-lg-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+  .col-lg-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+}
+
+/* Utility classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-end { text-align: right; }
+.text-start { text-align: left; }
+
+.d-flex { display: flex; }
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-end { justify-content: flex-end; }
+.align-items-center { align-items: center; }
+.align-items-start { align-items: flex-start; }
+.align-items-end { align-items: flex-end; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 3rem; }
+
+.my-0 { margin-top: 0; margin-bottom: 0; }
+.my-1 { margin-top: 0.25rem; margin-bottom: 0.25rem; }
+.my-2 { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+.my-3 { margin-top: 1rem; margin-bottom: 1rem; }
+.my-4 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+.my-5 { margin-top: 3rem; margin-bottom: 3rem; }
+
+.mx-0 { margin-left: 0; margin-right: 0; }
+.mx-1 { margin-left: 0.25rem; margin-right: 0.25rem; }
+.mx-2 { margin-left: 0.5rem; margin-right: 0.5rem; }
+.mx-3 { margin-left: 1rem; margin-right: 1rem; }
+.mx-4 { margin-left: 1.5rem; margin-right: 1.5rem; }
+.mx-5 { margin-left: 3rem; margin-right: 3rem; }
+
+.py-0 { padding-top: 0; padding-bottom: 0; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-3 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-4 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.py-5 { padding-top: 3rem; padding-bottom: 3rem; }
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* Custom app styles with brand colors */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--navy-dark) 100%);
+  color: var(--text-on-navy);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: var(--text-on-navy);
+}
+
+.hero-actions {
+  margin-top: 2rem;
+}
+
+.hero-actions button {
+  margin: 0 0.5rem;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Angular Material Theme Overrides with Brand Colors */
+.mat-raised-button.mat-primary {
+  background-color: var(--primary-sky-blue) !important;
+  color: var(--text-on-sky-blue) !important;
+}
+
+.mat-raised-button.mat-primary:hover {
+  background-color: var(--sky-blue-dark) !important;
+}
+
+.mat-raised-button.mat-accent {
+  background-color: var(--primary-yellow) !important;
+  color: var(--text-on-yellow) !important;
+}
+
+.mat-raised-button.mat-accent:hover {
+  background-color: var(--yellow-dark) !important;
+}
+
+.mat-outlined-button.mat-primary {
+  color: var(--primary-sky-blue) !important;
+  border-color: var(--primary-sky-blue) !important;
+}
+
+.mat-outlined-button.mat-primary:hover {
+  background-color: rgba(6, 116, 188, 0.1) !important;
+  border-color: var(--sky-blue-dark) !important;
+}
+
+/* Form field theme */
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: var(--primary-sky-blue) !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: var(--primary-sky-blue) !important;
+}
+
+/* Menu and dropdown overrides */
+.mat-menu-panel {
+  border-top: 3px solid var(--primary-soft-blue);
+}
+
+/* Icon colors */
+.mat-icon.text-primary {
+  color: var(--primary-sky-blue) !important;
+}
+
+.mat-icon.text-success {
+  color: var(--primary-green) !important;
+}
+
+.mat-icon.text-warning {
+  color: var(--primary-yellow) !important;
+} 

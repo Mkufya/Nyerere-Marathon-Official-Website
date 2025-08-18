@@ -1,0 +1,155 @@
+<div class="news-container">
+  <!-- Bootstrap Carousel -->
+  <section class="news-carousel-section">
+    <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+
+      <!-- Carousel Items -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://via.placeholder.com/1920x600/1976d2/ffffff?text=Marathon+Highlights+2024" class="d-block w-100" alt="Marathon Highlights 2024">
+          <div class="carousel-overlay">
+            <div class="carousel-content">
+              <h2 class="carousel-title">Nyerere International Marathon 2025 – 11 Oct 2025</h2>
+              <p class="carousel-subtitle">Experience the excitement and energy of Tanzania's premier marathon event</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://via.placeholder.com/1920x600/2e7d32/ffffff?text=Elite+Athletes+2025" class="d-block w-100" alt="Elite Athletes 2025">
+          <div class="carousel-overlay">
+            <div class="carousel-content">
+              <h2 class="carousel-title">International Elite Athletes Confirmed</h2>
+              <p class="carousel-subtitle">World-class runners from Kenya, Ethiopia, and Tanzania join the competition</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://via.placeholder.com/1920x600/f57c00/ffffff?text=Community+Celebration" class="d-block w-100" alt="Community Celebration">
+          <div class="carousel-overlay">
+            <div class="carousel-content">
+              <h2 class="carousel-title">Community Spirit & Celebration</h2>
+              <p class="carousel-subtitle">Join thousands of runners and supporters in this incredible event</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Navigation Arrows -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Latest News Section -->
+  <section class="news-section">
+    <div class="container">
+      <h2 class="section-title">Latest News</h2>
+      <div class="row">
+        <div class="col-md-6 col-lg-4" *ngFor="let newsItem of newsItems">
+          <mat-card class="news-card">
+            <img mat-card-image [src]="newsItem.image" [alt]="newsItem.title">
+            <mat-card-header>
+              <mat-card-title>{{ newsItem.title }}</mat-card-title>
+              <mat-card-subtitle>
+                <mat-icon class="date-icon">calendar_today</mat-icon>
+                {{ newsItem.date | date:'medium' }}
+                <mat-chip class="category-chip">{{ newsItem.category }}</mat-chip>
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ newsItem.description }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button color="primary">Read More</button>
+              <button mat-button>Share</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <h2 class="section-title">Photo Gallery</h2>
+      <div class="gallery-grid">
+        <div 
+          class="gallery-item" 
+          *ngFor="let image of galleryImages"
+          (click)="openImageModal(image)">
+          <img [src]="image.src" [alt]="image.alt">
+          <div class="gallery-overlay">
+            <mat-icon class="zoom-icon">zoom_in</mat-icon>
+            <p class="gallery-caption">{{ image.caption }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Race Highlights Section -->
+  <section class="highlights-section">
+    <div class="container">
+      <h2 class="section-title">Race Highlights</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-card class="highlight-card">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon class="highlight-icon">videocam</mat-icon>
+                2024 Marathon Highlights
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="video-placeholder">
+                <mat-icon class="play-icon">play_circle_filled</mat-icon>
+                <p>Watch the best moments from the 2024 marathon</p>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        
+        <div class="col-md-6">
+          <mat-card class="highlight-card">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon class="highlight-icon">emoji_events</mat-icon>
+                Winner Interviews
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="video-placeholder">
+                <mat-icon class="play-icon">play_circle_filled</mat-icon>
+                <p>Exclusive interviews with marathon winners</p>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Image Modal -->
+<div class="modal-overlay" *ngIf="selectedImage" (click)="closeImageModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="closeImageModal()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <img [src]="selectedImage.src" [alt]="selectedImage.alt" class="modal-image">
+    <p class="modal-caption">{{ selectedImage.caption }}</p>
+  </div>
+</div> 

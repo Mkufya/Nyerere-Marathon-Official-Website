@@ -1,0 +1,158 @@
+.email-verification-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.verification-card {
+  width: 100%;
+  max-width: 500px;
+  
+  mat-card {
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    
+    mat-card-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      
+      mat-card-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+    
+    mat-card-content {
+      padding: 40px 30px;
+      
+      .verification-content {
+        text-align: center;
+        
+        .status-icon {
+          font-size: 4rem;
+          width: 4rem;
+          height: 4rem;
+          margin-bottom: 20px;
+        }
+        
+        h3 {
+          font-size: 1.5rem;
+          margin: 20px 0 15px 0;
+          color: #333;
+        }
+        
+        p {
+          color: #666;
+          margin-bottom: 10px;
+          line-height: 1.6;
+        }
+        
+        .loading-state {
+          padding: 30px 0;
+          
+          mat-spinner {
+            margin: 0 auto 20px auto;
+          }
+        }
+        
+        .success-state {
+          .status-icon {
+            color: #4caf50;
+          }
+        }
+        
+        .error-state {
+          .status-icon {
+            color: #f44336;
+          }
+        }
+        
+        .pending-state {
+          .status-icon {
+            color: #ff9800;
+          }
+        }
+      }
+    }
+    
+    mat-card-actions {
+      padding: 20px 30px 30px 30px;
+      gap: 15px;
+      
+      button {
+        min-width: 120px;
+        border-radius: 25px;
+        padding: 0 20px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        
+        &.mat-raised-button {
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          transition: all 0.3s ease;
+          
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .email-verification-container {
+    padding: 15px;
+  }
+  
+  .verification-card {
+    mat-card {
+      mat-card-header {
+        padding: 20px;
+        
+        mat-card-title {
+          font-size: 1.5rem;
+        }
+      }
+      
+      mat-card-content {
+        padding: 30px 20px;
+        
+        .verification-content {
+          .status-icon {
+            font-size: 3rem;
+            width: 3rem;
+            height: 3rem;
+          }
+          
+          h3 {
+            font-size: 1.3rem;
+          }
+        }
+      }
+      
+      mat-card-actions {
+        padding: 15px 20px 25px 20px;
+        flex-direction: column;
+        
+        button {
+          width: 100%;
+          margin-bottom: 10px;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+} 

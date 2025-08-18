@@ -1,0 +1,72 @@
+{
+  "participants": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@email.com",
+      "phone": "+255 123 456 789",
+      "category": "42km",
+      "gender": "Male",
+      "age": 28,
+      "nationality": "Tanzanian",
+      "paymentStatus": "paid",
+      "registrationDate": "2024-01-15T10:30:00Z",
+      "bibNumber": "NM001",
+      "emergencyContact": "+255 987 654 321",
+      "medicalInfo": "None",
+      "tshirtSize": "L"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@email.com",
+      "phone": "+255 234 567 890",
+      "category": "21km",
+      "gender": "Female",
+      "age": 32,
+      "nationality": "Tanzanian",
+      "paymentStatus": "pending",
+      "registrationDate": "2024-01-16T14:20:00Z",
+      "bibNumber": "NM002",
+      "emergencyContact": "+255 876 543 210",
+      "medicalInfo": "Asthma",
+      "tshirtSize": "M"
+    },
+    {
+      "id": 3,
+      "name": "Mike Johnson",
+      "email": "mike.johnson@email.com",
+      "phone": "+255 345 678 901",
+      "category": "10km",
+      "gender": "Male",
+      "age": 25,
+      "nationality": "Kenyan",
+      "paymentStatus": "paid",
+      "registrationDate": "2024-01-17T09:15:00Z",
+      "bibNumber": "NM003",
+      "emergencyContact": "+255 765 432 109",
+      "medicalInfo": "None",
+      "tshirtSize": "XL"
+    },
+    {
+      "id": 4,
+      "name": "Sarah Wilson",
+      "email": "sarah.wilson@email.com",
+      "phone": "+255 456 789 012",
+      "category": "5km",
+      "gender": "Female",
+      "age": 29,
+      "nationality": "Tanzanian",
+      "paymentStatus": "failed",
+      "registrationDate": "2024-01-18T16:45:00Z",
+      "bibNumber": "NM004",
+      "emergencyContact": "+255 654 321 098",
+      "medicalInfo": "None",
+      "tshirtSize": "S"
+    }
+  ],
+  "total": 1247,
+  "paid": 892,
+  "pending": 298,
+  "failed": 57
+} 

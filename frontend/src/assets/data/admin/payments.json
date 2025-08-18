@@ -1,0 +1,56 @@
+{
+  "payments": [
+    {
+      "id": 1,
+      "participantId": 1,
+      "participantName": "John Doe",
+      "amount": 50000,
+      "currency": "TZS",
+      "paymentMethod": "M-Pesa",
+      "status": "completed",
+      "transactionId": "MPESA123456789",
+      "paymentDate": "2024-01-15T11:30:00Z",
+      "category": "42km"
+    },
+    {
+      "id": 2,
+      "participantId": 2,
+      "participantName": "Jane Smith",
+      "amount": 35000,
+      "currency": "TZS",
+      "paymentMethod": "Airtel Money",
+      "status": "pending",
+      "transactionId": "AIRTEL987654321",
+      "paymentDate": "2024-01-16T15:20:00Z",
+      "category": "21km"
+    },
+    {
+      "id": 3,
+      "participantId": 3,
+      "participantName": "Mike Johnson",
+      "amount": 25000,
+      "currency": "TZS",
+      "paymentMethod": "Bank Transfer",
+      "status": "completed",
+      "transactionId": "BANK456789123",
+      "paymentDate": "2024-01-17T10:15:00Z",
+      "category": "10km"
+    },
+    {
+      "id": 4,
+      "participantId": 4,
+      "participantName": "Sarah Wilson",
+      "amount": 15000,
+      "currency": "TZS",
+      "paymentMethod": "M-Pesa",
+      "status": "failed",
+      "transactionId": "MPESA789123456",
+      "paymentDate": "2024-01-18T17:45:00Z",
+      "category": "5km"
+    }
+  ],
+  "totalRevenue": 125000,
+  "completedPayments": 892,
+  "pendingPayments": 298,
+  "failedPayments": 57
+} 

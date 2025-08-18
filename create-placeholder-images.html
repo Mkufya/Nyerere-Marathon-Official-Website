@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Placeholder Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        canvas {
+            border: 2px solid #333;
+            margin: 10px;
+        }
+        .download-btn {
+            background: #1e40af;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .download-btn:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nyerere Marathon Slider Images</h1>
+        <p>Right-click on each image and "Save image as..." to download them to your public/assets/images folder.</p>
+        
+        <div class="image-container">
+            <h3>Slider 1 - Marathon Start</h3>
+            <canvas id="slider1" width="1920" height="1080"></canvas>
+            <br>
+            <button class="download-btn" onclick="downloadImage('slider1', 'slider1.jpg')">Download slider1.jpg</button>
+        </div>
+
+        <div class="image-container">
+            <h3>Slider 2 - Finish Line Celebration</h3>
+            <canvas id="slider2" width="1920" height="1080"></canvas>
+            <br>
+            <button class="download-btn" onclick="downloadImage('slider2', 'slider2.jpg')">Download slider2.jpg</button>
+        </div>
+
+        <div class="image-container">
+            <h3>Slider 3 - Mbeya Scenery</h3>
+            <canvas id="slider3" width="1920" height="1080"></canvas>
+            <br>
+            <button class="download-btn" onclick="downloadImage('slider3', 'slider3.jpg')">Download slider3.jpg</button>
+        </div>
+
+        <div class="image-container">
+            <h3>Nyerere Silhouette</h3>
+            <canvas id="nyerere" width="800" height="1200"></canvas>
+            <br>
+            <button class="download-btn" onclick="downloadImage('nyerere', 'nyerere-silhouette.png')">Download nyerere-silhouette.png</button>
+        </div>
+
+        <div class="image-container">
+            <h3>Logo</h3>
+            <canvas id="logo" width="400" height="200"></canvas>
+            <br>
+            <button class="download-btn" onclick="downloadImage('logo', 'logo.png')">Download logo.png</button>
+        </div>
+    </div>
+
+    <script>
+        function createGradient(ctx, x0, y0, x1, y1, colorStops) {
+            const gradient = ctx.createLinearGradient(x0, y0, x1, y1);
+            colorStops.forEach(stop => {
+                gradient.addColorStop(stop.offset, stop.color);
+            });
+            return gradient;
+        }
+
+        function drawSlider1() {
+            const canvas = document.getElementById('slider1');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const bgGradient = createGradient(ctx, 0, 0, 0, canvas.height, [
+                { offset: 0, color: '#1e40af' },
+                { offset: 0.5, color: '#7c3aed' },
+                { offset: 1, color: '#1e40af' }
+            ]);
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add some abstract running figures
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+            for (let i = 0; i < 20; i++) {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const size = Math.random() * 50 + 20;
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            // Add text overlay
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.font = 'bold 72px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Nyerere International Marathon', canvas.width/2, canvas.height/2 - 50);
+            ctx.font = '36px Arial';
+            ctx.fillText('2025 - 11 Oct 2025', canvas.width/2, canvas.height/2 + 20);
+        }
+
+        function drawSlider2() {
+            const canvas = document.getElementById('slider2');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const bgGradient = createGradient(ctx, 0, 0, 0, canvas.height, [
+                { offset: 0, color: '#fbbf24' },
+                { offset: 0.5, color: '#f59e0b' },
+                { offset: 1, color: '#d97706' }
+            ]);
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add celebration elements
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+            for (let i = 0; i < 30; i++) {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const size = Math.random() * 30 + 10;
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            // Add text overlay
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.font = 'bold 72px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Unity Through Running', canvas.width/2, canvas.height/2 - 50);
+            ctx.font = '36px Arial';
+            ctx.fillText('Celebrating Community Spirit', canvas.width/2, canvas.height/2 + 20);
+        }
+
+        function drawSlider3() {
+            const canvas = document.getElementById('slider3');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const bgGradient = createGradient(ctx, 0, 0, 0, canvas.height, [
+                { offset: 0, color: '#059669' },
+                { offset: 0.5, color: '#047857' },
+                { offset: 1, color: '#065f46' }
+            ]);
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add mountain silhouettes
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+            for (let i = 0; i < 5; i++) {
+                const x = i * 400;
+                const y = canvas.height - 200;
+                const width = 300;
+                const height = 200;
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + width/2, y - height);
+                ctx.lineTo(x + width, y);
+                ctx.closePath();
+                ctx.fill();
+            }
+            
+            // Add text overlay
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.font = 'bold 72px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Mbeya, Tanzania', canvas.width/2, canvas.height/2 - 50);
+            ctx.font = '36px Arial';
+            ctx.fillText('The Heart of the Marathon', canvas.width/2, canvas.height/2 + 20);
+        }
+
+        function drawNyerere() {
+            const canvas = document.getElementById('nyerere');
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = 'transparent';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Simple silhouette
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+            
+            // Head
+            ctx.beginPath();
+            ctx.arc(400, 200, 80, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Glasses
+            ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(370, 200, 25, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(430, 200, 25, 0, Math.PI * 2);
+            ctx.stroke();
+            
+            // Body
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+            ctx.fillRect(350, 280, 100, 200);
+            
+            // Arms
+            ctx.fillRect(300, 300, 50, 150);
+            ctx.fillRect(450, 300, 50, 150);
+            
+            // Legs
+            ctx.fillRect(370, 480, 30, 200);
+            ctx.fillRect(400, 480, 30, 200);
+        }
+
+        function drawLogo() {
+            const canvas = document.getElementById('logo');
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#1e40af';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 32px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Nyerere', canvas.width/2, canvas.height/2 - 20);
+            ctx.font = '24px Arial';
+            ctx.fillText('Marathon', canvas.width/2, canvas.height/2 + 20);
+        }
+
+        function downloadImage(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        // Initialize all canvases
+        window.onload = function() {
+            drawSlider1();
+            drawSlider2();
+            drawSlider3();
+            drawNyerere();
+            drawLogo();
+        };
+    </script>
+</body>
+</html> 

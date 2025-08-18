@@ -1,0 +1,206 @@
+<div class="payment-methods-container">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Payment Methods</h1>
+      <p class="hero-subtitle">Choose your preferred payment method for race registration</p>
+      <div class="payment-stats">
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Payment Categories</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">6</span>
+          <span class="stat-label">Payment Options</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Secure</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Categories -->
+  <div class="payment-categories">
+    <div class="category-section" *ngFor="let category of paymentCategories">
+      <h2 class="category-title">{{ category.title }}</h2>
+      
+      <div class="payment-methods-grid">
+        <div 
+          class="payment-method-card" 
+          *ngFor="let method of category.methods"
+          [class.supported]="method.supported"
+          [class.unsupported]="!method.supported"
+          (click)="selectPaymentMethod(method)">
+          
+          <div class="method-header">
+            <div class="method-icon">
+              <img [src]="method.icon" [alt]="method.name" class="payment-logo">
+            </div>
+            <div class="method-info">
+              <h3 class="method-name">{{ method.name }}</h3>
+              <p class="method-description">{{ method.description }}</p>
+            </div>
+            <div class="method-status" *ngIf="method.supported">
+              <span class="status-badge supported">AVAILABLE</span>
+            </div>
+            <div class="method-status" *ngIf="!method.supported">
+              <span class="status-badge unsupported">Coming Soon</span>
+            </div>
+          </div>
+
+          <div class="method-details">
+            <div class="detail-item">
+              <span class="detail-label">Fees:</span>
+              <span class="detail-value">{{ method.fees }}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Processing:</span>
+              <span class="detail-value">{{ method.processingTime }}</span>
+            </div>
+          </div>
+
+          <div class="method-actions" *ngIf="method.supported">
+            <button class="action-btn primary" (click)="proceedWithPayment(method); $event.stopPropagation()">
+              Pay Now
+            </button>
+            <button class="action-btn secondary" (click)="selectPaymentMethod(method); $event.stopPropagation()">
+              Instructions
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Instructions Modal -->
+  <div class="instructions-modal" *ngIf="showInstructions && selectedMethod" (click)="closeInstructions()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>{{ selectedMethod.name }} Payment Instructions</h3>
+        <button class="close-btn" (click)="closeInstructions()">×</button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="method-summary">
+          <div class="summary-icon">
+            <img [src]="selectedMethod.icon" [alt]="selectedMethod.name" class="payment-logo">
+          </div>
+          <div class="summary-info">
+            <h4>{{ selectedMethod.name }}</h4>
+            <p>{{ selectedMethod.description }}</p>
+            <div class="summary-details">
+              <span class="detail-chip">{{ selectedMethod.fees }}</span>
+              <span class="detail-chip">{{ selectedMethod.processingTime }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="instructions-section">
+          <h4>Step-by-Step Instructions</h4>
+          <ol class="instructions-list">
+            <li *ngFor="let instruction of selectedMethod.instructions" class="instruction-item">
+              {{ instruction }}
+            </li>
+          </ol>
+        </div>
+
+        <div class="requirements-section">
+          <h4>Requirements</h4>
+          <ul class="requirements-list">
+            <li *ngFor="let requirement of selectedMethod.requirements" class="requirement-item">
+              <span class="requirement-icon">✓</span>
+              {{ requirement }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal-actions">
+          <button class="action-btn primary" (click)="proceedWithPayment(selectedMethod)">
+            Proceed to Payment
+          </button>
+          <button class="action-btn secondary" (click)="closeInstructions()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Security Information -->
+  <div class="security-section">
+    <h2>Security & Trust</h2>
+    <div class="security-grid">
+      <div class="security-card">
+        <div class="security-icon">🔒</div>
+        <h3>SSL Encryption</h3>
+        <p>All payment data is encrypted using industry-standard SSL encryption to protect your information.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon">🛡️</div>
+        <h3>PCI Compliance</h3>
+        <p>Our payment processing meets PCI DSS standards for secure handling of credit card information.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon">🔐</div>
+        <h3>Secure Processing</h3>
+        <p>Payments are processed through trusted, regulated financial institutions and payment providers.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon">📞</div>
+        <h3>24/7 Support</h3>
+        <p>Our payment support team is available round the clock to assist with any payment issues.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>When will my payment be processed?</h3>
+        <p>Mobile money payments are processed instantly. Card payments are instant but may take 1-3 business days to show in your bank statement. Bank transfers take 1-3 business days to process.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Are there any hidden fees?</h3>
+        <p>No, all fees are clearly displayed. The only costs are the processing fees shown for each payment method. Your bank may charge additional fees for international transactions.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if my payment fails?</h3>
+        <p>If your payment fails, please try again or contact our support team. No charges will be applied for failed transactions. We recommend checking with your bank if card payments fail.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I get a refund?</h3>
+        <p>Refunds are processed according to our refund policy. Generally, refunds are available up to 30 days before the event date. Processing fees may not be refundable.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Support -->
+  <div class="support-section">
+    <h2>Need Help?</h2>
+    <p>If you're having trouble with payments or need assistance, our support team is here to help.</p>
+    <div class="contact-options">
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <h3>Email Support</h3>
+        <p>support@nyereremarathon.com</p>
+        <span class="response-time">Response within 24 hours</span>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <h3>Phone Support</h3>
+        <p>+255 22 123 4567</p>
+        <span class="response-time">Available 9AM - 6PM EAT</span>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">💬</div>
+        <h3>WhatsApp</h3>
+        <p>+255 754 123 456</p>
+        <span class="response-time">Quick response</span>
+      </div>
+    </div>
+  </div>
+</div> 

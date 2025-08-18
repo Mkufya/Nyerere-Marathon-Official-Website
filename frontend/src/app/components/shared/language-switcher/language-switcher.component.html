@@ -1,0 +1,27 @@
+<div class="language-switcher">
+  <button 
+    mat-button 
+    [matMenuTriggerFor]="languageMenu"
+    class="language-trigger"
+    #languageTrigger="matMenuTrigger"
+    [attr.aria-label]="getTranslation('nav.language')"
+    type="button">
+    <span class="language-flag">{{ getCurrentLanguageDisplay().flag }}</span>
+    <span class="language-name">{{ getCurrentLanguageDisplay().name }}</span>
+    <mat-icon class="dropdown-arrow">keyboard_arrow_down</mat-icon>
+  </button>
+
+  <mat-menu #languageMenu="matMenu" class="language-menu" xPosition="before" yPosition="below" [overlapTrigger]="false">
+    <button 
+      mat-menu-item 
+      *ngFor="let language of availableLanguages"
+      (click)="onLanguageChange(language.code)"
+      [class.active]="currentLanguage === language.code"
+      class="language-option"
+      type="button">
+      <span class="language-flag">{{ language.flag }}</span>
+      <span class="language-name">{{ language.name }}</span>
+      <mat-icon *ngIf="currentLanguage === language.code" class="check-icon">check</mat-icon>
+    </button>
+  </mat-menu>
+</div> 

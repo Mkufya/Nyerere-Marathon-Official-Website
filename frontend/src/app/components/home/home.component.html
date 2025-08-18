@@ -1,0 +1,229 @@
+<!-- Floating Registration Button -->
+<div class="fixed bottom-6 right-6 z-50">
+  <button 
+    routerLink="/races" 
+    class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 flex items-center space-x-2"
+    matTooltip="Quick Registration"
+  >
+    <mat-icon>directions_run</mat-icon>
+    <span class="hidden sm:inline">Register Now</span>
+  </button>
+</div>
+
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white overflow-hidden min-h-screen flex items-center">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute inset-0 bg-pattern"></div>
+  </div>
+  
+  <!-- Background Image -->
+  <div class="absolute inset-0 opacity-20">
+    <img 
+      src="assets/images/nyerere-art.png" 
+      alt="Nyerere Marathon Art" 
+      class="w-full h-full object-cover object-left transform -translate-x-3/4"
+    >
+  </div>
+  
+  <div class="container mx-auto px-4 py-16 relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Main Heading -->
+      <div class="mb-8">
+        <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-4">
+          Mwl.Nyerere International 
+          <span class="text-yellow-400 block">Marathon 2025</span>
+        </h1>
+      </div>
+      
+      <!-- Subtitle -->
+      <div class="mb-12">
+        <p class="text-xl md:text-2xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
+          Join us for Tanzania's premier marathon event celebrating unity, endurance, and community spirit.
+        </p>
+      </div>
+      
+      <!-- Key Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div class="text-center border border-white/30 rounded-lg p-4 hover:border-yellow-400/50 hover:shadow-lg hover:shadow-yellow-400/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1 bg-white/5 backdrop-blur-sm">
+          <mat-icon class="text-3xl text-yellow-400 mb-3 hover:animate-bounce transition-all duration-300">event</mat-icon>
+          <div class="font-bold text-xl">October 11, 2025</div>
+          <div class="text-sm text-blue-200">Marathon Day</div>
+        </div>
+        <div class="text-center border border-white/30 rounded-lg p-4 hover:border-yellow-400/50 hover:shadow-lg hover:shadow-yellow-400/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1 bg-white/5 backdrop-blur-sm">
+          <mat-icon class="text-3xl text-yellow-400 mb-3 hover:animate-bounce transition-all duration-300">location_on</mat-icon>
+          <div class="font-bold text-xl">Mbeya</div>
+          <div class="text-sm text-blue-200">Tanzania</div>
+        </div>
+        <div class="text-center border border-white/30 rounded-lg p-4 hover:border-yellow-400/50 hover:shadow-lg hover:shadow-yellow-400/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1 bg-white/5 backdrop-blur-sm">
+          <mat-icon class="text-3xl text-yellow-400 mb-3 hover:animate-bounce transition-all duration-300">emoji_events</mat-icon>
+          <div class="font-bold text-xl">50 Million</div>
+          <div class="text-sm text-blue-200">Prize Pool</div>
+        </div>
+        <div class="text-center border border-white/30 rounded-lg p-4 hover:border-yellow-400/50 hover:shadow-lg hover:shadow-yellow-400/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1 bg-white/5 backdrop-blur-sm">
+          <mat-icon class="text-3xl text-yellow-400 mb-3 hover:animate-bounce transition-all duration-300">groups</mat-icon>
+          <div class="font-bold text-xl">5,000+</div>
+          <div class="text-sm text-blue-200">Expected Runners</div>
+        </div>
+      </div>
+      
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <button 
+          routerLink="/races" 
+          class="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-3 shadow-lg"
+        >
+          <mat-icon>directions_run</mat-icon>
+          <span>Choose Your Challenge</span>
+        </button>
+        <button 
+          routerLink="/register" 
+          class="bg-white hover:bg-gray-100 text-blue-900 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-3 shadow-lg border-2 border-white"
+        >
+          <mat-icon>person_add</mat-icon>
+          <span>Register Now</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Registration Timeline -->
+<section class="py-20 bg-gray-100 dark:bg-gray-700">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Registration Timeline</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">Your journey from registration to race day</p>
+    </div>
+    
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+          <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-4">1</div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Registration Opens</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Complete your registration form and choose your race category</p>
+          <div class="text-sm text-blue-600 dark:text-blue-400 font-semibold">Available Now</div>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+          <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-4">2</div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Payment Confirmation</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Receive confirmation email and payment receipt</p>
+          <div class="text-sm text-green-600 dark:text-green-400 font-semibold">Within 24 hours</div>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+          <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-4">3</div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Kit Collection</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Collect your race kit, bib number, and official gear</p>
+          <div class="text-sm text-purple-600 dark:text-purple-400 font-semibold">October 10, 2025</div>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+          <div class="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-4">4</div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Race Day</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Show up at the start line and conquer the marathon</p>
+          <div class="text-sm text-yellow-600 dark:text-yellow-400 font-semibold">October 11, 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Race Day Schedule Section -->
+<section class="py-20 bg-white dark:bg-gray-800">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Race Day Schedule</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">Everything you need to know about race day timing</p>
+    </div>
+    
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-6 md:gap-x-8">
+        <div class="w-full md:w-1/2 bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow">
+          <h4 class="font-bold text-lg text-gray-900 dark:text-white mb-4">Morning Events</h4>
+          <div class="space-y-3">
+            <div class="flex justify-between">
+              <span class="text-gray-600 dark:text-gray-400">5:00 AM</span>
+              <span class="font-medium">Registration & Kit Collection Opens</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600 dark:text-gray-400">6:00 AM</span>
+              <span class="font-medium">Full Marathon Start (42km)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600 dark:text-gray-400">7:00 AM</span>
+              <span class="font-medium">Half Marathon Start (21km)</span>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow">
+          <h4 class="font-bold text-lg text-gray-900 dark:text-white mb-4">Afternoon Events</h4>
+          <div class="space-y-3">
+            <div class="flex justify-between">
+              <span class="text-gray-600 dark:text-gray-400">8:00 AM</span>
+              <span class="font-medium">10km Race Start</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600 dark:text-gray-400">9:00 AM</span>
+              <span class="font-medium">5km Fun Run Start</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600 dark:text-gray-400">11:00 AM</span>
+              <span class="font-medium">Awards Ceremony</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-20 bg-gray-50 dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">What Runners Say</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">Hear from our previous participants</p>
+    </div>
+    
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">J</div>
+            <div>
+              <h4 class="font-bold text-gray-900 dark:text-white">John Mwambene</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Full Marathon Winner 2024</p>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 italic">"The Nyerere Marathon is more than just a race. It's a celebration of our unity and determination. The organization was perfect and the support from the community was incredible."</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">S</div>
+            <div>
+              <h4 class="font-bold text-gray-900 dark:text-white">Sarah Kimaro</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Half Marathon Participant</p>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 italic">"This was my first marathon and I couldn't have chosen a better event. The route was beautiful and the volunteers were so supportive throughout the race."</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4">M</div>
+            <div>
+              <h4 class="font-bold text-gray-900 dark:text-white">Michael Ndege</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">10km Runner</p>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 italic">"The atmosphere was electric! Running through Mbeya with thousands of people cheering was an experience I'll never forget. Can't wait for next year!"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ 

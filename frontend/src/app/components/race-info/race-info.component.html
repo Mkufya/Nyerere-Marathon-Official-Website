@@ -1,0 +1,264 @@
+<div class="race-info-container">
+  <!-- Hero Section -->
+  <section class="race-info-hero">
+    <div class="hero-content">
+      <h1>Race Information</h1>
+      <p class="hero-subtitle">Everything you need to know about participating in the marathon</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Kit Collection Section -->
+    <section class="info-section">
+      <h2 class="section-title">Race Number & Kit Collection</h2>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <mat-card class="info-card">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon class="section-icon">shopping_bag</mat-icon>
+                Collection Information
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="info-grid">
+                <div class="info-item">
+                  <mat-icon class="info-icon">calendar_today</mat-icon>
+                  <div class="info-details">
+                    <h4>Collection Dates</h4>
+                    <p>October 12-14, 2025</p>
+                    <p class="sub-text">3 days before race day</p>
+                  </div>
+                </div>
+                
+                <div class="info-item">
+                  <mat-icon class="info-icon">schedule</mat-icon>
+                  <div class="info-details">
+                    <h4>Collection Hours</h4>
+                    <p>9:00 AM - 6:00 PM</p>
+                    <p class="sub-text">Daily during collection period</p>
+                  </div>
+                </div>
+                
+                <div class="info-item">
+                  <mat-icon class="info-icon">location_on</mat-icon>
+                  <div class="info-details">
+                    <h4>Collection Venue</h4>
+                    <p>Dar es Salaam Convention Centre</p>
+                    <p class="sub-text">Hall A - Registration Desk</p>
+                  </div>
+                </div>
+                
+                <div class="info-item">
+                  <mat-icon class="info-icon">assignment</mat-icon>
+                  <div class="info-details">
+                    <h4>Required Documents</h4>
+                    <p>Registration confirmation & ID</p>
+                    <p class="sub-text">Original documents required</p>
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Route Map Section -->
+    <section class="info-section">
+      <h2 class="section-title">Route Map</h2>
+      <div class="row">
+        <div class="col-12">
+          <mat-card class="route-card">
+            <mat-card-content>
+              <div class="route-map">
+                <mat-icon class="map-icon">map</mat-icon>
+                <h3>Interactive Route Map</h3>
+                <p>Detailed route map will be displayed here</p>
+                <p class="map-description">
+                  The marathon route takes you through the beautiful streets of Dar es Salaam, 
+                  showcasing the city's landmarks, coastal views, and vibrant neighborhoods.
+                </p>
+                <div class="route-features">
+                  <div class="route-feature">
+                    <mat-icon>straighten</mat-icon>
+                    <span>42.195 km certified course</span>
+                  </div>
+                  <div class="route-feature">
+                    <mat-icon>local_hospital</mat-icon>
+                    <span>15 medical stations</span>
+                  </div>
+                  <div class="route-feature">
+                    <mat-icon>local_drink</mat-icon>
+                    <span>20 water points</span>
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prize Money Section -->
+    <section class="info-section">
+      <h2 class="section-title">Prize Money</h2>
+      <div class="row">
+        <div class="col-12">
+          <mat-card class="prize-card">
+            <mat-card-content>
+              <div class="table-responsive">
+                <table mat-table [dataSource]="prizeMoneyData" class="prize-table">
+                  <ng-container matColumnDef="category">
+                    <th mat-header-cell *matHeaderCellDef>Category</th>
+                    <td mat-cell *matCellDef="let element">{{element.category}}</td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="first">
+                    <th mat-header-cell *matHeaderCellDef>
+                      <mat-icon class="position-icon gold">emoji_events</mat-icon>
+                      1st Place
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="prize-amount">{{element.first}}</td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="second">
+                    <th mat-header-cell *matHeaderCellDef>
+                      <mat-icon class="position-icon silver">emoji_events</mat-icon>
+                      2nd Place
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="prize-amount">{{element.second}}</td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="third">
+                    <th mat-header-cell *matHeaderCellDef>
+                      <mat-icon class="position-icon bronze">emoji_events</mat-icon>
+                      3rd Place
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="prize-amount">{{element.third}}</td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="['category', 'first', 'second', 'third']"></tr>
+                  <tr mat-row *matRowDef="let row; columns: ['category', 'first', 'second', 'third'];"></tr>
+                </table>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="info-section">
+      <h2 class="section-title">Race Results</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-card class="results-card">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon class="card-icon">assessment</mat-icon>
+                Live Results
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="results-placeholder">
+                <mat-icon class="results-icon">timer</mat-icon>
+                <p>Live race results will be available here during the marathon</p>
+                <button mat-raised-button color="primary" disabled>
+                  View Live Results
+                </button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        
+        <div class="col-md-6">
+          <mat-card class="results-card">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon class="card-icon">file_download</mat-icon>
+                Previous Results
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="results-downloads">
+                <div class="download-item">
+                  <mat-icon>description</mat-icon>
+                  <span>2024 Marathon Results</span>
+                  <button mat-icon-button color="primary">
+                    <mat-icon>download</mat-icon>
+                  </button>
+                </div>
+                <div class="download-item">
+                  <mat-icon>description</mat-icon>
+                  <span>2023 Marathon Results</span>
+                  <button mat-icon-button color="primary">
+                    <mat-icon>download</mat-icon>
+                  </button>
+                </div>
+                <div class="download-item">
+                  <mat-icon>description</mat-icon>
+                  <span>2022 Marathon Results</span>
+                  <button mat-icon-button color="primary">
+                    <mat-icon>download</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Information -->
+    <section class="info-section">
+      <h2 class="section-title">Important Information</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <mat-card class="info-highlight-card">
+            <mat-card-content>
+              <mat-icon class="highlight-icon">schedule</mat-icon>
+              <h3>Start Times</h3>
+              <ul>
+                <li>Marathon: 6:00 AM</li>
+                <li>Half Marathon: 6:30 AM</li>
+                <li>10K: 7:00 AM</li>
+                <li>Fun Run: 7:30 AM</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        
+        <div class="col-md-4">
+          <mat-card class="info-highlight-card">
+            <mat-card-content>
+              <mat-icon class="highlight-icon">security</mat-icon>
+              <h3>Safety Measures</h3>
+              <ul>
+                <li>Medical support every 3km</li>
+                <li>Emergency response teams</li>
+                <li>Hydration stations</li>
+                <li>Course marshals</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        
+        <div class="col-md-4">
+          <mat-card class="info-highlight-card">
+            <mat-card-content>
+              <mat-icon class="highlight-icon">celebration</mat-icon>
+              <h3>Post-Race</h3>
+              <ul>
+                <li>Finisher medals</li>
+                <li>Refreshments</li>
+                <li>Results certificates</li>
+                <li>Awards ceremony</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+  </div>
+</div> 

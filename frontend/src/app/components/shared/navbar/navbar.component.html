@@ -1,0 +1,129 @@
+<mat-toolbar class="navbar">
+  <div class="navbar-container">
+    <!-- Logo/Brand -->
+    <div class="navbar-brand">
+      <a routerLink="/" class="brand-link">
+        <img src="assets/images/Mwl Marathon logo.png" alt="Nyerere Marathon" class="logo">
+      </a>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="navbar-nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+      
+      <a routerLink="/race-info" routerLinkActive="active" class="nav-link">
+        <mat-icon>assignment</mat-icon>
+        <span>{{ getTranslation('nav.raceInfo') }}</span>
+      </a>
+      
+      <a routerLink="/news" routerLinkActive="active" class="nav-link">
+        <mat-icon>article</mat-icon>
+        <span>{{ getTranslation('nav.newsMedia') }}</span>
+      </a>
+      
+      <a routerLink="/sponsors" routerLinkActive="active" class="nav-link">
+        <mat-icon>business</mat-icon>
+        <span>{{ getTranslation('nav.sponsors') }}</span>
+      </a>
+      
+      <a routerLink="/contact" routerLinkActive="active" class="nav-link">
+        <mat-icon>contact_mail</mat-icon>
+        <span>{{ getTranslation('nav.contact') }}</span>
+      </a>
+    </nav>
+
+    <!-- Right Section -->
+    <div class="navbar-actions">
+      <!-- Language Selector -->
+      <button mat-button [matMenuTriggerFor]="languageMenu" class="language-btn">
+        <mat-icon>language</mat-icon>
+        {{ currentLanguage === 'en' ? 'English' : 'Kiswahili' }}
+      </button>
+      <mat-menu #languageMenu="matMenu">
+        <button mat-menu-item (click)="switchLanguage('en')">
+          <mat-icon>flag</mat-icon>
+          <span>English</span>
+        </button>
+        <button mat-menu-item (click)="switchLanguage('sw')">
+          <mat-icon>flag</mat-icon>
+          <span>Kiswahili</span>
+        </button>
+      </mat-menu>
+
+      <!-- Login/User Profile -->
+      <ng-container *ngIf="!isLoggedIn; else userProfile">
+        <button mat-raised-button color="primary" routerLink="/login" class="login-btn">
+          <mat-icon>login</mat-icon>
+          Login
+        </button>
+      </ng-container>
+      
+      <ng-template #userProfile>
+        <button mat-button [matMenuTriggerFor]="userMenu" class="user-btn">
+          <mat-icon>account_circle</mat-icon>
+          {{ userName }}
+        </button>
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item routerLink="/dashboard">
+            <mat-icon>dashboard</mat-icon>
+            <span>Dashboard</span>
+          </button>
+          <button mat-menu-item routerLink="/profile">
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+          </button>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </ng-template>
+
+      <!-- Register Button -->
+      <button mat-raised-button color="accent" routerLink="/register" class="register-btn">
+        <mat-icon>person_add</mat-icon>
+        REGISTER
+      </button>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button mat-icon-button class="mobile-menu-btn" (click)="toggleMobileMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" [class.active]="mobileMenuOpen">
+    <a routerLink="/" (click)="closeMobileMenu()" class="mobile-nav-link">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </a>
+    <a routerLink="/about" (click)="closeMobileMenu()" class="mobile-nav-link">
+      <mat-icon>info</mat-icon>
+      <span>{{ getTranslation('nav.about') }}</span>
+    </a>
+    <a routerLink="/races" (click)="closeMobileMenu()" class="mobile-nav-link">
+      <mat-icon>emoji_events</mat-icon>
+      <span>{{ getTranslation('nav.races') }}</span>
+    </a>
+    <a routerLink="/race-info" (click)="closeMobileMenu()" class="mobile-nav-link">
+      <mat-icon>assignment</mat-icon>
+      <span>{{ getTranslation('nav.raceInfo') }}</span>
+    </a>
+    <a routerLink="/news" (click)="closeMobileMenu()" class="mobile-nav-link">
+      <mat-icon>article</mat-icon>
+      <span>{{ getTranslation('nav.newsMedia') }}</span>
+    </a>
+    <a routerLink="/sponsors" (click)="closeMobileMenu()" class="mobile-nav-link">
+      <mat-icon>business</mat-icon>
+      <span>{{ getTranslation('nav.sponsors') }}</span>
+    </a>
+    <a routerLink="/contact" (click)="closeMobileMenu()" class="mobile-nav-link">
+      <mat-icon>contact_mail</mat-icon>
+      <span>{{ getTranslation('nav.contact') }}</span>
+    </a>
+  </div>
+</mat-toolbar> 

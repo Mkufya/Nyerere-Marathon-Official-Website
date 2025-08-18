@@ -1,0 +1,54 @@
+<div class="media-gallery-container">
+  <div class="hero-section">
+    <h1>Media Gallery</h1>
+    <p>Explore photos and videos from Nyerere Marathon events</p>
+  </div>
+
+  <div class="gallery-content">
+    <!-- Category Filter -->
+    <div class="filter-section">
+      <h3>Filter by Category</h3>
+      <div class="filter-buttons">
+        <button 
+          *ngFor="let category of categories"
+          [class.active]="selectedCategory === category"
+          (click)="filterByCategory(category)"
+          class="filter-btn">
+          {{ category }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Media Grid -->
+    <div class="media-grid">
+      <div class="media-item" *ngFor="let item of filteredItems" (click)="openMedia(item)">
+        <div class="media-thumbnail">
+          <img [src]="item.thumbnailUrl" [alt]="item.title">
+          <div class="media-overlay">
+            <div class="media-type-icon">
+              <i class="fas fa-play" *ngIf="item.type === 'video'"></i>
+              <i class="fas fa-image" *ngIf="item.type === 'image'"></i>
+            </div>
+          </div>
+        </div>
+        <div class="media-info">
+          <h4>{{ item.title }}</h4>
+          <p class="media-description">{{ item.description }}</p>
+          <div class="media-meta">
+            <span class="category-tag">{{ item.category }}</span>
+            <span class="date">{{ item.date | date:'mediumDate' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="filteredItems.length === 0">
+      <div class="empty-icon">
+        <i class="fas fa-images"></i>
+      </div>
+      <h3>No media found</h3>
+      <p>Try selecting a different category or check back later for new content.</p>
+    </div>
+  </div>
+</div> 

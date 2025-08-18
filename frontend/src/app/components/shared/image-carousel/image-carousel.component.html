@@ -1,0 +1,42 @@
+<div class="carousel-container" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  <div class="carousel-wrapper">
+    <div class="carousel-slides">
+      <div 
+        class="carousel-slide"
+        *ngFor="let image of images; let i = index"
+        [class.active]="i === currentIndex"
+        [attr.data-slide]="i">
+        <img [src]="image.src" [alt]="image.alt" class="carousel-image">
+        <div class="carousel-caption" *ngIf="image.caption">
+          <h5>{{ image.caption }}</h5>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation Arrows -->
+    <button 
+      class="carousel-nav carousel-nav-prev" 
+      (click)="prevSlide()"
+      aria-label="Previous slide">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    
+    <button 
+      class="carousel-nav carousel-nav-next" 
+      (click)="nextSlide()"
+      aria-label="Next slide">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+  
+  <!-- Indicators -->
+  <div class="carousel-indicators">
+    <button
+      *ngFor="let image of images; let i = index"
+      class="carousel-indicator"
+      [class.active]="i === currentIndex"
+      (click)="goToSlide(i)"
+      [attr.aria-label]="'Go to slide ' + (i + 1)">
+    </button>
+  </div>
+</div> 

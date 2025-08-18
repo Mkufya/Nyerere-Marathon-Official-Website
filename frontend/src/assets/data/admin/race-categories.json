@@ -1,0 +1,60 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Full Marathon",
+      "distance": "42km",
+      "price": 50000,
+      "currency": "TZS",
+      "maxParticipants": 500,
+      "currentParticipants": 312,
+      "startTime": "06:00",
+      "description": "Full marathon for experienced runners",
+      "ageLimit": "18+",
+      "isActive": true,
+      "registrationOpen": true
+    },
+    {
+      "id": 2,
+      "name": "Half Marathon",
+      "distance": "21km",
+      "price": 35000,
+      "currency": "TZS",
+      "maxParticipants": 800,
+      "currentParticipants": 498,
+      "startTime": "07:00",
+      "description": "Half marathon for intermediate runners",
+      "ageLimit": "16+",
+      "isActive": true,
+      "registrationOpen": true
+    },
+    {
+      "id": 3,
+      "name": "10km Race",
+      "distance": "10km",
+      "price": 25000,
+      "currency": "TZS",
+      "maxParticipants": 1000,
+      "currentParticipants": 374,
+      "startTime": "08:00",
+      "description": "10km race for beginners and intermediate runners",
+      "ageLimit": "14+",
+      "isActive": true,
+      "registrationOpen": true
+    },
+    {
+      "id": 4,
+      "name": "5km Fun Run",
+      "distance": "5km",
+      "price": 15000,
+      "currency": "TZS",
+      "maxParticipants": 500,
+      "currentParticipants": 63,
+      "startTime": "09:00",
+      "description": "5km fun run for everyone",
+      "ageLimit": "10+",
+      "isActive": true,
+      "registrationOpen": true
+    }
+  ]
+} 

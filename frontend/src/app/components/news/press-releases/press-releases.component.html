@@ -1,0 +1,48 @@
+<div class="press-releases-container">
+  <div class="hero-section">
+    <h1>Press Releases</h1>
+    <p>Stay updated with the latest announcements and news from Nyerere Marathon</p>
+  </div>
+
+  <div class="press-content">
+    <!-- Featured Press Releases -->
+    <section class="featured-section" *ngIf="featuredReleases.length > 0">
+      <h2>Featured Announcements</h2>
+      <div class="featured-grid">
+        <div class="featured-card" *ngFor="let release of featuredReleases">
+          <div class="featured-image" *ngIf="release.imageUrl">
+            <img [src]="release.imageUrl" [alt]="release.title">
+          </div>
+          <div class="featured-content">
+            <span class="category-badge">{{ release.category }}</span>
+            <h3>{{ release.title }}</h3>
+            <p class="summary">{{ release.summary }}</p>
+            <div class="meta">
+              <span class="date">{{ formatDate(release.date) }}</span>
+              <button class="read-more-btn">Read Full Release</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Press Releases -->
+    <section class="all-releases-section">
+      <h2>All Press Releases</h2>
+      <div class="releases-list">
+        <div class="release-item" *ngFor="let release of pressReleases">
+          <div class="release-header">
+            <span class="category-tag">{{ release.category }}</span>
+            <span class="release-date">{{ formatDate(release.date) }}</span>
+          </div>
+          <h3 class="release-title">{{ release.title }}</h3>
+          <p class="release-summary">{{ release.summary }}</p>
+          <div class="release-actions">
+            <button class="btn-primary">Read More</button>
+            <button class="btn-secondary">Download PDF</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div> 

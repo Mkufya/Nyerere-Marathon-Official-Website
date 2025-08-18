@@ -1,0 +1,390 @@
+.kit-container {
+  min-height: 100vh;
+  
+  .kit-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 100px 0 60px;
+    text-align: center;
+    color: white;
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      
+      h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      
+      .lead {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+      
+      .race-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 12px 24px;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        
+        mat-icon {
+          font-size: 20px;
+        }
+        
+        span {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .section {
+    margin: 40px 0;
+    
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 24px;
+      
+      mat-icon {
+        color: #667eea;
+        font-size: 2rem;
+      }
+    }
+  }
+  
+  .location-card {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    
+    .location-avatar {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      mat-icon {
+        font-size: 24px;
+      }
+    }
+    
+    .location-details {
+      h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+      }
+      
+      .address {
+        color: #666;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+      }
+      
+      .location-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        
+        button {
+          border-radius: 8px;
+          
+          mat-icon {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+  
+  .schedule-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    
+    .schedule-card {
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      }
+      
+      .schedule-date {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+      }
+      
+      .schedule-time {
+        font-size: 1.1rem;
+        color: #667eea;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+      
+      .schedule-note {
+        font-size: 0.9rem;
+        color: #666;
+        font-style: italic;
+      }
+    }
+  }
+  
+  .kit-items-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    
+    .kit-items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+      
+      .kit-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        background: #f8f9ff;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+        
+        mat-icon {
+          color: #4CAF50;
+          font-size: 20px;
+        }
+        
+        span {
+          font-weight: 500;
+          color: #333;
+        }
+      }
+    }
+    
+    .additional-notes {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: #e3f2fd;
+      border-radius: 8px;
+      border-left: 4px solid #2196F3;
+      
+      mat-icon {
+        color: #2196F3;
+        margin-top: 2px;
+      }
+      
+      span {
+        color: #333;
+        font-style: italic;
+      }
+    }
+  }
+  
+  .checklist-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    
+    .checklist {
+      .checklist-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        mat-checkbox {
+          pointer-events: none;
+          
+          ::ng-deep .mat-checkbox-checkmark {
+            fill: #4CAF50 !important;
+          }
+        }
+        
+        span {
+          color: #333;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  
+  .requirements-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #FF9800;
+    
+    .requirements-list {
+      .requirement-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 0;
+        border-bottom: 1px solid #f0f0f0;
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        mat-icon {
+          color: #FF9800;
+          margin-top: 2px;
+          font-size: 20px;
+        }
+        
+        span {
+          color: #333;
+          font-weight: 500;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+  
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    
+    .contact-card {
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+      }
+      
+      &.emergency {
+        border-left: 4px solid #f44336;
+      }
+      
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        
+        mat-icon {
+          color: #667eea;
+          font-size: 24px;
+        }
+        
+        div {
+          strong {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 4px;
+          }
+          
+          a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .kit-container {
+    .kit-hero {
+      padding: 80px 0 40px;
+      
+      .hero-content {
+        h1 {
+          font-size: 2.2rem;
+        }
+        
+        .lead {
+          font-size: 1.1rem;
+        }
+      }
+    }
+    
+    .section {
+      margin: 30px 0;
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+    
+    .location-card {
+      .location-details {
+        .location-actions {
+          flex-direction: column;
+          
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+    
+    .schedule-cards {
+      grid-template-columns: 1fr;
+    }
+    
+    .kit-items-grid {
+      grid-template-columns: 1fr !important;
+    }
+    
+    .contact-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .kit-container {
+    .container {
+      padding: 0 16px;
+    }
+    
+    .kit-hero {
+      .hero-content {
+        h1 {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+} 

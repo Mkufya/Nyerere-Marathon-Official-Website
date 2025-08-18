@@ -1,0 +1,279 @@
+.race-detail-container {
+  min-height: 100vh;
+  background: var(--background-light);
+
+  // Hero Section with Brand Colors
+  .race-hero {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--navy-dark) 50%, var(--primary-sky-blue) 100%);
+    color: var(--text-on-navy);
+    padding: 100px 0 80px;
+    margin-top: 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(250,228,24,0.1)"/></svg>') repeat;
+      animation: float 20s infinite linear;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+
+      h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--text-on-navy);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+        @media (max-width: 768px) {
+          font-size: 2.5rem;
+        }
+      }
+
+      .race-distance {
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--primary-yellow);
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .race-description {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 40px;
+        opacity: 0.9;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .race-key-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+
+        .key-info-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 20px;
+          background: rgba(69, 170, 224, 0.15);
+          border-radius: 15px;
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(69, 170, 224, 0.3);
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: translateY(-5px);
+            background: rgba(69, 170, 224, 0.25);
+            box-shadow: 0 8px 25px rgba(69, 170, 224, 0.3);
+          }
+
+          mat-icon {
+            font-size: 2.5rem;
+            height: 2.5rem;
+            width: 2.5rem;
+            color: var(--primary-yellow);
+            margin-bottom: 15px;
+          }
+
+          strong {
+            font-size: 1rem;
+            color: var(--primary-yellow);
+            display: block;
+            margin-bottom: 8px;
+          }
+
+          span {
+            font-size: 1.1rem;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .register-btn {
+          background: var(--primary-yellow) !important;
+          color: var(--text-on-yellow) !important;
+          padding: 15px 40px;
+          font-size: 1.2rem;
+          font-weight: 600;
+          border-radius: 30px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(250, 228, 24, 0.3);
+
+          &:hover {
+            background: var(--yellow-dark) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(250, 228, 24, 0.5);
+          }
+
+          mat-icon {
+            margin-right: 10px;
+            font-size: 1.3rem;
+          }
+        }
+
+        .download-btn {
+          color: var(--primary-soft-blue) !important;
+          border-color: var(--primary-soft-blue) !important;
+          padding: 15px 40px;
+          font-size: 1.1rem;
+          font-weight: 600;
+          border-radius: 30px;
+          background: rgba(69, 170, 224, 0.1);
+          backdrop-filter: blur(10px);
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: var(--primary-soft-blue) !important;
+            color: var(--text-on-soft-blue) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(69, 170, 224, 0.3);
+          }
+
+          mat-icon {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  // Main Content Sections
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+
+    .race-section {
+      margin-bottom: 60px;
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: var(--primary-navy);
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -8px;
+          left: 0;
+          width: 60px;
+          height: 4px;
+          background: linear-gradient(45deg, var(--primary-sky-blue), var(--primary-soft-blue));
+          border-radius: 2px;
+        }
+
+        mat-icon {
+          margin-right: 15px;
+          font-size: 2.5rem;
+          color: var(--primary-sky-blue);
+        }
+
+        @media (max-width: 768px) {
+          font-size: 1.8rem;
+        }
+      }
+
+      // Age Group Cards
+      .age-group-card {
+        margin-bottom: 20px;
+        border-radius: 15px;
+        border: 1px solid var(--primary-soft-blue);
+        box-shadow: 0 4px 15px rgba(69, 170, 224, 0.15);
+        transition: all 0.3s ease;
+        background: var(--background-white);
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 25px rgba(69, 170, 224, 0.25);
+          border-color: var(--primary-sky-blue);
+        }
+
+        h3 {
+          color: var(--primary-sky-blue);
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+
+        .age-range {
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: var(--primary-navy);
+          margin-bottom: 10px;
+        }
+
+        .requirements {
+          color: var(--text-secondary);
+          font-style: italic;
+          margin: 0;
+        }
+      }
+
+      // Qualification and Rules Cards
+      .qualification-card,
+      .rules-card {
+        border-radius: 15px;
+        border: 1px solid var(--primary-soft-blue);
+        box-shadow: 0 4px 15px rgba(69, 170, 224, 0.15);
+        background: var(--background-white);
+
+        .qualification-list,
+        .rules-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-light);
+            
+            &:last-child {
+              border-bottom: none;
+            }
+            
+            mat-icon {
+              margin-right: 15px;
+              color: var(--primary-sky-blue);
+              font-size: 1.2rem;
+            }
+            
+            span {
+              line-height: 1.6;
+              color: var(--text-primary);
+            }
+          }
+        }
+      }
+    }
+  }
+}

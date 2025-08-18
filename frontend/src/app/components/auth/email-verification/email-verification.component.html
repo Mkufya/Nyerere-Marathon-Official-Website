@@ -1,0 +1,67 @@
+<div class="email-verification-container">
+  <div class="verification-card">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Email Verification</mat-card-title>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <div class="verification-content">
+          <!-- Loading State -->
+          <div *ngIf="loading" class="loading-state">
+            <mat-spinner diameter="50"></mat-spinner>
+            <p>Verifying your email address...</p>
+          </div>
+          
+          <!-- Success State -->
+          <div *ngIf="verificationStatus === 'success'" class="success-state">
+            <mat-icon color="primary" class="status-icon">check_circle</mat-icon>
+            <h3>Email Verified Successfully!</h3>
+            <p>{{ message }}</p>
+            <p>You will be redirected to login in a few seconds...</p>
+          </div>
+          
+          <!-- Error State -->
+          <div *ngIf="verificationStatus === 'error'" class="error-state">
+            <mat-icon color="warn" class="status-icon">error</mat-icon>
+            <h3>Verification Failed</h3>
+            <p>{{ message }}</p>
+            <p>The verification link may have expired or is invalid.</p>
+          </div>
+          
+          <!-- Pending State -->
+          <div *ngIf="verificationStatus === 'pending' && !loading" class="pending-state">
+            <mat-icon color="accent" class="status-icon">mail</mat-icon>
+            <h3>Verifying Email</h3>
+            <p>Processing your email verification...</p>
+          </div>
+        </div>
+      </mat-card-content>
+      
+      <mat-card-actions align="end">
+        <button 
+          *ngIf="verificationStatus === 'success'" 
+          mat-raised-button 
+          color="primary" 
+          (click)="goToLogin()">
+          Go to Login
+        </button>
+        
+        <button 
+          *ngIf="verificationStatus === 'error'" 
+          mat-raised-button 
+          color="accent" 
+          (click)="resendVerification()">
+          Resend Verification
+        </button>
+        
+        <button 
+          *ngIf="verificationStatus === 'error'" 
+          mat-button 
+          (click)="goToLogin()">
+          Back to Login
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div> 

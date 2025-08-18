@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <!-- Tigo Pesa Logo Background -->
+  <rect width="200" height="80" fill="#0078D4" rx="8"/>
+  
+  <!-- Tigo Pesa Text -->
+  <text x="100" y="30" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">TIGO PESA</text>
+  
+  <!-- Mobile Phone Icon -->
+  <g transform="translate(85, 40)">
+    <rect x="0" y="0" width="20" height="30" fill="white" rx="3"/>
+    <rect x="2" y="2" width="16" height="24" fill="#0078D4" rx="2"/>
+    <circle cx="10" cy="28" r="1" fill="white"/>
+    <!-- Signal bars -->
+    <rect x="5" y="8" width="2" height="8" fill="white"/>
+    <rect x="8" y="12" width="2" height="4" fill="white"/>
+    <rect x="11" y="10" width="2" height="6" fill="white"/>
+  </g>
+  
+  <!-- Tagline -->
+  <text x="100" y="60" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Mobile Money</text>
+</svg> 

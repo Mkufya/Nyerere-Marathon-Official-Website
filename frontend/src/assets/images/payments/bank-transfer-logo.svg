@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <!-- Bank Transfer Logo Background -->
+  <rect width="200" height="80" fill="#2C3E50" rx="8"/>
+  
+  <!-- Bank Building -->
+  <g transform="translate(100, 15)">
+    <!-- Bank roof -->
+    <polygon points="-30,15 0,0 30,15" fill="white"/>
+    <!-- Bank pillars -->
+    <rect x="-25" y="15" width="8" height="25" fill="white"/>
+    <rect x="-8" y="15" width="8" height="25" fill="white"/>
+    <rect x="8" y="15" width="8" height="25" fill="white"/>
+    <rect x="20" y="15" width="8" height="25" fill="white"/>
+    <!-- Bank base -->
+    <rect x="-30" y="40" width="60" height="8" fill="white"/>
+  </g>
+  
+  <!-- Bank Transfer Text -->
+  <text x="100" y="67" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">BANK TRANSFER</text>
+</svg> 

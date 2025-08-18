@@ -1,0 +1,164 @@
+<div class="kit-container">
+  <!-- Hero Section -->
+  <section class="kit-hero">
+    <div class="hero-content">
+      <h1>Race Kit Collection</h1>
+      <p class="lead">Everything you need to know about collecting your race kit</p>
+      <div class="race-badge" *ngIf="selectedRace">
+        <mat-icon>directions_run</mat-icon>
+        <span>{{ getRaceInfo().category }}</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Location Information -->
+    <section class="section">
+      <mat-card class="location-card">
+        <mat-card-header>
+          <div mat-card-avatar class="location-avatar">
+            <mat-icon>location_on</mat-icon>
+          </div>
+          <mat-card-title>Collection Location</mat-card-title>
+          <mat-card-subtitle>Where to pick up your race kit</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="location-details">
+            <h3>{{ kitInfo.location }}</h3>
+            <p class="address">{{ kitInfo.address }}</p>
+            <div class="location-actions">
+              <button mat-raised-button color="primary" (click)="getDirections()">
+                <mat-icon>directions</mat-icon>
+                Get Directions
+              </button>
+              <button mat-outlined-button (click)="downloadKitGuide()">
+                <mat-icon>download</mat-icon>
+                Download Guide
+              </button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+
+    <!-- Collection Schedule -->
+    <section class="section">
+      <h2 class="section-title">
+        <mat-icon>schedule</mat-icon>
+        Collection Schedule
+      </h2>
+      <div class="schedule-cards">
+        <mat-card class="schedule-card" *ngFor="let schedule of kitInfo.schedule">
+          <mat-card-content>
+            <div class="schedule-date">{{ schedule.date }}</div>
+            <div class="schedule-time">{{ schedule.time }}</div>
+            <div class="schedule-note" *ngIf="schedule.note">{{ schedule.note }}</div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </section>
+
+    <!-- Race-Specific Kit Items -->
+    <section class="section" *ngIf="selectedRace">
+      <h2 class="section-title">
+        <mat-icon>shopping_bag</mat-icon>
+        Your {{ getRaceInfo().category }} Kit Includes
+      </h2>
+      <mat-card class="kit-items-card">
+        <mat-card-content>
+          <div class="kit-items-grid">
+            <div class="kit-item" *ngFor="let item of getRaceInfo().kitItems">
+              <mat-icon>check_circle</mat-icon>
+              <span>{{ item }}</span>
+            </div>
+          </div>
+          <div class="additional-notes" *ngIf="getRaceInfo().additionalNotes">
+            <mat-icon>info</mat-icon>
+            <span>{{ getRaceInfo().additionalNotes }}</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+
+    <!-- Required Documents Checklist -->
+    <section class="section">
+      <h2 class="section-title">
+        <mat-icon>assignment_turned_in</mat-icon>
+        Required Documents Checklist
+      </h2>
+      <mat-card class="checklist-card">
+        <mat-card-content>
+          <div class="checklist">
+            <div class="checklist-item" *ngFor="let item of kitInfo.checklist">
+              <mat-checkbox disabled="true" checked="true"></mat-checkbox>
+              <span>{{ item }}</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+
+    <!-- Important Requirements -->
+    <section class="section">
+      <h2 class="section-title">
+        <mat-icon>warning</mat-icon>
+        Important Requirements
+      </h2>
+      <mat-card class="requirements-card">
+        <mat-card-content>
+          <div class="requirements-list">
+            <div class="requirement-item" *ngFor="let requirement of kitInfo.requirements">
+              <mat-icon>priority_high</mat-icon>
+              <span>{{ requirement }}</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="section">
+      <h2 class="section-title">
+        <mat-icon>contact_phone</mat-icon>
+        Contact Information
+      </h2>
+      <div class="contact-cards">
+        <mat-card class="contact-card">
+          <mat-card-content>
+            <div class="contact-item">
+              <mat-icon>phone</mat-icon>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:{{ kitInfo.contactInfo.phone }}">{{ kitInfo.contactInfo.phone }}</a>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        
+        <mat-card class="contact-card">
+          <mat-card-content>
+            <div class="contact-item">
+              <mat-icon>email</mat-icon>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:{{ kitInfo.contactInfo.email }}">{{ kitInfo.contactInfo.email }}</a>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        
+        <mat-card class="contact-card emergency">
+          <mat-card-content>
+            <div class="contact-item">
+              <mat-icon>local_hospital</mat-icon>
+              <div>
+                <strong>Emergency</strong>
+                <a href="tel:{{ kitInfo.contactInfo.emergency }}">{{ kitInfo.contactInfo.emergency }}</a>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </section>
+  </div>
+</div> 

@@ -1,0 +1,691 @@
+.route-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+// Hero Section
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/assets/images/marathon-pattern.png') repeat;
+    opacity: 0.1;
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+  }
+
+  .race-badge {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 25px;
+    border: 2px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+
+    .badge-text {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+// Race Selection
+.race-selection {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 40px 0;
+
+  h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+
+  .race-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .race-btn {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #667eea;
+      background: white;
+      border: 2px solid #667eea;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 120px;
+
+      &:hover {
+        background: #667eea;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      }
+
+      &.selected {
+        background: #667eea;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      }
+    }
+  }
+}
+
+// Route Details
+.route-details {
+  .route-header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .route-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+
+      .stat {
+        text-align: center;
+        padding: 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        min-width: 120px;
+
+        .stat-value {
+          display: block;
+          font-size: 2rem;
+          font-weight: 700;
+          color: #667eea;
+          margin-bottom: 8px;
+        }
+
+        .stat-label {
+          font-size: 0.9rem;
+          color: #666;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+}
+
+// Route Map Section
+.route-map-section {
+  margin-bottom: 50px;
+
+  h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+
+  .map-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+
+    .map-placeholder {
+      height: 400px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+
+      .map-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 1.3rem;
+        color: #555;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .map-description {
+        font-size: 1rem;
+        color: #777;
+        line-height: 1.6;
+      }
+    }
+
+    .map-actions {
+      padding: 25px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+// Action Buttons
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+
+  &.primary {
+    background: #667eea;
+    color: white;
+
+    &:hover {
+      background: #5a67d8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+  }
+
+  &.secondary {
+    background: white;
+    color: #667eea;
+    border: 2px solid #667eea;
+
+    &:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+  }
+
+  .btn-icon {
+    font-size: 1.1rem;
+  }
+}
+
+// Waypoints Section
+.waypoints-section {
+  margin-bottom: 50px;
+
+  h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+
+  .waypoints-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+
+    .waypoint-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      padding: 25px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      }
+
+      .waypoint-number {
+        position: absolute;
+        top: -15px;
+        left: 25px;
+        width: 40px;
+        height: 40px;
+        background: #667eea;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      }
+
+      .waypoint-info {
+        padding-top: 15px;
+
+        h4 {
+          font-size: 1.3rem;
+          color: #333;
+          margin-bottom: 10px;
+          font-weight: 600;
+        }
+
+        .waypoint-distance {
+          font-size: 1rem;
+          color: #667eea;
+          font-weight: 600;
+          margin-bottom: 12px;
+        }
+
+        .waypoint-description {
+          color: #666;
+          line-height: 1.6;
+          margin-bottom: 15px;
+        }
+
+        .waypoint-services {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+
+          .service-tag {
+            background: #f0f2ff;
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Highlights Section
+.highlights-section {
+  margin-bottom: 50px;
+
+  h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+
+    .highlight-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      padding: 25px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      }
+
+      .highlight-icon {
+        font-size: 2.5rem;
+        flex-shrink: 0;
+      }
+
+      .highlight-content {
+        h4 {
+          font-size: 1.2rem;
+          color: #333;
+          margin-bottom: 10px;
+          font-weight: 600;
+        }
+
+        p {
+          color: #666;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}
+
+// Weather & Safety Section
+.weather-safety-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+
+  .weather-card,
+  .safety-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+  }
+
+  .weather-info {
+    .weather-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      padding: 12px;
+      background: #f8f9ff;
+      border-radius: 12px;
+
+      .weather-icon {
+        font-size: 1.5rem;
+      }
+
+      span:last-child {
+        font-weight: 500;
+        color: #555;
+      }
+    }
+  }
+
+  .safety-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 15px;
+      padding: 12px;
+      background: #fff8f0;
+      border-radius: 12px;
+      line-height: 1.6;
+
+      .safety-icon {
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+    }
+  }
+}
+
+// Downloads Section
+.downloads-section {
+  margin-bottom: 50px;
+
+  h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+
+  .downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+
+    .download-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      padding: 25px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        background: #f8f9ff;
+      }
+
+      .download-icon {
+        font-size: 2.5rem;
+        flex-shrink: 0;
+      }
+
+      .download-info {
+        flex: 1;
+
+        h4 {
+          font-size: 1.2rem;
+          color: #333;
+          margin-bottom: 8px;
+          font-weight: 600;
+        }
+
+        p {
+          color: #666;
+          font-size: 0.9rem;
+          margin-bottom: 8px;
+          line-height: 1.4;
+        }
+
+        .download-size {
+          font-size: 0.8rem;
+          color: #999;
+          font-weight: 500;
+        }
+      }
+
+      .download-button {
+        font-size: 1.5rem;
+        color: #667eea;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover .download-button {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Back Section
+.back-section {
+  text-align: center;
+  padding: 40px 0;
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: white;
+    color: #667eea;
+    border: 2px solid #667eea;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    &:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-icon {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .route-container {
+    padding: 0 15px;
+  }
+
+  .hero-section {
+    padding: 60px 0;
+    margin-bottom: 30px;
+
+    .hero-title {
+      font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+  }
+
+  .race-selection {
+    .race-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+
+      .race-btn {
+        width: 200px;
+      }
+    }
+  }
+
+  .route-details {
+    .route-header {
+      h2 {
+        font-size: 2rem;
+      }
+
+      .route-stats {
+        gap: 20px;
+        
+        .stat {
+          min-width: 100px;
+          padding: 15px;
+        }
+      }
+    }
+  }
+
+  .route-map-section {
+    .map-container {
+      .map-placeholder {
+        height: 300px;
+        padding: 30px 20px;
+
+        .map-icon {
+          font-size: 3rem;
+        }
+
+        p {
+          font-size: 1.1rem;
+        }
+      }
+
+      .map-actions {
+        flex-direction: column;
+        align-items: center;
+        
+        .action-btn {
+          width: 100%;
+          max-width: 250px;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .waypoints-grid,
+  .highlights-grid,
+  .downloads-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weather-safety-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 40px 0;
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+  }
+
+  .route-details {
+    .route-header {
+      .route-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+
+        .stat {
+          width: 100%;
+          max-width: 200px;
+        }
+      }
+    }
+  }
+} 

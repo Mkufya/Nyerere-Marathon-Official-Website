@@ -1,0 +1,859 @@
+.results-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+// Hero Section
+.hero-section {
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/assets/images/trophy-pattern.png') repeat;
+    opacity: 0.1;
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+  }
+
+  .race-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 20px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+
+      .info-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .info-value {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Selection Section
+.selection-section {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 40px 0;
+
+  h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+
+  .race-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .race-btn {
+      padding: 25px 20px;
+      background: white;
+      border: 2px solid #FF6B35;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      &:hover {
+        background: #FF6B35;
+        color: white;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+      }
+
+      .race-distance {
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      .race-participants {
+        font-size: 1rem;
+        font-weight: 500;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+// Results Content
+.results-content {
+  // Year Selection
+  .year-selection {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h3 {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .year-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+
+      .year-btn {
+        padding: 12px 20px;
+        background: white;
+        border: 2px solid #FF6B35;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #FF6B35;
+
+        &:hover, &.selected {
+          background: #FF6B35;
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+      }
+    }
+  }
+
+  // Course Records
+  .records-section {
+    margin-bottom: 50px;
+
+    h3 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 25px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .records-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+
+      .record-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .record-header {
+          padding: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0;
+          }
+
+          .record-badge {
+            font-size: 2rem;
+          }
+        }
+
+        .record-details {
+          padding: 0 20px 25px;
+          text-align: center;
+
+          .record-time {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FF6B35;
+            margin-bottom: 10px;
+          }
+
+          .record-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+          }
+
+          .record-country {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 10px;
+          }
+
+          .record-pace {
+            font-size: 1rem;
+            color: #999;
+            font-style: italic;
+          }
+        }
+
+        &.male-record {
+          .record-header {
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+            color: white;
+          }
+        }
+
+        &.female-record {
+          .record-header {
+            background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  // Gender Toggle
+  .gender-toggle {
+    text-align: center;
+    margin-bottom: 30px;
+
+    h3 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .toggle-buttons {
+      display: inline-flex;
+      background: #f0f0f0;
+      border-radius: 25px;
+      padding: 5px;
+      gap: 5px;
+
+      .toggle-btn {
+        padding: 12px 30px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        font-weight: 600;
+        background: transparent;
+        color: #666;
+
+        &.active {
+          background: #FF6B35;
+          color: white;
+          box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
+        }
+      }
+    }
+  }
+
+  // Results Table
+  .results-table-section {
+    margin-bottom: 50px;
+
+    .table-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      overflow: hidden;
+
+      .results-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 1rem;
+
+        thead {
+          background: #FF6B35;
+          color: white;
+
+          th {
+            padding: 20px 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+          }
+        }
+
+        tbody {
+          .result-row {
+            &:nth-child(even) {
+              background: #f8f9fa;
+            }
+
+            &:hover {
+              background: #fff3f0;
+            }
+
+            td {
+              padding: 15px;
+              text-align: center;
+              border-bottom: 1px solid #e0e0e0;
+              vertical-align: middle;
+            }
+
+            .position-cell {
+              .position-badge {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 1rem;
+                margin: 0 auto;
+                background: #FF6B35;
+                color: white;
+                box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
+
+                &.gold {
+                  background: #FFD700;
+                  color: #333;
+                  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+                }
+
+                &.silver {
+                  background: #C0C0C0;
+                  color: #333;
+                  box-shadow: 0 5px 15px rgba(192, 192, 192, 0.4);
+                }
+
+                &.bronze {
+                  background: #CD7F32;
+                  color: white;
+                  box-shadow: 0 5px 15px rgba(205, 127, 50, 0.4);
+                }
+              }
+            }
+
+            .name-cell {
+              font-weight: 600;
+              text-align: left;
+              color: #333;
+            }
+
+            .time-cell {
+              font-weight: 700;
+              color: #FF6B35;
+              font-size: 1.1rem;
+            }
+
+            .country-cell {
+              .country-flag {
+                margin-right: 8px;
+                font-size: 1.2rem;
+              }
+
+              .country-code {
+                font-weight: 600;
+                color: #555;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Age Groups Section
+  .age-groups-section {
+    margin-bottom: 50px;
+
+    h3 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 25px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .age-groups-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 25px;
+
+      .age-group-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .age-group-header {
+          background: #FF6B35;
+          color: white;
+          padding: 20px;
+          text-align: center;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          h4 {
+            font-size: 1.3rem;
+            margin: 0;
+            font-weight: 600;
+          }
+
+          .age-group-icon {
+            font-size: 2rem;
+          }
+        }
+
+        .age-group-winners {
+          padding: 20px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+
+          .winner-item {
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            
+            .winner-label {
+              font-size: 0.9rem;
+              font-weight: 600;
+              margin-bottom: 8px;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+            }
+
+            .winner-name {
+              font-size: 1.1rem;
+              font-weight: 600;
+              color: #333;
+              margin-bottom: 5px;
+            }
+
+            .winner-time {
+              font-size: 1.3rem;
+              font-weight: 700;
+              color: #FF6B35;
+              margin-bottom: 5px;
+            }
+
+            .winner-country {
+              font-size: 0.9rem;
+              color: #666;
+            }
+
+            &.male-winner {
+              background: #f0f8ff;
+              border: 2px solid #4A90E2;
+              
+              .winner-label {
+                color: #4A90E2;
+              }
+            }
+
+            &.female-winner {
+              background: #fff0f5;
+              border: 2px solid #E91E63;
+              
+              .winner-label {
+                color: #E91E63;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Downloads Section
+  .downloads-section {
+    margin-bottom: 50px;
+
+    h3 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 25px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .downloads-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+
+      .download-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+          background: #fff8f5;
+        }
+
+        .download-icon {
+          font-size: 2rem;
+          flex-shrink: 0;
+        }
+
+        .download-info {
+          flex: 1;
+
+          h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+          }
+
+          p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 8px;
+            line-height: 1.4;
+          }
+
+          .download-meta {
+            display: flex;
+            gap: 15px;
+
+            .download-format {
+              background: #FF6B35;
+              color: white;
+              padding: 3px 8px;
+              border-radius: 5px;
+              font-size: 0.8rem;
+              font-weight: 600;
+            }
+
+            .download-size {
+              font-size: 0.8rem;
+              color: #999;
+            }
+          }
+        }
+
+        .download-button {
+          font-size: 1.5rem;
+          color: #FF6B35;
+          opacity: 0.7;
+          transition: opacity 0.3s ease;
+        }
+
+        &:hover .download-button {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  // Share Section
+  .share-section {
+    margin-bottom: 50px;
+    text-align: center;
+
+    h3 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+
+      .share-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+
+        &.facebook {
+          background: #4267B2;
+          color: white;
+
+          &:hover {
+            background: #365899;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 103, 178, 0.3);
+          }
+        }
+
+        &.twitter {
+          background: #1DA1F2;
+          color: white;
+
+          &:hover {
+            background: #1991DA;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(29, 161, 242, 0.3);
+          }
+        }
+
+        &.whatsapp {
+          background: #25D366;
+          color: white;
+
+          &:hover {
+            background: #20BA5A;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+          }
+        }
+
+        .btn-icon {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
+
+// Back Section
+.back-section {
+  text-align: center;
+  padding: 40px 0;
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: white;
+    color: #FF6B35;
+    border: 2px solid #FF6B35;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    &:hover {
+      background: #FF6B35;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+    }
+
+    .btn-icon {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .results-container {
+    padding: 0 15px;
+  }
+
+  .hero-section {
+    padding: 60px 0;
+    margin-bottom: 30px;
+
+    .hero-title {
+      font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .race-info {
+      gap: 20px;
+      flex-direction: column;
+      align-items: center;
+
+      .info-item {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+  }
+
+  .selection-section {
+    .race-buttons {
+      grid-template-columns: 1fr;
+      max-width: 300px;
+    }
+  }
+
+  .results-content {
+    .records-section {
+      .records-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    .results-table-section {
+      .table-container {
+        overflow-x: auto;
+        
+        .results-table {
+          min-width: 600px;
+          font-size: 0.9rem;
+
+          thead th {
+            padding: 15px 10px;
+            font-size: 1rem;
+          }
+
+          tbody td {
+            padding: 12px 8px;
+          }
+        }
+      }
+    }
+
+    .age-groups-section {
+      .age-groups-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .downloads-section {
+      .downloads-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .share-section {
+      .share-buttons {
+        flex-direction: column;
+        align-items: center;
+        
+        .share-btn {
+          width: 100%;
+          max-width: 250px;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 40px 0;
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+  }
+
+  .results-content {
+    .year-selection {
+      .year-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        
+        .year-btn {
+          width: 100%;
+          max-width: 150px;
+        }
+      }
+    }
+
+    .gender-toggle {
+      .toggle-buttons {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+
+    .age-groups-section {
+      .age-groups-grid {
+        .age-group-card {
+          .age-group-winners {
+            grid-template-columns: 1fr;
+            gap: 15px;
+          }
+        }
+      }
+    }
+  }
+} 

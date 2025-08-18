@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "lib": [
+      "es2020"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@/controllers/*": ["./controllers/*"],
+      "@/models/*": ["./models/*"],
+      "@/routes/*": ["./routes/*"],
+      "@/middleware/*": ["./middleware/*"],
+      "@/config/*": ["./config/*"],
+      "@/utils/*": ["./utils/*"]
+    }
+  },
+  "include": [
+    "controllers/**/*",
+    "models/**/*",
+    "routes/**/*",
+    "middleware/**/*",
+    "config/**/*",
+    "*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "frontend",
+    "dist"
+  ]
+} 

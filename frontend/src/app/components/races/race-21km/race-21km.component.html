@@ -1,0 +1,148 @@
+<div class="race-detail-container">
+  <!-- Hero Section -->
+  <section class="race-hero">
+    <div class="hero-content">
+      <h1>{{ raceDetails.name }}</h1>
+      <p class="race-distance">{{ raceDetails.distance }}</p>
+      <p class="race-description">{{ raceDetails.description }}</p>
+      
+      <div class="race-key-info">
+        <div class="key-info-item">
+          <mat-icon>schedule</mat-icon>
+          <div>
+            <strong>Start Time</strong>
+            <span>{{ raceDetails.startTime }}</span>
+          </div>
+        </div>
+        <div class="key-info-item">
+          <mat-icon>location_on</mat-icon>
+          <div>
+            <strong>Location</strong>
+            <span>{{ raceDetails.location }}</span>
+          </div>
+        </div>
+        <div class="key-info-item">
+          <mat-icon>payments</mat-icon>
+          <div>
+            <strong>Registration Fee</strong>
+            <span>{{ raceDetails.registrationFee }}</span>
+          </div>
+        </div>
+        <div class="key-info-item">
+          <mat-icon>timer</mat-icon>
+          <div>
+            <strong>Cut-off Time</strong>
+            <span>{{ raceDetails.cutoffTime }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="action-buttons">
+        <button mat-raised-button color="primary" class="register-btn" (click)="registerForRace()">
+          <mat-icon>person_add</mat-icon>
+          Register Now
+        </button>
+        <button mat-outlined-button class="download-btn" (click)="downloadRouteMap()">
+          <mat-icon>map</mat-icon>
+          Download Route Map
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Age Groups Section -->
+    <section class="race-section">
+      <h2 class="section-title">
+        <mat-icon>groups</mat-icon>
+        Age Categories
+      </h2>
+      <div class="row">
+        <div class="col-md-6" *ngFor="let ageGroup of raceDetails.ageGroups">
+          <mat-card class="age-group-card">
+            <mat-card-content>
+              <h3>{{ ageGroup.category }}</h3>
+              <p class="age-range">{{ ageGroup.ageRange }}</p>
+              <p class="requirements" *ngIf="ageGroup.requirements">{{ ageGroup.requirements }}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Qualification Details -->
+    <section class="race-section">
+      <h2 class="section-title">
+        <mat-icon>verified</mat-icon>
+        Qualification & Requirements
+      </h2>
+      <mat-card class="qualification-card">
+        <mat-card-content>
+          <ul class="qualification-list">
+            <li *ngFor="let detail of raceDetails.qualificationDetails">
+              <mat-icon class="check-icon">check_circle</mat-icon>
+              {{ detail }}
+            </li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </section>
+
+    <!-- Race Kit Section -->
+    <section class="race-section">
+      <h2 class="section-title">
+        <mat-icon>shopping_bag</mat-icon>
+        Race Kit Includes
+      </h2>
+      <div class="row">
+        <div class="col-md-6" *ngFor="let kitItem of raceDetails.raceKit">
+          <mat-card class="kit-item-card">
+            <mat-card-content>
+              <div class="kit-item">
+                <mat-icon class="kit-icon">card_giftcard</mat-icon>
+                <div class="kit-details">
+                  <h4>{{ kitItem.item }}</h4>
+                  <p>{{ kitItem.description }}</p>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section class="race-section">
+      <h2 class="section-title">
+        <mat-icon>rule</mat-icon>
+        Race Rules & Guidelines
+      </h2>
+      <mat-card class="rules-card">
+        <mat-card-content>
+          <ul class="rules-list">
+            <li *ngFor="let rule of raceDetails.rules">
+              <mat-icon class="rule-icon">info</mat-icon>
+              {{ rule }}
+            </li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <mat-card class="cta-card">
+        <mat-card-content>
+          <div class="cta-content">
+            <h2 class="ready-register-text" (click)="registerForRace()">Ready to take on the {{ raceDetails.name }}?</h2>
+            <p>Join elite runners from across East Africa in this challenging race. Register now to secure your spot!</p>
+            <button mat-raised-button color="primary" size="large" (click)="registerForRace()">
+              <mat-icon>sports_score</mat-icon>
+              Register for {{ raceDetails.name }}
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </div>
+</div> 

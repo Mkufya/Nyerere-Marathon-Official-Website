@@ -1,0 +1,73 @@
+<div class="interviews-container">
+  <div class="hero-section">
+    <h1>Interviews</h1>
+    <p>Hear from marathon champions, organizers, and the community</p>
+  </div>
+
+  <div class="interviews-content">
+    <!-- Category Filter -->
+    <div class="filter-section">
+      <h3>Filter by Category</h3>
+      <div class="filter-buttons">
+        <button 
+          *ngFor="let category of categories"
+          [class.active]="selectedCategory === category"
+          (click)="filterByCategory(category)"
+          class="filter-btn">
+          {{ category }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Interviews Grid -->
+    <div class="interviews-grid">
+      <div class="interview-card" *ngFor="let interview of filteredInterviews">
+        <div class="interview-thumbnail">
+          <img [src]="interview.thumbnailUrl" [alt]="interview.title">
+          <div class="play-overlay" (click)="playInterview(interview)">
+            <div class="play-button">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <div class="duration-badge">{{ interview.duration }}</div>
+        </div>
+        
+        <div class="interview-info">
+          <div class="interview-meta">
+            <span class="category-tag">{{ interview.category }}</span>
+            <span class="date">{{ formatDate(interview.date) }}</span>
+          </div>
+          
+          <h3>{{ interview.title }}</h3>
+          
+          <div class="interviewee-info">
+            <strong>{{ interview.interviewee }}</strong>
+            <span class="role">{{ interview.role }}</span>
+          </div>
+          
+          <p class="summary">{{ interview.summary }}</p>
+          
+          <div class="interview-actions">
+            <button class="btn-primary" (click)="playInterview(interview)">
+              <i class="fas fa-play"></i>
+              Play Interview
+            </button>
+            <button class="btn-secondary" (click)="downloadTranscript(interview)">
+              <i class="fas fa-file-text"></i>
+              Transcript
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="filteredInterviews.length === 0">
+      <div class="empty-icon">
+        <i class="fas fa-microphone"></i>
+      </div>
+      <h3>No interviews found</h3>
+      <p>Try selecting a different category or check back later for new interviews.</p>
+    </div>
+  </div>
+</div> 

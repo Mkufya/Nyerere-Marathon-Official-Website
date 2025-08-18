@@ -1,0 +1,65 @@
+{
+  "overview": {
+    "totalParticipants": 1247,
+    "totalRevenue": 125000,
+    "raceCategories": 4,
+    "volunteers": 89,
+    "registrationGrowth": 12,
+    "revenueGrowth": 8,
+    "volunteerGrowth": 5
+  },
+  "participantsByCategory": [
+    {
+      "name": "Full Marathon (42km)",
+      "count": 312,
+      "percentage": 25
+    },
+    {
+      "name": "Half Marathon (21km)",
+      "count": 498,
+      "percentage": 40
+    },
+    {
+      "name": "10km Race",
+      "count": 374,
+      "percentage": 30
+    },
+    {
+      "name": "5km Fun Run",
+      "count": 63,
+      "percentage": 5
+    }
+  ],
+  "genderDistribution": {
+    "male": 65,
+    "female": 35
+  },
+  "ageDistribution": {
+    "18-25": 25,
+    "26-35": 40,
+    "36-45": 20,
+    "46+": 15
+  },
+  "recentActivity": [
+    {
+      "message": "New participant registered for Full Marathon",
+      "time": "2 minutes ago",
+      "type": "registration"
+    },
+    {
+      "message": "Payment received from John Doe",
+      "time": "5 minutes ago",
+      "type": "payment"
+    },
+    {
+      "message": "Volunteer Sarah assigned to Zone A",
+      "time": "10 minutes ago",
+      "type": "volunteer"
+    },
+    {
+      "message": "Race results uploaded for 10km category",
+      "time": "15 minutes ago",
+      "type": "results"
+    }
+  ]
+} 

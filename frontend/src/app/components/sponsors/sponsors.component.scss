@@ -1,0 +1,350 @@
+.sponsors-container {
+  min-height: 100vh;
+}
+
+.sponsors-hero {
+  background: linear-gradient(135deg, #ff6f00 0%, #ff8f00 100%);
+  color: white;
+  padding: 100px 0 60px;
+  text-align: center;
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+  }
+}
+
+.sponsor-tier {
+  padding: 60px 0;
+  
+  &.platinum {
+    .tier-title {
+      color: #e0e0e0;
+    }
+    
+    .tier-icon {
+      color: #e0e0e0;
+    }
+  }
+  
+  &.gold {
+    background-color: #fafafa;
+    
+    .tier-title {
+      color: #ffd700;
+    }
+    
+    .tier-icon {
+      color: #ffd700;
+    }
+  }
+  
+  &.silver {
+    .tier-title {
+      color: #c0c0c0;
+    }
+    
+    .tier-icon {
+      color: #c0c0c0;
+    }
+  }
+  
+  &.bronze {
+    background-color: #fafafa;
+    
+    .tier-title {
+      color: #cd7f32;
+    }
+    
+    .tier-icon {
+      color: #cd7f32;
+    }
+  }
+}
+
+.tier-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .tier-icon {
+    margin-right: 16px;
+    font-size: 3rem;
+  }
+}
+
+.sponsor-card {
+  height: 100%;
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  &.platinum-card {
+    border-top: 4px solid #e0e0e0;
+    
+    &:hover {
+      border-top-color: #c0c0c0;
+    }
+  }
+  
+  &.gold-card {
+    border-top: 4px solid #ffd700;
+    
+    &:hover {
+      border-top-color: #ffb300;
+    }
+  }
+  
+  &.silver-card {
+    border-top: 4px solid #c0c0c0;
+    
+    &:hover {
+      border-top-color: #a0a0a0;
+    }
+  }
+  
+  &.bronze-card {
+    border-top: 4px solid #cd7f32;
+    
+    &:hover {
+      border-top-color: #b8722e;
+    }
+  }
+  
+  .sponsor-logo {
+    text-align: center;
+    margin-bottom: 20px;
+    
+    img {
+      max-width: 100%;
+      max-height: 80px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+  }
+  
+  .sponsor-details {
+    text-align: center;
+    
+    h3 {
+      color: #333;
+      margin: 0 0 12px 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    
+    .sponsor-description {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      min-height: 48px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .sponsor-actions {
+      margin-top: 16px;
+      
+      button {
+        mat-icon {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+.become-sponsor-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  
+  .become-sponsor-card {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    
+    .become-sponsor-content {
+      text-align: center;
+      padding: 40px 20px;
+      
+      .sponsor-icon {
+        font-size: 4rem;
+        color: #ff6f00;
+        margin-bottom: 24px;
+      }
+      
+      h2 {
+        color: #333;
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      
+      p {
+        color: #666;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .sponsor-benefits {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+        text-align: left;
+        
+        .benefit-item {
+          display: flex;
+          align-items: center;
+          padding: 16px;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          
+          mat-icon {
+            color: #ff6f00;
+            margin-right: 12px;
+            font-size: 24px;
+          }
+          
+          span {
+            color: #333;
+            font-weight: 500;
+          }
+        }
+      }
+      
+      .sponsor-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+        .sponsor-cta {
+          min-width: 200px;
+          
+          mat-icon {
+            margin-right: 8px;
+          }
+        }
+        
+        .sponsor-info {
+          mat-icon {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .sponsors-hero {
+    padding: 80px 0 40px;
+    
+    .hero-content {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  .sponsor-tier {
+    padding: 40px 0;
+  }
+  
+  .tier-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    
+    .tier-icon {
+      font-size: 2.5rem;
+    }
+  }
+  
+  .sponsor-card {
+    .sponsor-details {
+      .sponsor-description {
+        min-height: auto;
+      }
+    }
+  }
+  
+  .become-sponsor-section {
+    padding: 60px 0;
+    
+    .become-sponsor-card {
+      .become-sponsor-content {
+        padding: 30px 15px;
+        
+        .sponsor-icon {
+          font-size: 3rem;
+        }
+        
+        h2 {
+          font-size: 2rem;
+        }
+        
+        .sponsor-benefits {
+          grid-template-columns: 1fr;
+          gap: 12px;
+          text-align: center;
+          
+          .benefit-item {
+            flex-direction: column;
+            text-align: center;
+            
+            mat-icon {
+              margin-right: 0;
+              margin-bottom: 8px;
+            }
+          }
+        }
+        
+        .sponsor-actions {
+          flex-direction: column;
+          align-items: center;
+          
+          .sponsor-cta, .sponsor-info {
+            width: 100%;
+            max-width: 300px;
+          }
+        }
+      }
+    }
+  }
+} 

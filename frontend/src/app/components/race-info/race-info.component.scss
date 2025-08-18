@@ -1,0 +1,330 @@
+.race-info-container {
+  min-height: 100vh;
+}
+
+.race-info-hero {
+  background: linear-gradient(135deg, #d32f2f 0%, #f44336 100%);
+  color: white;
+  padding: 100px 0 60px;
+  text-align: center;
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+  }
+}
+
+.info-section {
+  padding: 60px 0;
+  
+  &:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 50px;
+  color: #d32f2f;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(45deg, #d32f2f, #ff5722);
+    margin: 16px auto 0;
+    border-radius: 2px;
+  }
+}
+
+.info-card {
+  .section-icon {
+    color: #d32f2f;
+    margin-right: 8px;
+    font-size: 28px;
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    
+    .info-icon {
+      color: #d32f2f;
+      margin-right: 16px;
+      margin-top: 4px;
+      font-size: 32px;
+    }
+    
+    .info-details {
+      h4 {
+        margin: 0 0 8px 0;
+        color: #333;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      
+      p {
+        margin: 0 0 4px 0;
+        color: #333;
+        font-weight: 500;
+        
+        &.sub-text {
+          color: #666;
+          font-size: 0.9rem;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+.route-card {
+  .route-map {
+    text-align: center;
+    padding: 40px 20px;
+    
+    .map-icon {
+      font-size: 4rem;
+      color: #d32f2f;
+      margin-bottom: 20px;
+    }
+    
+    h3 {
+      color: #333;
+      margin-bottom: 16px;
+      font-size: 1.8rem;
+    }
+    
+    .map-description {
+      color: #666;
+      line-height: 1.6;
+      margin: 20px 0 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .route-features {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      
+      .route-feature {
+        display: flex;
+        align-items: center;
+        color: #555;
+        
+        mat-icon {
+          color: #d32f2f;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+.prize-card {
+  .prize-table {
+    width: 100%;
+    
+    .mat-header-cell {
+      color: #333;
+      font-weight: 600;
+      text-align: center;
+      
+      .position-icon {
+        margin-right: 4px;
+        
+        &.gold { color: #ffd700; }
+        &.silver { color: #c0c0c0; }
+        &.bronze { color: #cd7f32; }
+      }
+    }
+    
+    .mat-cell {
+      text-align: center;
+      
+      &.prize-amount {
+        font-weight: 600;
+        color: #d32f2f;
+        font-size: 1.1rem;
+      }
+    }
+    
+    .mat-row:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+  }
+}
+
+.results-card {
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-icon {
+    color: #d32f2f;
+    margin-right: 8px;
+  }
+  
+  .results-placeholder {
+    text-align: center;
+    padding: 40px 20px;
+    
+    .results-icon {
+      font-size: 3rem;
+      color: #d32f2f;
+      margin-bottom: 16px;
+    }
+    
+    p {
+      color: #666;
+      margin-bottom: 24px;
+    }
+  }
+  
+  .results-downloads {
+    .download-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      mat-icon:first-child {
+        color: #666;
+        margin-right: 12px;
+      }
+      
+      span {
+        flex: 1;
+        color: #333;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.info-highlight-card {
+  height: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .highlight-icon {
+    font-size: 3rem;
+    color: #d32f2f;
+    margin-bottom: 16px;
+  }
+  
+  h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    
+    li {
+      padding: 8px 0;
+      color: #666;
+      border-bottom: 1px solid #f0f0f0;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      &::before {
+        content: '✓';
+        color: #d32f2f;
+        font-weight: bold;
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .race-info-hero {
+    padding: 80px 0 40px;
+    
+    .hero-content {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  .info-section {
+    padding: 40px 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .info-card .info-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .route-card .route-map .route-features {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .prize-table {
+    font-size: 0.9rem;
+    
+    .mat-header-cell, .mat-cell {
+      padding: 8px 4px;
+    }
+  }
+} 

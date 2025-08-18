@@ -1,0 +1,67 @@
+<div class="countdown-container">
+  <div class="countdown-header">
+    <mat-icon class="countdown-icon">schedule</mat-icon>
+    <h3 class="countdown-title">Race Countdown</h3>
+  </div>
+  
+  <div class="countdown-display" *ngIf="!isExpired">
+    <div class="countdown-item">
+      <span class="countdown-number">{{ weeks }}</span>
+      <span class="countdown-label">{{ weeks === 1 ? 'Week' : 'Weeks' }}</span>
+    </div>
+    
+    <div class="countdown-separator">|</div>
+    
+    <div class="countdown-item">
+      <span class="countdown-number">{{ days }}</span>
+      <span class="countdown-label">{{ days === 1 ? 'Day' : 'Days' }}</span>
+    </div>
+    
+    <div class="countdown-separator">|</div>
+    
+    <div class="countdown-item">
+      <span class="countdown-number">{{ hours.toString().padStart(2, '0') }}</span>
+      <span class="countdown-label">Hours</span>
+    </div>
+    
+    <div class="countdown-separator">:</div>
+    
+    <div class="countdown-item">
+      <span class="countdown-number">{{ minutes.toString().padStart(2, '0') }}</span>
+      <span class="countdown-label">Minutes</span>
+    </div>
+    
+    <div class="countdown-separator">:</div>
+    
+    <div class="countdown-item">
+      <span class="countdown-number">{{ seconds.toString().padStart(2, '0') }}</span>
+      <span class="countdown-label">Seconds</span>
+    </div>
+    
+    <div class="countdown-subtitle">
+      Left until Race Day
+    </div>
+  </div>
+  
+  <!-- Registration Statistics -->
+  <div class="registration-stats" *ngIf="!isExpired">
+    <div class="stats-row">
+      <div class="stat-item">
+        <mat-icon class="stat-icon">people</mat-icon>
+        <span class="stat-number">{{ registeredUsers.toLocaleString() }}</span>
+        <span class="stat-label">Registered Runners</span>
+      </div>
+      <div class="stat-divider">•</div>
+      <div class="stat-item">
+        <mat-icon class="stat-icon">flag</mat-icon>
+        <span class="stat-number">{{ countries }}</span>
+        <span class="stat-label">Countries</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="countdown-expired" *ngIf="isExpired">
+    <mat-icon class="expired-icon">flag</mat-icon>
+    <span class="expired-text">Race Day is Here!</span>
+  </div>
+</div> 

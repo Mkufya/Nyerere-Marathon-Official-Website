@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <!-- M-Pesa Logo Background -->
+  <rect width="200" height="80" fill="#00A651" rx="8"/>
+  
+  <!-- M-Pesa Text -->
+  <text x="100" y="30" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="bold">M-PESA</text>
+  
+  <!-- Mobile Phone Icon -->
+  <g transform="translate(85, 40)">
+    <rect x="0" y="0" width="20" height="30" fill="white" rx="3"/>
+    <rect x="2" y="2" width="16" height="24" fill="#00A651" rx="2"/>
+    <circle cx="10" cy="28" r="1" fill="white"/>
+  </g>
+  
+  <!-- Tagline -->
+  <text x="100" y="60" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Mobile Money</text>
+</svg> 

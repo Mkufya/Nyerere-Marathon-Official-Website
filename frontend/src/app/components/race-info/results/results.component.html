@@ -1,0 +1,220 @@
+<div class="results-container">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Race Results</h1>
+      <p class="hero-subtitle">Discover past performance and celebrate our winners</p>
+      <div class="race-info" *ngIf="currentResults">
+        <div class="info-item">
+          <span class="info-label">Date:</span>
+          <span class="info-value">{{ currentResults.date | date:'longDate' }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Participants:</span>
+          <span class="info-value">{{ currentResults.totalParticipants | number }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Weather:</span>
+          <span class="info-value">{{ currentResults.weather }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Race & Year Selection -->
+  <div class="selection-section" *ngIf="!selectedRace">
+    <h2>Select Race Distance</h2>
+    <div class="race-buttons">
+      <button 
+        class="race-btn" 
+        *ngFor="let distance of raceDistances" 
+        (click)="selectRace(distance)">
+        <span class="race-distance">{{ distance.toUpperCase() }}</span>
+        <span class="race-participants">{{ allResults[distance][selectedYear].totalParticipants || 0 }} participants</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Results Content -->
+  <div class="results-content" *ngIf="currentResults">
+    <!-- Year Selection -->
+    <div class="year-selection">
+      <h3>Select Year</h3>
+      <div class="year-buttons">
+        <button 
+          class="year-btn" 
+          *ngFor="let year of availableYears" 
+          (click)="selectYear(year)"
+          [class.selected]="selectedYear === year">
+          {{ year }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Course Records -->
+    <div class="records-section">
+      <h3>Course Records</h3>
+      <div class="records-grid">
+        <div class="record-card male-record">
+          <div class="record-header">
+            <h4>Men's Record</h4>
+            <div class="record-badge">🏆</div>
+          </div>
+          <div class="record-details">
+            <div class="record-time">{{ currentResults.courseRecord.male.time }}</div>
+            <div class="record-name">{{ currentResults.courseRecord.male.name }}</div>
+            <div class="record-country">{{ currentResults.courseRecord.male.country }}</div>
+            <div class="record-pace">{{ currentResults.courseRecord.male.pace }}</div>
+          </div>
+        </div>
+        
+        <div class="record-card female-record">
+          <div class="record-header">
+            <h4>Women's Record</h4>
+            <div class="record-badge">🏆</div>
+          </div>
+          <div class="record-details">
+            <div class="record-time">{{ currentResults.courseRecord.female.time }}</div>
+            <div class="record-name">{{ currentResults.courseRecord.female.name }}</div>
+            <div class="record-country">{{ currentResults.courseRecord.female.country }}</div>
+            <div class="record-pace">{{ currentResults.courseRecord.female.pace }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gender Toggle -->
+    <div class="gender-toggle">
+      <h3>Top Results</h3>
+      <div class="toggle-buttons">
+        <button 
+          class="toggle-btn" 
+          (click)="toggleGender(true)"
+          [class.active]="showMaleResults">
+          Men
+        </button>
+        <button 
+          class="toggle-btn" 
+          (click)="toggleGender(false)"
+          [class.active]="!showMaleResults">
+          Women
+        </button>
+      </div>
+    </div>
+
+    <!-- Results Table -->
+    <div class="results-table-section">
+      <div class="table-container">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>Bib</th>
+              <th>Name</th>
+              <th>Country</th>
+              <th>Time</th>
+              <th>Pace</th>
+              <th>Age Group</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let result of getCurrentResults()" class="result-row">
+              <td class="position-cell">
+                <div class="position-badge" [class.gold]="result.position === 1" [class.silver]="result.position === 2" [class.bronze]="result.position === 3">
+                  {{ result.position }}
+                </div>
+              </td>
+              <td class="bib-cell">{{ result.bibNumber }}</td>
+              <td class="name-cell">{{ result.name }}</td>
+              <td class="country-cell">
+                <span class="country-flag">{{ getCountryFlag(result.country) }}</span>
+                <span class="country-code">{{ result.country }}</span>
+              </td>
+              <td class="time-cell">{{ result.time }}</td>
+              <td class="pace-cell">{{ result.pace }}</td>
+              <td class="age-group-cell">{{ result.ageGroup }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Age Group Winners -->
+    <div class="age-groups-section">
+      <h3>Age Group Winners</h3>
+      <div class="age-groups-grid">
+        <div class="age-group-card" *ngFor="let winner of currentResults.ageGroupWinners">
+          <div class="age-group-header">
+            <h4>{{ winner.category }}</h4>
+            <div class="age-group-icon">🏅</div>
+          </div>
+          <div class="age-group-winners">
+            <div class="winner-item male-winner">
+              <div class="winner-label">Men</div>
+              <div class="winner-name">{{ winner.male.name }}</div>
+              <div class="winner-time">{{ winner.male.time }}</div>
+              <div class="winner-country">{{ winner.male.country }}</div>
+            </div>
+            <div class="winner-item female-winner">
+              <div class="winner-label">Women</div>
+              <div class="winner-name">{{ winner.female.name }}</div>
+              <div class="winner-time">{{ winner.female.time }}</div>
+              <div class="winner-country">{{ winner.female.country }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Download Section -->
+    <div class="downloads-section">
+      <h3>Download Results</h3>
+      <div class="downloads-grid">
+        <div 
+          class="download-card" 
+          *ngFor="let download of downloadableResults | slice:0:5"
+          (click)="downloadResults(download.format)">
+          <div class="download-icon">📊</div>
+          <div class="download-info">
+            <h4>{{ download.title }}</h4>
+            <p>{{ download.description }}</p>
+            <div class="download-meta">
+              <span class="download-format">{{ download.format }}</span>
+              <span class="download-size">{{ download.size }}</span>
+            </div>
+          </div>
+          <div class="download-button">
+            <i class="btn-icon">⬇️</i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share Section -->
+    <div class="share-section">
+      <h3>Share Results</h3>
+      <div class="share-buttons">
+        <button class="share-btn facebook" (click)="shareResults('facebook')">
+          <i class="btn-icon">📘</i>
+          Facebook
+        </button>
+        <button class="share-btn twitter" (click)="shareResults('twitter')">
+          <i class="btn-icon">🐦</i>
+          Twitter
+        </button>
+        <button class="share-btn whatsapp" (click)="shareResults('whatsapp')">
+          <i class="btn-icon">💬</i>
+          WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <div class="back-section" *ngIf="selectedRace">
+    <button class="back-btn" (click)="goBack()">
+      <i class="btn-icon">←</i>
+      Back to Race Selection
+    </button>
+  </div>
+</div> 
