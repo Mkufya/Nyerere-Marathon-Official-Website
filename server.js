@@ -59,17 +59,16 @@ databaseConfig.connect()
     console.log('✅ Database connection established');
   })
   .catch(err => {
-    console.error('❌ Failed to connect to database:', err.message);
-    console.log('\n🔧 To fix this issue:');
-    console.log('1. Set MONGODB_URI environment variable');
-    console.log('2. Or install MongoDB locally and start it');
-    console.log('3. Or use MongoDB Atlas (cloud database)');
-    console.log('\n⚠️  Server will continue running with temporary storage');
+    console.log('⚠️  Database not available - using temporary storage');
+    console.log('💡 Server will work normally with in-memory data');
   });
 
 // Start server
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`🌐 API Base URL: http://localhost:${PORT}/api`);
   console.log(`📸 Gallery API: http://localhost:${PORT}/api/gallery`);
+  console.log(`🔐 Auth API: http://localhost:${PORT}/api/auth`);
+  console.log(`📊 Admin API: http://localhost:${PORT}/api/admin`);
 });
