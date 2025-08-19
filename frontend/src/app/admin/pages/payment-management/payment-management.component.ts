@@ -318,7 +318,7 @@ export class PaymentManagementComponent implements OnInit {
       'failed': 'error',
       'refunded': 'money_off'
     };
-    return icons[status] || 'help';
+    return icons[status] || 'payment';
   }
 
   exportTransactions() {

@@ -327,7 +327,7 @@ export class UserManagementComponent implements OnInit {
       'inactive': 'pause_circle',
       'suspended': 'block'
     };
-    return icons[status] || 'help';
+    return icons[status] || 'person';
   }
 
   openAddUserDialog() {

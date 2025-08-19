@@ -296,7 +296,7 @@ export class AnnouncementsComponent implements OnInit {
       'scheduled': 'schedule',
       'draft': 'edit'
     };
-    return icons[status] || 'help';
+    return icons[status] || 'campaign';
   }
 
   createAnnouncement() {

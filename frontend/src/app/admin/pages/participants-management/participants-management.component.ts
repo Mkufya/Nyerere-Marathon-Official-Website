@@ -330,7 +330,7 @@ export class ParticipantsManagementComponent implements OnInit {
       'pending': 'schedule',
       'failed': 'error'
     };
-    return icons[status] || 'help';
+    return icons[status] || 'payment';
   }
 
   openAddParticipantDialog() {
