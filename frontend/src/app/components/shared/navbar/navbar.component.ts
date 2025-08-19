@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Check if user is logged in and get current user
-    this.isLoggedIn = this.authService.isAuthenticated();
+    this.updateAuthState();
     
     // Subscribe to user changes
     this.subscription.add(
@@ -34,6 +34,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
           this.currentUser = user;
           this.userName = user?.firstName || user?.name || '';
           this.isLoggedIn = !!user;
+          console.log('🔐 Navbar: User state updated:', { isLoggedIn: this.isLoggedIn, userName: this.userName });
         },
         (error: any) => {
           console.error('Error getting current user:', error);
@@ -45,14 +46,32 @@ export class NavbarComponent implements OnInit, OnDestroy {
     );
   }
 
+  private updateAuthState(): void {
+    this.isLoggedIn = this.authService.isUserAuthenticated();
+    if (this.isLoggedIn) {
+      this.currentUser = this.authService.currentUserSubject.value;
+      this.userName = this.currentUser?.firstName || this.currentUser?.name || '';
+    }
+    console.log('🔐 Navbar: Initial auth state:', { isLoggedIn: this.isLoggedIn, userName: this.userName });
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
   logout(): void {
+    console.log('🔐 Navbar: Logging out user');
     this.authService.logout();
+    this.currentUser = null;
+    this.userName = '';
+    this.isLoggedIn = false;
     this.router.navigate(['/']);
     this.closeMobileMenu();
+  }
+
+  refreshUserData(): void {
+    console.log('🔐 Navbar: Refreshing user data');
+    this.updateAuthState();
   }
 
   toggleMobileMenu(): void {

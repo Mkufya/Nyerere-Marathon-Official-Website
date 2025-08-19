@@ -233,17 +233,26 @@ export class RaceDetailComponent implements OnInit {
 
   private loadRaceDetails(): void {
     const raceId = this.route.snapshot.paramMap.get('id');
+    console.log('🔍 Loading race details for ID:', raceId);
+    
     if (raceId) {
-      this.raceService.getRace(raceId).subscribe({
+      this.raceService.getRaceById(raceId).subscribe({
         next: (race) => {
+          console.log('✅ Race loaded successfully:', race);
           this.race = race;
           this.loading = false;
         },
         error: (error) => {
-          console.error('Error loading race:', error);
+          console.error('❌ Error loading race:', error);
           this.loading = false;
+          // Handle the error gracefully
+          this.race = null;
         }
       });
+    } else {
+      console.error('❌ No race ID provided');
+      this.loading = false;
+      this.race = null;
     }
   }
 

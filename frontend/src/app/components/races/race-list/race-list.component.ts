@@ -429,7 +429,7 @@ export interface RaceType {
 export class RaceListComponent implements OnInit {
   raceTypes: RaceType[] = [
     {
-      id: '5km',
+      id: '4',
       name: '5KM Fun Run',
       distance: '5 Kilometers',
       description: 'Perfect for beginners and families! A supportive and energetic atmosphere for all fitness levels.',
@@ -439,12 +439,12 @@ export class RaceListComponent implements OnInit {
       startTime: '8:00 AM',
       icon: 'directions_walk',
       gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      route: '/race/5km',
+      route: '/race/4',
       participants: 1247,
       maxParticipants: 2000
     },
     {
-      id: '10km',
+      id: '3',
       name: '10KM Challenge',
       distance: '10 Kilometers',
       description: 'Step up your game! Perfect for recreational runners looking to push their limits.',
@@ -454,12 +454,12 @@ export class RaceListComponent implements OnInit {
       startTime: '7:30 AM',
       icon: 'directions_run',
       gradient: 'linear-gradient(135deg, #ff8c00 0%, #ff4500 100%)',
-      route: '/race/10km',
+      route: '/race/3',
       participants: 856,
       maxParticipants: 1500
     },
     {
-      id: '21km',
+      id: '2',
       name: '21KM Half Marathon',
       distance: '21.1 Kilometers',
       description: 'The ultimate endurance challenge! Attracts serious runners from across East Africa.',
@@ -469,12 +469,12 @@ export class RaceListComponent implements OnInit {
       startTime: '6:30 AM',
       icon: 'fitness_center',
       gradient: 'linear-gradient(135deg, #28a745 0%, #20c997 100%)',
-      route: '/race/21km',
+      route: '/race/2',
       participants: 423,
       maxParticipants: 1000
     },
     {
-      id: '42km',
+      id: '1',
       name: '42KM Full Marathon',
       distance: '42.2 Kilometers',
       description: 'The ultimate test of endurance! Elite athletes from around the world compete in this prestigious event.',
@@ -484,7 +484,7 @@ export class RaceListComponent implements OnInit {
       startTime: '6:00 AM',
       icon: 'emoji_events',
       gradient: 'linear-gradient(135deg, #dc3545 0%, #fd7e14 100%)',
-      route: '/race/42km',
+      route: '/race/1',
       participants: 156,
       maxParticipants: 500
     }
@@ -497,7 +497,8 @@ export class RaceListComponent implements OnInit {
   }
 
   selectRace(race: RaceType): void {
-    this.router.navigate(['/register-race', race.id]);
+    console.log('🏃 Navigating to race details:', race.id);
+    this.router.navigate(['/race', race.id]);
   }
 
   getRegistrationPercentage(race: RaceType): number {

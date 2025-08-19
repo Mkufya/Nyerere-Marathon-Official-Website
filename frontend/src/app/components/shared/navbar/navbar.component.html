@@ -83,7 +83,7 @@
       </ng-template>
 
       <!-- Register Button -->
-      <button mat-raised-button color="accent" routerLink="/register" class="register-btn">
+      <button mat-raised-button color="accent" routerLink="/register" class="register-btn" *ngIf="!isLoggedIn">
         <mat-icon>person_add</mat-icon>
         REGISTER
       </button>
