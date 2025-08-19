@@ -18,7 +18,7 @@ interface MenuItem {
       <div class="sidebar-header">
         <div class="logo-container">
           <img 
-            src="/assets/images/logo/Mwl Marathon logo.png" 
+            src="/assets/images/logo/Mwl Marathon logo 01_01.png" 
             alt="Marathon Logo" 
             class="logo"
             [class.logo-small]="collapsed">

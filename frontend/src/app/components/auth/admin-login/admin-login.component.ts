@@ -11,7 +11,7 @@ import { AuthService } from '../../../services/auth.service';
       <div class="hero-section">
         <div class="hero-content">
           <div class="logo-container">
-            <img src="/assets/images/logo/Mwl Marathon logo.png" alt="Marathon Logo" class="hero-logo">
+            <img src="/assets/images/logo/Mwl Marathon logo 01_01.png" alt="Marathon Logo" class="hero-logo">
             <h1 class="hero-title">Mwalimu Nyerere</h1>
             <h2 class="hero-subtitle">International Marathon 2025</h2>
           </div>
