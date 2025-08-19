@@ -73,7 +73,7 @@ export class RaceService {
         distanceKm: 42,
         description: 'Full marathon through the heart of Tanzania',
         startTime: '2025-04-26T06:00:00Z',
-        registrationFee: 50000,
+        registrationFee: 30000,
         currency: 'TSh',
         maxParticipants: 1000,
         currentParticipants: 0,
@@ -88,7 +88,7 @@ export class RaceService {
         distanceKm: 21,
         description: 'Half marathon for intermediate runners',
         startTime: '2025-04-26T07:00:00Z',
-        registrationFee: 35000,
+        registrationFee: 30000,
         currency: 'TSh',
         maxParticipants: 1500,
         currentParticipants: 0,
@@ -103,7 +103,7 @@ export class RaceService {
         distanceKm: 10,
         description: '10K run for beginners and families',
         startTime: '2025-04-26T08:00:00Z',
-        registrationFee: 25000,
+        registrationFee: 30000,
         currency: 'TSh',
         maxParticipants: 2000,
         currentParticipants: 0,
@@ -118,7 +118,7 @@ export class RaceService {
         distanceKm: 5,
         description: '5K fun run for everyone',
         startTime: '2025-04-26T09:00:00Z',
-        registrationFee: 15000,
+        registrationFee: 30000,
         currency: 'TSh',
         maxParticipants: 3000,
         currentParticipants: 0,
@@ -131,9 +131,7 @@ export class RaceService {
     return of(mockRaces).pipe(delay(500));
     
     // Uncomment when backend API is ready:
-    // return this.http.get<any[]>(`${this.apiUrl}/races`).pipe(
-    //   map(races => races.map(race => this.mapRaceData(race)))
-    // );
+    // return this.http.get<Race[]>(`${this.apiUrl}/races`);
   }
 
   getRace(id: string): Observable<Race> {
@@ -146,7 +144,7 @@ export class RaceService {
         distanceKm: 42,
         description: 'Full marathon through the heart of Tanzania',
         startTime: '2025-04-26T06:00:00Z',
-        registrationFee: 50000,
+        registrationFee: 30000,
         currency: 'TSh',
         maxParticipants: 1000,
         currentParticipants: 0,
@@ -161,7 +159,7 @@ export class RaceService {
         distanceKm: 21,
         description: 'Half marathon for intermediate runners',
         startTime: '2025-04-26T07:00:00Z',
-        registrationFee: 35000,
+        registrationFee: 30000,
         currency: 'TSh',
         maxParticipants: 1500,
         currentParticipants: 0,
@@ -176,7 +174,7 @@ export class RaceService {
         distanceKm: 10,
         description: '10K run for beginners and families',
         startTime: '2025-04-26T08:00:00Z',
-        registrationFee: 25000,
+        registrationFee: 30000,
         currency: 'TSh',
         maxParticipants: 2000,
         currentParticipants: 0,
@@ -191,7 +189,7 @@ export class RaceService {
         distanceKm: 5,
         description: '5K fun run for everyone',
         startTime: '2025-04-26T09:00:00Z',
-        registrationFee: 15000,
+        registrationFee: 30000,
         currency: 'TSh',
         maxParticipants: 3000,
         currentParticipants: 0,

@@ -159,7 +159,7 @@ router.post('/register', authenticateToken, async (req, res) => {
           name: '5K Fun Run',
           distance: '5K',
           startTime: '2025-12-15T06:00:00Z',
-          registrationFee: 15000,
+          registrationFee: 30000,
           maxParticipants: 500,
           currentParticipants: 0,
           registrationOpen: true,
@@ -172,7 +172,7 @@ router.post('/register', authenticateToken, async (req, res) => {
           name: '10K Challenge',
           distance: '10K',
           startTime: '2025-12-15T06:30:00Z',
-          registrationFee: 25000,
+          registrationFee: 30000,
           maxParticipants: 400,
           currentParticipants: 0,
           registrationOpen: true,
@@ -185,7 +185,7 @@ router.post('/register', authenticateToken, async (req, res) => {
           name: '21K Half Marathon',
           distance: 'Half Marathon',
           startTime: '2025-12-15T07:00:00Z',
-          registrationFee: 35000,
+          registrationFee: 30000,
           maxParticipants: 300,
           currentParticipants: 0,
           registrationOpen: true,
@@ -198,12 +198,12 @@ router.post('/register', authenticateToken, async (req, res) => {
           name: '42K Full Marathon',
           distance: 'Full Marathon',
           startTime: '2025-12-15T07:30:00Z',
-          registrationFee: 50000,
+          registrationFee: 30000,
           maxParticipants: 200,
           currentParticipants: 0,
           registrationOpen: true,
           registrationDeadline: '2025-12-10T23:59:59Z',
-          description: 'The ultimate marathon challenge - 42.195 kilometers',
+          description: 'The ultimate marathon distance for elite runners',
           isActive: true
         }
       ];
@@ -330,10 +330,10 @@ function handleTempRegistrations(req, res) {
 
   // Enhance with race details from temporary race data
   const tempRaces = [
-    { id: 'temp_race_5k', name: '5K Fun Run', distance: '5K', startTime: '2025-12-15T06:00:00Z', registrationFee: 15000 },
-    { id: 'temp_race_10k', name: '10K Challenge', distance: '10K', startTime: '2025-12-15T06:30:00Z', registrationFee: 25000 },
-    { id: 'temp_race_21k', name: '21K Half Marathon', distance: 'Half Marathon', startTime: '2025-12-15T07:00:00Z', registrationFee: 35000 },
-    { id: 'temp_race_42k', name: '42K Full Marathon', distance: 'Full Marathon', startTime: '2025-12-15T07:30:00Z', registrationFee: 50000 }
+    { id: 'temp_race_5k', name: '5K Fun Run', distance: '5K', startTime: '2025-12-15T06:00:00Z', registrationFee: 30000 },
+    { id: 'temp_race_10k', name: '10K Challenge', distance: '10K', startTime: '2025-12-15T06:30:00Z', registrationFee: 30000 },
+    { id: 'temp_race_21k', name: '21K Half Marathon', distance: 'Half Marathon', startTime: '2025-12-15T07:00:00Z', registrationFee: 30000 },
+    { id: 'temp_race_42k', name: '42K Full Marathon', distance: 'Full Marathon', startTime: '2025-12-15T07:30:00Z', registrationFee: 30000 }
   ];
   
   const enhancedRegistrations = userRegistrations.map((reg) => {
@@ -388,10 +388,10 @@ router.get('/registration/:id', authenticateToken, async (req, res) => {
 
       // Enhance with race details from temporary race data
       const tempRaces = [
-        { id: 'temp_race_5k', name: '5K Fun Run', distance: '5K', startTime: '2025-04-26T06:00:00Z', registrationFee: 15000 },
-        { id: 'temp_race_10k', name: '10K Challenge', distance: '10K', startTime: '2025-04-26T06:30:00Z', registrationFee: 25000 },
-        { id: 'temp_race_21k', name: '21K Half Marathon', distance: 'Half Marathon', startTime: '2025-04-26T07:00:00Z', registrationFee: 35000 },
-        { id: 'temp_race_42k', name: '42K Full Marathon', distance: 'Full Marathon', startTime: '2025-04-26T07:30:00Z', registrationFee: 50000 }
+        { id: 'temp_race_5k', name: '5K Fun Run', distance: '5K', startTime: '2025-04-26T06:00:00Z', registrationFee: 30000 },
+        { id: 'temp_race_10k', name: '10K Challenge', distance: '10K', startTime: '2025-04-26T06:30:00Z', registrationFee: 30000 },
+        { id: 'temp_race_21k', name: '21K Half Marathon', distance: 'Half Marathon', startTime: '2025-04-26T07:00:00Z', registrationFee: 30000 },
+        { id: 'temp_race_42k', name: '42K Full Marathon', distance: 'Full Marathon', startTime: '2025-04-26T07:30:00Z', registrationFee: 30000 }
       ];
       
       const race = tempRaces.find(r => r.id === registration.race);

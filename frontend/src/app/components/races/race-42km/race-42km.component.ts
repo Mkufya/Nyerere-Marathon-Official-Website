@@ -14,7 +14,7 @@ export class Race42kmComponent implements OnInit {
     description: 'The ultimate test of human endurance! Our Full Marathon is the crown jewel of the Nyerere Marathon series. This IAAF-certified course attracts elite athletes from around the world and offers qualifying opportunities for international marathons. Only the most dedicated and trained athletes should attempt this legendary distance.',
     startTime: '6:00 AM',
     location: 'Julius Nyerere International Convention Centre',
-    registrationFee: '$60 USD / 140,000 TZS',
+    registrationFee: '$60 USD / 30,000 TZS',
     cutoffTime: '6 hours',
     ageGroups: [
       { category: 'Elite Men', ageRange: '18-39 years', requirements: 'Sub 2:20 qualifying time required' },

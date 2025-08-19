@@ -145,6 +145,7 @@ export class LoginComponent implements OnInit {
       const { email, password } = this.loginForm.value;
       
       console.log('🔍 Login attempt for email:', email);
+      console.log('🌐 API URL:', environment.apiUrl);
       
       this.authService.login(email, password).subscribe({
         next: (response) => {
@@ -161,6 +162,12 @@ export class LoginComponent implements OnInit {
         },
         error: (error) => {
           console.error('❌ Login failed:', error);
+          console.error('❌ Error details:', {
+            status: error.status,
+            statusText: error.statusText,
+            message: error.message,
+            error: error.error
+          });
           this.loading = false;
           const message = error.error?.message || 'Login failed. Please try again.';
           this.snackBar.open(message, 'Close', { duration: 5000 });
@@ -168,6 +175,16 @@ export class LoginComponent implements OnInit {
       });
     } else {
       console.log('❌ Login form is invalid:', this.loginForm.errors);
+      console.log('❌ Form values:', this.loginForm.value);
+      console.log('❌ Form status:', this.loginForm.status);
+      
+      // Show validation errors
+      Object.keys(this.loginForm.controls).forEach(key => {
+        const control = this.loginForm.get(key);
+        if (control?.invalid) {
+          console.log(`❌ ${key} errors:`, control.errors);
+        }
+      });
     }
   }
 
@@ -176,7 +193,7 @@ export class LoginComponent implements OnInit {
     console.log('🌐 API URL:', environment.apiUrl);
     
     // Test a simple GET request to see if the backend is reachable
-    this.http.get(`${environment.apiUrl}/auth/profile`).subscribe({
+    this.http.get(`${environment.apiUrl}/test`).subscribe({
       next: (response) => {
         console.log('✅ Backend connection successful:', response);
         this.snackBar.open('Backend connection successful!', 'Close', { duration: 3000 });

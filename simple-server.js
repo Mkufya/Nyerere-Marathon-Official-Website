@@ -9,48 +9,60 @@ app.use(cors());
 app.use(express.json());
 
 // Mock races data
-const mockRaces = [
+const races = [
   {
-    _id: '1',
+    id: '5k',
     name: '5K Fun Run',
     distance: '5K',
-    distanceKm: 5,
-    description: 'Perfect for beginners and families',
-    registrationFee: 15000,
-    isActive: true
+    startTime: '2025-04-26T06:00:00Z',
+    registrationFee: 30000,
+    maxParticipants: 500,
+    currentParticipants: 0,
+    registrationOpen: true,
+    registrationDeadline: '2025-04-20T23:59:59Z',
+    description: 'A fun 5K run perfect for beginners and families'
   },
   {
-    _id: '2',
-    name: '10K Challenge', 
+    id: '10k',
+    name: '10K Challenge',
     distance: '10K',
-    distanceKm: 10,
-    description: 'City challenge route',
-    registrationFee: 25000,
-    isActive: true
+    startTime: '2025-04-26T06:30:00Z',
+    registrationFee: 30000,
+    maxParticipants: 400,
+    currentParticipants: 0,
+    registrationOpen: true,
+    registrationDeadline: '2025-04-20T23:59:59Z',
+    description: 'A challenging 10K race for intermediate runners'
   },
   {
-    _id: '3',
-    name: 'Half Marathon',
-    distance: 'Half Marathon', 
-    distanceKm: 21.1,
-    description: 'The classic half marathon',
-    registrationFee: 35000,
-    isActive: true
+    id: '21k',
+    name: '21K Half Marathon',
+    distance: 'Half Marathon',
+    startTime: '2025-04-26T07:00:00Z',
+    registrationFee: 30000,
+    maxParticipants: 300,
+    currentParticipants: 0,
+    registrationOpen: true,
+    registrationDeadline: '2025-04-20T23:59:59Z',
+    description: 'The classic half marathon distance for serious runners'
   },
   {
-    _id: '4',
-    name: 'Full Marathon',
+    id: '42k',
+    name: '42K Full Marathon',
     distance: 'Full Marathon',
-    distanceKm: 42.2,
-    description: 'The ultimate challenge',
-    registrationFee: 50000,
-    isActive: true
+    startTime: '2025-04-26T07:30:00Z',
+    registrationFee: 30000,
+    maxParticipants: 200,
+    currentParticipants: 0,
+    registrationOpen: true,
+    registrationDeadline: '2025-04-20T23:59:59Z',
+    description: 'The ultimate marathon distance for elite runners'
   }
 ];
 
 // Routes
 app.get('/api/races', (req, res) => {
-  res.json(mockRaces);
+  res.json(races);
 });
 
 app.get('/api/races/:identifier', (req, res) => {
@@ -63,10 +75,10 @@ app.get('/api/races/:identifier', (req, res) => {
     '42km': 'Full Marathon'
   };
   
-  let race = mockRaces.find(r => r._id === identifier);
+  let race = races.find(r => r.id === identifier);
   
   if (!race && distanceMap[identifier.toLowerCase()]) {
-    race = mockRaces.find(r => r.distance === distanceMap[identifier.toLowerCase()]);
+    race = races.find(r => r.distance === distanceMap[identifier.toLowerCase()]);
   }
   
   if (!race) {

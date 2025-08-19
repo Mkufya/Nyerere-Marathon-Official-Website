@@ -38,7 +38,7 @@ export class Race5kmComponent implements OnInit {
     description: 'Perfect for beginners and families! Our 5KM Fun Run is designed to encourage participation from all fitness levels. Whether you\'re just starting your running journey or looking for a light warm-up, this race offers a supportive and energetic atmosphere.',
     startTime: '8:00 AM',
     location: 'Coco Beach, Dar es Salaam',
-    registrationFee: '$15 USD / 35,000 TZS',
+    registrationFee: '$15 USD / 30,000 TZS',
     cutoffTime: '60 minutes',
     ageGroups: [
       { category: 'Youth (Under 18)', ageRange: '10-17 years', requirements: 'Parental consent required' },

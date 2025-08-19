@@ -14,7 +14,7 @@ export class Race21kmComponent implements OnInit {
     description: 'Take on the ultimate endurance challenge with our Half Marathon! This prestigious race attracts serious runners from across East Africa. Experience the full marathon atmosphere while tackling a distance that demands respect, training, and determination.',
     startTime: '6:30 AM',
     location: 'Julius Nyerere International Convention Centre',
-    registrationFee: '$40 USD / 95,000 TZS',
+    registrationFee: '$40 USD / 30,000 TZS',
     cutoffTime: '2 hours 30 minutes',
     ageGroups: [
       { category: 'Elite (18-34)', ageRange: '18-34 years', requirements: 'Sub 1:30 qualifying time required' },

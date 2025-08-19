@@ -11,10 +11,10 @@ export class Race10kmComponent implements OnInit {
   raceDetails: RaceDetails = {
     name: '10KM Challenge',
     distance: '10 Kilometers',
-    description: 'Step up your game with our 10KM Challenge! This race is perfect for recreational runners looking to push their limits. Experience the thrill of competitive racing while enjoying the scenic coastal route of Dar es Salaam.',
+    description: 'Step up your game with our 10KM Challenge! This race is perfect for recreational runners looking to push their limits and experience the thrill of competitive running. Whether you\'re training for longer distances or just want to challenge yourself, this event offers the perfect balance of distance and achievement.',
     startTime: '7:30 AM',
-    location: 'Msimbazi Street to Coco Beach',
-    registrationFee: '$25 USD / 60,000 TZS',
+    location: 'Coco Beach, Dar es Salaam',
+    registrationFee: '$25 USD / 30,000 TZS',
     cutoffTime: '90 minutes',
     ageGroups: [
       { category: 'Youth (16-17)', ageRange: '16-17 years', requirements: 'Parental consent and basic fitness level' },

@@ -1,56 +1,50 @@
 {
   "payments": [
     {
-      "id": 1,
-      "participantId": 1,
+      "id": "1",
       "participantName": "John Doe",
-      "amount": 50000,
+      "raceCategory": "Full Marathon",
+      "amount": 30000,
       "currency": "TZS",
       "paymentMethod": "M-Pesa",
       "status": "completed",
-      "transactionId": "MPESA123456789",
-      "paymentDate": "2024-01-15T11:30:00Z",
-      "category": "42km"
+      "date": "2025-01-15T10:30:00Z",
+      "transactionId": "MPESA123456"
     },
     {
-      "id": 2,
-      "participantId": 2,
+      "id": "2",
       "participantName": "Jane Smith",
-      "amount": 35000,
+      "raceCategory": "Half Marathon",
+      "amount": 30000,
       "currency": "TZS",
       "paymentMethod": "Airtel Money",
-      "status": "pending",
-      "transactionId": "AIRTEL987654321",
-      "paymentDate": "2024-01-16T15:20:00Z",
-      "category": "21km"
+      "status": "completed",
+      "date": "2025-01-16T14:20:00Z",
+      "transactionId": "AIRTEL789012"
     },
     {
-      "id": 3,
-      "participantId": 3,
+      "id": "3",
       "participantName": "Mike Johnson",
-      "amount": 25000,
+      "raceCategory": "10km Race",
+      "amount": 30000,
       "currency": "TZS",
       "paymentMethod": "Bank Transfer",
-      "status": "completed",
-      "transactionId": "BANK456789123",
-      "paymentDate": "2024-01-17T10:15:00Z",
-      "category": "10km"
+      "status": "pending",
+      "date": "2025-01-17T09:15:00Z",
+      "transactionId": "BANK345678"
     },
     {
-      "id": 4,
-      "participantId": 4,
+      "id": "4",
       "participantName": "Sarah Wilson",
-      "amount": 15000,
+      "raceCategory": "5km Fun Run",
+      "amount": 30000,
       "currency": "TZS",
-      "paymentMethod": "M-Pesa",
-      "status": "failed",
-      "transactionId": "MPESA789123456",
-      "paymentDate": "2024-01-18T17:45:00Z",
-      "category": "5km"
+      "paymentMethod": "Tigo Pesa",
+      "status": "completed",
+      "date": "2025-01-18T16:45:00Z",
+      "transactionId": "TIGO901234"
     }
   ],
-  "totalRevenue": 125000,
-  "completedPayments": 892,
-  "pendingPayments": 298,
-  "failedPayments": 57
+  "totalRevenue": 120000,
+  "currency": "TZS"
 } 

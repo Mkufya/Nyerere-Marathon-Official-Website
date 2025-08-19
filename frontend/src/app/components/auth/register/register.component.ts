@@ -70,7 +70,9 @@ export class RegisterComponent implements OnInit {
       // Convert date to ISO string and set role to participant
       const registerData: RegisterData = {
         ...formData,
-        dateOfBirth: formData.dateOfBirth.toISOString(),
+        dateOfBirth: formData.dateOfBirth instanceof Date 
+          ? formData.dateOfBirth.toISOString().split('T')[0] // Format as YYYY-MM-DD
+          : formData.dateOfBirth,
         role: 'participant'  // Always set role to participant for public registration
       };
       
@@ -107,6 +109,14 @@ export class RegisterComponent implements OnInit {
       console.log('❌ Registration form is invalid:', this.registerForm.errors);
       console.log('❌ Form values:', this.registerForm.value);
       console.log('❌ Form status:', this.registerForm.status);
+      
+      // Show validation errors
+      Object.keys(this.registerForm.controls).forEach(key => {
+        const control = this.registerForm.get(key);
+        if (control?.invalid) {
+          console.log(`❌ ${key} errors:`, control.errors);
+        }
+      });
     }
   }
 
@@ -115,7 +125,7 @@ export class RegisterComponent implements OnInit {
     console.log('🌐 API URL:', environment.apiUrl);
     
     // Test a simple GET request to see if the backend is reachable
-    this.http.get(`${environment.apiUrl}/auth/profile`).subscribe({
+    this.http.get(`${environment.apiUrl}/test`).subscribe({
       next: (response) => {
         console.log('✅ Backend connection successful:', response);
         this.snackBar.open('Backend connection successful!', 'Close', { duration: 3000 });
