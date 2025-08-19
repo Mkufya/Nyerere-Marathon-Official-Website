@@ -236,13 +236,13 @@ export class RaceDetailComponent implements OnInit {
     console.log('🔍 Loading race details for ID:', raceId);
     
     if (raceId) {
-      this.raceService.getRaceById(raceId).subscribe({
-        next: (race) => {
+      this.raceService.getRace(raceId).subscribe({
+        next: (race: Race) => {
           console.log('✅ Race loaded successfully:', race);
           this.race = race;
           this.loading = false;
         },
-        error: (error) => {
+        error: (error: any) => {
           console.error('❌ Error loading race:', error);
           this.loading = false;
           // Handle the error gracefully

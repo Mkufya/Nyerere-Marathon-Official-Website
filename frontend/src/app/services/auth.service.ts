@@ -148,6 +148,10 @@ export class AuthService {
     return this.http.get<User>(`${this.apiUrl}/auth/profile`);
   }
 
+  getCurrentUserValue(): User | null {
+    return this.currentUserSubject.value;
+  }
+
   private loadCurrentUser(): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/auth/profile`);
   }

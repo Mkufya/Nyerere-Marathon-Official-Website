@@ -49,7 +49,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private updateAuthState(): void {
     this.isLoggedIn = this.authService.isUserAuthenticated();
     if (this.isLoggedIn) {
-      this.currentUser = this.authService.currentUserSubject.value;
+      this.currentUser = this.authService.getCurrentUserValue();
       this.userName = this.currentUser?.firstName || this.currentUser?.name || '';
     }
     console.log('🔐 Navbar: Initial auth state:', { isLoggedIn: this.isLoggedIn, userName: this.userName });
