@@ -129,13 +129,25 @@ export class LoginComponent implements OnInit {
     // Get return url from route parameters or default to dashboard
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
     
-    // Redirect based on role if already logged in
-    if (this.authService.isAuthenticated()) {
+    // Clear any stale authentication data to ensure users can login
+    this.clearStaleAuth();
+    
+    // Only redirect if user is actually authenticated (has valid token and user data)
+    if (this.authService.isUserAuthenticated()) {
       if (this.returnUrl === '/dashboard') {
           this.router.navigate(['/dashboard']);
       } else {
         this.router.navigate([this.returnUrl]);
       }
+    }
+  }
+
+  clearStaleAuth(): void {
+    // Clear any stale tokens that might be causing issues
+    const token = this.authService.getToken();
+    if (token && this.authService.isTokenExpired(token)) {
+      console.log('🧹 Clearing expired token...');
+      this.authService.logout();
     }
   }
 

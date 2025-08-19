@@ -185,6 +185,19 @@ export class AuthService {
     return isAuth;
   }
 
+  isUserAuthenticated(): boolean {
+    // Check if user has both a valid token and current user data
+    const token = this.getToken();
+    const hasValidToken = token !== null && !this.isTokenExpired(token);
+    const hasUserData = this.currentUserSubject.value !== null;
+    
+    console.log('🔐 AuthService: Checking user authentication...');
+    console.log('🔐 AuthService: hasValidToken:', hasValidToken);
+    console.log('🔐 AuthService: hasUserData:', hasUserData);
+    
+    return hasValidToken && hasUserData;
+  }
+
   hasRole(role: string): boolean {
     const user = this.currentUserSubject.value;
     if (user) {
@@ -201,7 +214,7 @@ export class AuthService {
     return false;
   }
 
-  private isTokenExpired(token: string): boolean {
+  isTokenExpired(token: string): boolean {
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
       const currentTime = Math.floor(Date.now() / 1000);

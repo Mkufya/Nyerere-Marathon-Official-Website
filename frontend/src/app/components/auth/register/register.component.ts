@@ -41,12 +41,31 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Redirect based on role if already logged in
-    if (this.authService.isAuthenticated()) {
+    // Clear any stale authentication data to ensure users can register
+    this.clearStaleAuth();
+    
+    // Only redirect if user is actually authenticated (has valid token and user data)
+    if (this.authService.isUserAuthenticated()) {
         this.router.navigate(['/dashboard']);
     }
     
     this.refreshDebugInfo();
+  }
+
+  clearStaleAuth(): void {
+    // Clear any stale tokens that might be causing issues
+    const token = this.authService.getToken();
+    if (token && this.authService.isTokenExpired(token)) {
+      console.log('🧹 Clearing expired token...');
+      this.authService.logout();
+    }
+  }
+
+  clearAllAuth(): void {
+    console.log('🧹 Clearing all authentication data...');
+    this.authService.logout();
+    this.refreshDebugInfo();
+    this.snackBar.open('All authentication data cleared!', 'Close', { duration: 3000 });
   }
 
   refreshDebugInfo(): void {
