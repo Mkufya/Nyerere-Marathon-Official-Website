@@ -85,6 +85,7 @@ import { MediaGalleryComponent } from './components/news/media-gallery/media-gal
 import { InterviewsComponent } from './components/news/interviews/interviews.component';
 import { EventCoverageComponent } from './components/news/event-coverage/event-coverage.component';
 import { AdminLoginComponent } from './components/auth/admin-login/admin-login.component';
+import { SafePipe } from './shared/pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { AdminLoginComponent } from './components/auth/admin-login/admin-login.c
     MediaGalleryComponent,
     InterviewsComponent,
     EventCoverageComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { ScrollAnimationService } from '../../services/scroll-animation.service';
 
 export interface PrizeMoney {
   category: string;
@@ -12,13 +13,24 @@ export interface PrizeMoney {
   templateUrl: './race-info.component.html',
   styleUrls: ['./race-info.component.scss']
 })
-export class RaceInfoComponent implements OnInit {
+export class RaceInfoComponent implements OnInit, AfterViewInit, OnDestroy {
   prizeMoneyData: PrizeMoney[] = [];
 
-  constructor() { }
+  constructor(private scrollAnimationService: ScrollAnimationService) { }
 
   ngOnInit(): void {
     this.loadPrizeMoneyData();
+  }
+
+  ngAfterViewInit(): void {
+    // Initialize scroll animations after view is rendered
+    setTimeout(() => {
+      this.scrollAnimationService.initScrollAnimations();
+    }, 100);
+  }
+
+  ngOnDestroy(): void {
+    this.scrollAnimationService.destroy();
   }
 
   private loadPrizeMoneyData(): void {

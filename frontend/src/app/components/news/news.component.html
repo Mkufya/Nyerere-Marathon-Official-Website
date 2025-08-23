@@ -12,7 +12,7 @@
       <!-- Carousel Items -->
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="https://via.placeholder.com/1920x600/1976d2/ffffff?text=Marathon+Highlights+2024" class="d-block w-100" alt="Marathon Highlights 2024">
+          <img src="assets/images/news/Slide1.jpg" class="d-block w-100" alt="Nyerere International Marathon 2025">
           <div class="carousel-overlay">
             <div class="carousel-content">
               <h2 class="carousel-title">Nyerere International Marathon 2025 – 11 Oct 2025</h2>
@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img src="https://via.placeholder.com/1920x600/2e7d32/ffffff?text=Elite+Athletes+2025" class="d-block w-100" alt="Elite Athletes 2025">
+          <img src="assets/images/news/Slide2.jpg" class="d-block w-100" alt="International Elite Athletes">
           <div class="carousel-overlay">
             <div class="carousel-content">
               <h2 class="carousel-title">International Elite Athletes Confirmed</h2>
@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img src="https://via.placeholder.com/1920x600/f57c00/ffffff?text=Community+Celebration" class="d-block w-100" alt="Community Celebration">
+          <img src="assets/images/news/Slide3.jpg" class="d-block w-100" alt="Community Spirit & Celebration">
           <div class="carousel-overlay">
             <div class="carousel-content">
               <h2 class="carousel-title">Community Spirit & Celebration</h2>
@@ -52,6 +52,72 @@
     </div>
   </section>
 
+  <!-- Live Streaming Section -->
+  <section class="live-streaming-section">
+    <div class="container">
+      <div class="live-streaming-header">
+        <h2 class="section-title">
+          <mat-icon class="live-icon">live_tv</mat-icon>
+          Watch Marathon Live 
+        </h2>
+        <div class="live-status" [class.live]="isLive">
+          <div class="status-indicator"></div>
+          <span class="status-text">{{ isLive ? 'LIVE NOW' : 'Stream Offline' }}</span>
+        </div>
+      </div>
+      
+      <div class="live-streaming-content">
+        <div class="stream-container">
+          <iframe 
+            [src]="liveStreamUrl | safe" 
+            frameborder="0" 
+            allowfullscreen
+            allow="autoplay; fullscreen"
+            style="background: transparent;"
+            class="live-stream-iframe">
+          </iframe>
+        </div>
+        
+        <div class="stream-info">
+          <div class="stream-details">
+            <h3>Nyerere International Marathon 2025</h3>
+            <p class="stream-description">
+              Watch the live coverage of the Mwl.Nyerere International Marathon 2025. 
+              Experience the excitement, energy, and community spirit of Tanzania's premier marathon event.
+            </p>
+            <div class="stream-meta">
+              <div class="meta-item">
+                <mat-icon>schedule</mat-icon>
+                <span>Event Date: October 11, 2025</span>
+              </div>
+              <div class="meta-item">
+                <mat-icon>location_on</mat-icon>
+                <span>Mbeya, Tanzania</span>
+              </div>
+              <div class="meta-item">
+                <mat-icon>people</mat-icon>
+                <span>Multiple Race Categories</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="stream-actions">
+            <button mat-raised-button color="primary" class="share-btn" (click)="shareStream()">
+              <mat-icon>share</mat-icon>
+              Share Stream
+            </button>
+            <button mat-stroked-button class="fullscreen-btn" (click)="openFullscreen()">
+              <mat-icon>fullscreen</mat-icon>
+              Fullscreen
+            </button>
+          </div>
+        </div>
+      </div>
+      
+
+    </div>
+  </section>
+
   <!-- Latest News Section -->
   <section class="news-section">
     <div class="container">
@@ -59,7 +125,9 @@
       <div class="row">
         <div class="col-md-6 col-lg-4" *ngFor="let newsItem of newsItems">
           <mat-card class="news-card">
-            <img mat-card-image [src]="newsItem.image" [alt]="newsItem.title">
+            <div class="image-zoom">
+              <img mat-card-image [src]="newsItem.image" [alt]="newsItem.title">
+            </div>
             <mat-card-header>
               <mat-card-title>{{ newsItem.title }}</mat-card-title>
               <mat-card-subtitle>
@@ -87,7 +155,7 @@
       <h2 class="section-title">Photo Gallery</h2>
       <div class="gallery-grid">
         <div 
-          class="gallery-item" 
+          class="gallery-item image-zoom" 
           *ngFor="let image of galleryImages"
           (click)="openImageModal(image)">
           <img [src]="image.src" [alt]="image.alt">
@@ -110,13 +178,18 @@
             <mat-card-header>
               <mat-card-title>
                 <mat-icon class="highlight-icon">videocam</mat-icon>
-                2024 Marathon Highlights
+                Makongoro Nyerere (RC Rukwa) - Atashiriki
               </mat-card-title>
             </mat-card-header>
             <mat-card-content>
-              <div class="video-placeholder">
-                <mat-icon class="play-icon">play_circle_filled</mat-icon>
-                <p>Watch the best moments from the 2024 marathon</p>
+              <div class="video-container">
+                <video 
+                  controls 
+                  class="highlight-video"
+                  poster="assets/images/highlights/makongoro-rukwa-thumbnail.jpg">
+                  <source src="assets/images/highlights/MAKONGORO NYERERE - RUKWA - MARATHON.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </mat-card-content>
           </mat-card>
@@ -127,13 +200,18 @@
             <mat-card-header>
               <mat-card-title>
                 <mat-icon class="highlight-icon">emoji_events</mat-icon>
-                Winner Interviews
+                Jabir Makame (RC Songwe)  - Atashiriki
               </mat-card-title>
             </mat-card-header>
             <mat-card-content>
-              <div class="video-placeholder">
-                <mat-icon class="play-icon">play_circle_filled</mat-icon>
-                <p>Exclusive interviews with marathon winners</p>
+              <div class="video-container">
+                <video 
+                  controls 
+                  class="highlight-video"
+                  poster="assets/images/highlights/jabir-songwe-thumbnail.jpg.jpg">
+                  <source src="assets/images/highlights/JABIR MAKAME - SONGWE  - MARATHON.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </mat-card-content>
           </mat-card>

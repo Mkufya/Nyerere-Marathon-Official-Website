@@ -41,6 +41,9 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Initialize form without showing errors
+    this.registerForm.markAsUntouched();
+    
     // Clear any stale authentication data to ensure users can register
     this.clearStaleAuth();
     
@@ -129,6 +132,9 @@ export class RegisterComponent implements OnInit {
       console.log('❌ Form values:', this.registerForm.value);
       console.log('❌ Form status:', this.registerForm.status);
       
+      // Mark all fields as touched to show validation errors
+      this.markFormGroupTouched();
+      
       // Show validation errors
       Object.keys(this.registerForm.controls).forEach(key => {
         const control = this.registerForm.get(key);
@@ -137,6 +143,18 @@ export class RegisterComponent implements OnInit {
         }
       });
     }
+  }
+
+  private markFormGroupTouched(): void {
+    Object.keys(this.registerForm.controls).forEach(key => {
+      const control = this.registerForm.get(key);
+      control?.markAsTouched();
+    });
+  }
+
+  shouldShowError(fieldName: string): boolean {
+    const control = this.registerForm.get(fieldName);
+    return control ? (control.invalid && control.touched) : false;
   }
 
   testBackendConnection(): void {

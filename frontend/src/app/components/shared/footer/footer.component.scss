@@ -1,12 +1,14 @@
 .footer {
-  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--navy-dark) 100%);
-  color: var(--text-on-navy);
+  background-color: #0474bb;
+  color: #ffffff;
   margin-top: auto;
   
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .footer-content {
@@ -19,11 +21,12 @@
         line-height: 1.6;
         margin-bottom: 20px;
         opacity: 0.9;
-        color: var(--text-on-navy);
+        color: #ffffff;
+        font-size: 1.1rem; // Increased from default
       }
       
       .footer-section-title {
-        font-size: 1.2rem;
+        font-size: 1.4rem; // Increased from 1.2rem
         font-weight: 600;
         margin-bottom: 20px;
         color: var(--primary-yellow);
@@ -31,13 +34,13 @@
         &.main-title {
           display: flex;
           align-items: center;
-          font-size: 1.4rem;
+          font-size: 1.6rem; // Increased from 1.4rem
           font-weight: 700;
-          color: var(--text-on-navy);
+          color: #ffffff;
           
           .footer-logo {
             margin-right: 15px;
-            height: 120px; // Increased logo size
+            height: 140px; // Increased from 120px
             width: auto;
             transition: all 0.3s ease;
             filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
@@ -56,17 +59,18 @@
         margin: 0;
         
         li {
-          margin-bottom: 8px;
+          margin-bottom: 10px; // Increased from 8px
           
           .footer-link {
-            color: var(--text-on-navy);
+            color: #ffffff;
             text-decoration: none;
             opacity: 0.8;
             transition: all 0.3s ease;
+            font-size: 1.05rem; // Increased from default
             
             &:hover {
               opacity: 1;
-              color: var(--primary-soft-blue);
+              color: #60a5fa;
               text-decoration: underline;
               transform: translateX(4px);
             }
@@ -76,53 +80,64 @@
       
       .social-links {
         display: flex;
-        gap: 12px;
+        gap: 15px; // Increased from 12px
         margin-top: 20px;
         
         .social-link {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 44px; // Increased size for better visibility
-          height: 44px;
-          background: var(--primary-soft-blue);
+          width: 56px; // Increased from 48px
+          height: 56px; // Increased from 48px
+          background: rgba(255, 255, 255, 0.1);
+          border: 2px solid rgba(255, 255, 255, 0.2);
           border-radius: 50%;
-          color: #ffffff !important; // Force white color for icons
+          color: #ffffff !important;
           text-decoration: none;
           transition: all 0.3s ease;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); // Added subtle shadow
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
           
           &:hover {
-            background: var(--primary-yellow);
-            color: var(--text-on-yellow) !important;
             transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(250, 228, 24, 0.3);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
           }
           
-          mat-icon,
-          i {
-            font-size: 20px; // Increased icon size for better visibility
-            color: inherit; // Inherit color from parent
+          mat-icon {
+            font-size: 26px; // Increased from 22px
+            color: inherit;
+            width: 26px; // Increased from 22px
+            height: 26px; // Increased from 22px
           }
           
           // Individual social media colors on hover
           &:nth-child(1):hover { // Facebook
             background: #1877f2;
+            border-color: #1877f2;
             color: #ffffff !important;
           }
           
-          &:nth-child(2):hover { // Twitter/X
-            background: #000000;
-            color: #ffffff !important;
-          }
-          
-          &:nth-child(3):hover { // Instagram
+          &:nth-child(2):hover { // Instagram
             background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            border-color: #405de6;
             color: #ffffff !important;
           }
           
-          &:nth-child(4):hover { // YouTube
+          &:nth-child(3):hover { // X (Twitter)
+            background: #000000;
+            border-color: #000000;
+            color: #ffffff !important;
+          }
+          
+          &:nth-child(4):hover { // TikTok
+            background: #000000;
+            border-color: #000000;
+            color: #ffffff !important;
+          }
+          
+          &:nth-child(5):hover { // YouTube
             background: #ff0000;
+            border-color: #ff0000;
             color: #ffffff !important;
           }
         }
@@ -135,15 +150,15 @@
         .contact-item {
           display: flex;
           align-items: center;
-          margin-bottom: 14px;
+          margin-bottom: 16px; // Increased from 14px
           
           .contact-icon {
-            margin-right: 12px;
-            font-size: 20px;
-            color: var(--primary-soft-blue);
-            min-width: 24px;
-            width: 24px;
-            height: 24px;
+            margin-right: 14px; // Increased from 12px
+            font-size: 24px; // Increased from 20px
+            color: #60a5fa;
+            min-width: 28px; // Increased from 24px
+            width: 28px; // Increased from 24px
+            height: 28px; // Increased from 24px
             display: flex;
             align-items: center;
             justify-content: center;
@@ -151,8 +166,8 @@
           
           span {
             opacity: 0.9;
-            color: var(--text-on-navy);
-            font-size: 0.95rem;
+            color: #ffffff;
+            font-size: 1.05rem; // Increased from 0.95rem
             line-height: 1.4;
           }
         }
@@ -164,18 +179,19 @@
         .contact-row {
           display: flex;
           align-items: center;
-          margin-bottom: 12px;
+          margin-bottom: 14px; // Increased from 12px
           
           .contact-icon {
-            margin-right: 12px;
-            font-size: 18px;
-            color: var(--primary-soft-blue);
-            min-width: 24px;
+            margin-right: 14px; // Increased from 12px
+            font-size: 22px; // Increased from 18px
+            color: #60a5fa;
+            min-width: 28px; // Increased from 24px
           }
           
           span {
             opacity: 0.9;
-            color: var(--text-on-navy);
+            color: #ffffff;
+            font-size: 1.05rem; // Increased from default
           }
         }
       }
@@ -183,10 +199,11 @@
       // Newsletter Subscription Styles
       .newsletter-section {
         .newsletter-description {
-          color: var(--text-on-navy);
+          color: #ffffff;
           opacity: 0.9;
           margin-bottom: 20px;
           line-height: 1.5;
+          font-size: 1.1rem; // Increased from default
         }
 
         .subscription-success {
@@ -201,7 +218,7 @@
           animation: slideInUp 0.5s ease;
 
           mat-icon {
-            font-size: 24px;
+            font-size: 28px; // Increased from 24px
           }
         }
 
@@ -229,6 +246,7 @@
 
               .mat-form-field-label {
                 color: rgba(255, 255, 255, 0.8);
+                font-size: 1.05rem; // Increased from default
               }
 
               .mat-focused .mat-form-field-label {
@@ -237,15 +255,17 @@
 
               .mat-form-field-infix input {
                 color: var(--text-on-navy);
+                font-size: 1.05rem; // Increased from default
               }
 
               .mat-form-field-suffix mat-icon {
                 color: var(--primary-soft-blue);
+                font-size: 24px; // Increased from default
               }
 
               .mat-error {
                 color: #ff6b6b;
-                font-size: 0.8rem;
+                font-size: 0.9rem; // Increased from 0.8rem
               }
             }
           }
@@ -254,9 +274,10 @@
             width: 100%;
             background: var(--primary-yellow) !important;
             color: var(--text-on-yellow) !important;
-            padding: 12px 24px;
+            padding: 14px 28px; // Increased from 12px 24px
             border-radius: 25px;
             font-weight: 600;
+            font-size: 1.1rem; // Increased from default
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
@@ -294,8 +315,8 @@
     .footer-copyright {
       margin: 0;
       opacity: 0.8;
-      font-size: 0.9rem;
-      color: var(--text-on-navy);
+      font-size: 1.05rem; // Increased from 0.9rem
+      color: #ffffff;
     }
     
     .footer-bottom-links {
@@ -307,15 +328,15 @@
       margin: 0;
       
       .footer-bottom-link {
-        color: var(--text-on-navy);
+        color: #ffffff;
         text-decoration: none;
         opacity: 0.8;
-        font-size: 0.9rem;
+        font-size: 1.05rem; // Increased from 0.9rem
         transition: all 0.3s ease;
         
         &:hover {
           opacity: 1;
-          color: var(--primary-soft-blue);
+          color: #60a5fa;
           text-decoration: underline;
         }
       }
@@ -347,11 +368,11 @@
         
         .footer-title {
           justify-content: center;
-          font-size: 1.5rem;
+          font-size: 1.7rem; // Increased from 1.5rem
         }
         
         .footer-section-title {
-          font-size: 1.1rem;
+          font-size: 1.3rem; // Increased from 1.1rem
         }
         
         .social-links {
@@ -397,19 +418,39 @@
         margin-bottom: 25px;
         
         .footer-title {
-          font-size: 1.6rem;
+          font-size: 1.8rem; // Increased from 1.6rem
           
           .footer-logo {
-            height: 60px; // Increased from 45px to be proportional with navbar mobile logo
+            height: 80px; // Increased from 60px
           }
         }
         
         .social-links {
-          gap: 8px;
+          gap: 10px; // Increased from 8px
           
           .social-link {
-            width: 36px;
-            height: 36px;
+            width: 44px; // Increased from 36px
+            height: 44px; // Increased from 36px
+            
+            mat-icon {
+              font-size: 24px; // Increased from default
+              width: 24px; // Increased from default
+              height: 24px; // Increased from default
+            }
+          }
+        }
+        
+        .contact-info {
+          .contact-item {
+            .contact-icon {
+              font-size: 22px; // Increased from default
+              width: 22px; // Increased from default
+              height: 22px; // Increased from default
+            }
+            
+            span {
+              font-size: 1rem; // Increased from default
+            }
           }
         }
       }

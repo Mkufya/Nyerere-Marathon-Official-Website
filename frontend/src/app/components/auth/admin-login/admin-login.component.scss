@@ -30,12 +30,14 @@
 
 .logo-container {
   margin-bottom: 3rem;
+  text-align: center;
 
   .hero-logo {
-    width: 120px;
+    width: 150px;
     height: auto;
-    margin-bottom: 1.5rem;
-    filter: brightness(0) invert(1);
+    margin: 0 auto 1.5rem auto;
+    display: block;
+    object-fit: contain;
     transition: transform 0.3s ease;
 
     &:hover {

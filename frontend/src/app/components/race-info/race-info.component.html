@@ -2,18 +2,19 @@
   <!-- Hero Section -->
   <section class="race-info-hero">
     <div class="hero-content">
-      <h1>Race Information</h1>
-      <p class="hero-subtitle">Everything you need to know about participating in the marathon</p>
+      <h1 class="text-reveal animate-on-scroll">Race Information</h1>
+      <p class="hero-subtitle animate-on-scroll">Everything you need to know about participating in the marathon</p>
     </div>
   </section>
 
   <div class="container">
     <!-- Kit Collection Section -->
     <section class="info-section">
-      <h2 class="section-title">Race Number & Kit Collection</h2>
-      <div class="row">
+      <div>
+        <h2 class="section-title">Race Number & Kit Collection</h2>
+        <div class="row">
         <div class="col-md-8 mx-auto">
-          <mat-card class="info-card">
+          <mat-card class="info-card card-animated">
             <mat-card-header>
               <mat-card-title>
                 <mat-icon class="section-icon">shopping_bag</mat-icon>
@@ -61,15 +62,17 @@
             </mat-card-content>
           </mat-card>
         </div>
+        </div>
       </div>
     </section>
 
     <!-- Route Map Section -->
     <section class="info-section">
-      <h2 class="section-title">Route Map</h2>
-      <div class="row">
+      <div>
+        <h2 class="section-title">Route Map</h2>
+        <div class="row">
         <div class="col-12">
-          <mat-card class="route-card">
+          <mat-card class="route-card card-animated">
             <mat-card-content>
               <div class="route-map">
                 <mat-icon class="map-icon">map</mat-icon>
@@ -80,15 +83,15 @@
                   showcasing the city's landmarks, coastal views, and vibrant neighborhoods.
                 </p>
                 <div class="route-features">
-                  <div class="route-feature">
+                  <div class="route-feature hover-item animate-fade-in-delay-2">
                     <mat-icon>straighten</mat-icon>
                     <span>42.195 km certified course</span>
                   </div>
-                  <div class="route-feature">
+                  <div class="route-feature hover-item animate-fade-in-delay-2">
                     <mat-icon>local_hospital</mat-icon>
                     <span>15 medical stations</span>
                   </div>
-                  <div class="route-feature">
+                  <div class="route-feature hover-item animate-fade-in-delay-2">
                     <mat-icon>local_drink</mat-icon>
                     <span>20 water points</span>
                   </div>
@@ -97,15 +100,17 @@
             </mat-card-content>
           </mat-card>
         </div>
+        </div>
       </div>
     </section>
 
     <!-- Prize Money Section -->
     <section class="info-section">
-      <h2 class="section-title">Prize Money</h2>
-      <div class="row">
+      <div>
+        <h2 class="section-title">Prize Money</h2>
+        <div class="row">
         <div class="col-12">
-          <mat-card class="prize-card">
+          <mat-card class="prize-card card-animated">
             <mat-card-content>
               <div class="table-responsive">
                 <table mat-table [dataSource]="prizeMoneyData" class="prize-table">
@@ -145,15 +150,17 @@
             </mat-card-content>
           </mat-card>
         </div>
+        </div>
       </div>
     </section>
 
     <!-- Results Section -->
     <section class="info-section">
-      <h2 class="section-title">Race Results</h2>
-      <div class="row">
+      <div>
+        <h2 class="section-title">Race Results</h2>
+        <div class="row">
         <div class="col-md-6">
-          <mat-card class="results-card">
+          <mat-card class="results-card card-animated">
             <mat-card-header>
               <mat-card-title>
                 <mat-icon class="card-icon">assessment</mat-icon>
@@ -173,7 +180,7 @@
         </div>
         
         <div class="col-md-6">
-          <mat-card class="results-card">
+          <mat-card class="results-card card-animated">
             <mat-card-header>
               <mat-card-title>
                 <mat-icon class="card-icon">file_download</mat-icon>
@@ -207,15 +214,22 @@
             </mat-card-content>
           </mat-card>
         </div>
+        </div>
       </div>
     </section>
 
     <!-- Additional Information -->
-    <section class="info-section">
-      <h2 class="section-title">Important Information</h2>
-      <div class="row">
+    <section class="info-section bg-gradient-to-br from-gray-50 via-red-50 to-orange-50 relative overflow-hidden">
+      <!-- Animated background elements -->
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0 bg-pattern-info"></div>
+      </div>
+      
+      <div class="relative z-10">
+        <h2 class="section-title bg-gradient-to-r from-red-600 via-orange-600 to-red-600 bg-clip-text text-transparent animate-fade-in">Important Information</h2>
+        <div class="row">
         <div class="col-md-4">
-          <mat-card class="info-highlight-card">
+          <mat-card class="info-highlight-card hover-lift animate-fade-in-delay">
             <mat-card-content>
               <mat-icon class="highlight-icon">schedule</mat-icon>
               <h3>Start Times</h3>
@@ -230,7 +244,7 @@
         </div>
         
         <div class="col-md-4">
-          <mat-card class="info-highlight-card">
+          <mat-card class="info-highlight-card hover-lift animate-fade-in-delay-2">
             <mat-card-content>
               <mat-icon class="highlight-icon">security</mat-icon>
               <h3>Safety Measures</h3>
@@ -245,7 +259,7 @@
         </div>
         
         <div class="col-md-4">
-          <mat-card class="info-highlight-card">
+          <mat-card class="info-highlight-card hover-lift animate-fade-in-delay-3">
             <mat-card-content>
               <mat-icon class="highlight-icon">celebration</mat-icon>
               <h3>Post-Race</h3>
@@ -257,6 +271,7 @@
               </ul>
             </mat-card-content>
           </mat-card>
+        </div>
         </div>
       </div>
     </section>

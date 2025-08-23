@@ -2,23 +2,24 @@
   <!-- Hero Section -->
   <section class="sponsors-hero">
     <div class="hero-content">
-      <h1>Our Sponsors</h1>
-      <p class="hero-subtitle">Partners who make the Nyerere Marathon possible</p>
+      <h1 class="text-reveal animate-on-scroll">Our Sponsors</h1>
+      <p class="hero-subtitle animate-on-scroll">Partners who make the Nyerere Marathon possible</p>
     </div>
   </section>
 
   <div class="container">
     <!-- Platinum Sponsors -->
     <section class="sponsor-tier platinum">
-      <h2 class="tier-title">
-        <mat-icon class="tier-icon">star</mat-icon>
-        Platinum Sponsors
-      </h2>
+      <div>
+        <h2 class="tier-title animate-on-scroll text-reveal">
+          <mat-icon class="tier-icon">star</mat-icon>
+          Platinum Sponsors
+        </h2>
       <div class="row">
         <div class="col-md-6 col-lg-4" *ngFor="let sponsor of platinumSponsors">
-          <mat-card class="sponsor-card platinum-card" (click)="visitSponsor(sponsor.website)">
+          <mat-card class="sponsor-card platinum-card card-animated" (click)="visitSponsor(sponsor.website)">
             <mat-card-content>
-              <div class="sponsor-logo">
+              <div class="sponsor-logo image-zoom">
                 <img [src]="sponsor.logo" [alt]="sponsor.name">
               </div>
               <div class="sponsor-details">
@@ -33,21 +34,23 @@
               </div>
             </mat-card-content>
           </mat-card>
+        </div>
         </div>
       </div>
     </section>
 
     <!-- Gold Sponsors -->
     <section class="sponsor-tier gold">
-      <h2 class="tier-title">
-        <mat-icon class="tier-icon">star</mat-icon>
-        Gold Sponsors
-      </h2>
+      <div>
+        <h2 class="tier-title animate-on-scroll text-reveal">
+          <mat-icon class="tier-icon">star</mat-icon>
+          Gold Sponsors
+        </h2>
       <div class="row">
         <div class="col-md-6 col-lg-4" *ngFor="let sponsor of goldSponsors">
-          <mat-card class="sponsor-card gold-card" (click)="visitSponsor(sponsor.website)">
+          <mat-card class="sponsor-card gold-card card-animated" (click)="visitSponsor(sponsor.website)">
             <mat-card-content>
-              <div class="sponsor-logo">
+              <div class="sponsor-logo image-zoom">
                 <img [src]="sponsor.logo" [alt]="sponsor.name">
               </div>
               <div class="sponsor-details">
@@ -62,21 +65,23 @@
               </div>
             </mat-card-content>
           </mat-card>
+        </div>
         </div>
       </div>
     </section>
 
     <!-- Silver Sponsors -->
     <section class="sponsor-tier silver">
-      <h2 class="tier-title">
-        <mat-icon class="tier-icon">star</mat-icon>
-        Silver Sponsors
-      </h2>
+      <div>
+        <h2 class="tier-title animate-on-scroll text-reveal">
+          <mat-icon class="tier-icon">star</mat-icon>
+          Silver Sponsors
+        </h2>
       <div class="row">
         <div class="col-md-6 col-lg-4" *ngFor="let sponsor of silverSponsors">
-          <mat-card class="sponsor-card silver-card" (click)="visitSponsor(sponsor.website)">
+          <mat-card class="sponsor-card silver-card card-animated" (click)="visitSponsor(sponsor.website)">
             <mat-card-content>
-              <div class="sponsor-logo">
+              <div class="sponsor-logo image-zoom">
                 <img [src]="sponsor.logo" [alt]="sponsor.name">
               </div>
               <div class="sponsor-details">
@@ -91,21 +96,23 @@
               </div>
             </mat-card-content>
           </mat-card>
+        </div>
         </div>
       </div>
     </section>
 
     <!-- Bronze Sponsors -->
     <section class="sponsor-tier bronze">
-      <h2 class="tier-title">
-        <mat-icon class="tier-icon">star</mat-icon>
-        Bronze Sponsors
-      </h2>
+      <div>
+        <h2 class="tier-title animate-on-scroll text-reveal">
+          <mat-icon class="tier-icon">star</mat-icon>
+          Bronze Sponsors
+        </h2>
       <div class="row">
         <div class="col-md-6 col-lg-4" *ngFor="let sponsor of bronzeSponsors">
-          <mat-card class="sponsor-card bronze-card" (click)="visitSponsor(sponsor.website)">
+          <mat-card class="sponsor-card bronze-card card-animated" (click)="visitSponsor(sponsor.website)">
             <mat-card-content>
-              <div class="sponsor-logo">
+              <div class="sponsor-logo image-zoom">
                 <img [src]="sponsor.logo" [alt]="sponsor.name">
               </div>
               <div class="sponsor-details">
@@ -121,44 +128,46 @@
             </mat-card-content>
           </mat-card>
         </div>
+        </div>
       </div>
     </section>
 
     <!-- Become a Sponsor -->
     <section class="become-sponsor-section">
-      <div class="row">
-        <div class="col-md-8 mx-auto">
-          <mat-card class="become-sponsor-card">
+      <div>
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <mat-card class="become-sponsor-card card-animated">
             <mat-card-content>
               <div class="become-sponsor-content">
                 <mat-icon class="sponsor-icon">handshake</mat-icon>
-                <h2>Become a Sponsor</h2>
-                <p>Join our community of supporters and help make the Nyerere Marathon a world-class event. 
+                <h2 class="animate-on-scroll text-reveal">Become a Sponsor</h2>
+                <p class="animate-on-scroll">Join our community of supporters and help make the Nyerere Marathon a world-class event. 
                    Partner with us to promote health, fitness, and community spirit in Tanzania.</p>
                 <div class="sponsor-benefits">
-                  <div class="benefit-item">
+                  <div class="benefit-item animate-on-scroll">
                     <mat-icon>visibility</mat-icon>
                     <span>Brand visibility to thousands of participants</span>
                   </div>
-                  <div class="benefit-item">
+                  <div class="benefit-item animate-on-scroll">
                     <mat-icon>people</mat-icon>
                     <span>Access to our engaged running community</span>
                   </div>
-                  <div class="benefit-item">
+                  <div class="benefit-item animate-on-scroll">
                     <mat-icon>public</mat-icon>
                     <span>International exposure and media coverage</span>
                   </div>
-                  <div class="benefit-item">
+                  <div class="benefit-item animate-on-scroll">
                     <mat-icon>favorite</mat-icon>
                     <span>Support for health and fitness initiatives</span>
                   </div>
                 </div>
-                <div class="sponsor-actions">
-                  <button mat-raised-button color="primary" class="sponsor-cta">
+                <div class="sponsor-actions animate-on-scroll">
+                  <button mat-raised-button color="primary" class="sponsor-cta btn-animated hover-glow">
                     <mat-icon>contact_mail</mat-icon>
                     Contact Us for Partnership
                   </button>
-                  <button mat-button color="accent" class="sponsor-info">
+                  <button mat-button color="accent" class="sponsor-info btn-animated">
                     <mat-icon>download</mat-icon>
                     Download Sponsorship Package
                   </button>
@@ -166,6 +175,7 @@
               </div>
             </mat-card-content>
           </mat-card>
+        </div>
         </div>
       </div>
     </section>

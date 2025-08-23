@@ -1,11 +1,11 @@
 .race-detail-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--navy-dark) 50%, var(--primary-sky-blue) 100%);
   padding: 0;
   margin: 0;
   
   .race-hero {
-    background: linear-gradient(135deg, rgba(40, 167, 69, 0.9) 0%, rgba(32, 201, 151, 0.9) 100%),
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--navy-dark) 50%, var(--primary-sky-blue) 100%),
                 url('/assets/images/hero-bg.jpg') center/cover;
     color: white;
     padding: 100px 0 80px;
@@ -92,7 +92,7 @@
           mat-icon {
             font-size: 2rem;
             margin-right: 15px;
-            color: #ffd700;
+            color: var(--primary-yellow);
           }
           
           div {

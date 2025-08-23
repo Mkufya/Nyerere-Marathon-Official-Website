@@ -373,4 +373,76 @@
   .waiver-section {
     padding: 16px;
   }
+}
+
+// Fix form field layout and styling
+.mat-form-field {
+  width: 100%;
+  
+  // Fix label positioning
+  .mat-form-field-label-wrapper {
+    top: -0.84375em;
+    padding-top: 0.84375em;
+  }
+  
+  // Ensure proper input area
+  .mat-form-field-infix {
+    padding: 0.5em 0;
+    border-top: 0.84375em solid transparent;
+    width: 100%;
+  }
+  
+  // Fix outline positioning
+  .mat-form-field-outline {
+    top: 0.25em;
+  }
+  
+  // Label styling
+  .mat-form-field-label {
+    top: 1.34375em;
+    left: 0;
+    right: 0;
+    position: absolute;
+    transform-origin: 0 0;
+    transition: color 200ms cubic-bezier(0.25, 0.8, 0.25, 1), transform 200ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    pointer-events: none;
+  }
+  
+  // When label floats up
+  &.mat-form-field-should-float .mat-form-field-label,
+  &.mat-form-field-has-label.mat-form-field-can-float.mat-focused .mat-form-field-label {
+    transform: translateY(-1.34375em) scale(0.75);
+    width: 133.33333%;
+  }
+  
+  // Input and textarea styling
+  input, textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 8px 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  // Validation states
+  &.mat-form-field-invalid {
+    .mat-form-field-outline {
+      color: #f44336 !important;
+    }
+  }
+  
+  &.mat-form-field-valid {
+    .mat-form-field-outline {
+      color: #4caf50 !important;
+    }
+  }
+}
+
+// Only show error styling when field is touched and invalid
+.mat-form-field.mat-form-field-invalid:not(.mat-form-field-touched) {
+  .mat-form-field-outline {
+    color: rgba(0, 0, 0, 0.12) !important;
+  }
 } 

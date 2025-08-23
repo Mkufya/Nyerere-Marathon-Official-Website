@@ -1,2 +1,48 @@
-@import 'tailwindcss/preflight';
-@tailwind utilities; 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Chrome Text Rendering Fixes */
+* {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+/* Chrome-specific fixes for Material Icons */
+mat-icon {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+  font-display: block !important;
+  font-feature-settings: 'liga' 1 !important;
+}
+
+/* Chrome-specific fixes for text elements */
+span, p, h1, h2, h3, h4, h5, h6, a, button, label {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Chrome-specific fixes for navigation elements */
+.nav-link, .navbar-nav, .navbar-actions {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+/* Force text to be visible in Chrome */
+.nav-link span,
+.navbar-actions span,
+button span,
+a span {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+} 

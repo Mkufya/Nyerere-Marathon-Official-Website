@@ -11,7 +11,7 @@
   <div class="registration-content" *ngIf="!loading && race">
     <!-- Header -->
     <div class="registration-header">
-      <button mat-icon-button (click)="goBack()" class="back-button">
+      <button mat-icon-button (click)="goBack()" class="back-button btn-animated">
         <mat-icon>arrow_back</mat-icon>
       </button>
       <div class="header-content">
@@ -234,12 +234,12 @@
 
           <!-- Submit Buttons -->
           <div class="form-actions">
-            <button mat-button type="button" (click)="goBack()" class="cancel-button">
+            <button mat-button type="button" (click)="goBack()" class="cancel-button btn-animated">
               Cancel
             </button>
             <button mat-raised-button color="primary" type="submit" 
                     [disabled]="registrationForm.invalid || isSubmitting"
-                    class="submit-button">
+                    class="submit-button btn-animated hover-glow">
               <mat-spinner diameter="20" *ngIf="isSubmitting"></mat-spinner>
               <mat-icon *ngIf="!isSubmitting">person_add</mat-icon>
               <span *ngIf="!isSubmitting">Complete Registration</span>

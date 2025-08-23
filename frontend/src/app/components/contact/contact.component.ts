@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ScrollAnimationService } from '../../services/scroll-animation.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   contactForm: FormGroup;
   isSubmitting = false;
 
   contactInfo = {
-    address: '123 Marathon Street, Dar es Salaam, Tanzania',
-    phone: '+255 123 456 789',
+    address: 'Mikocheni, Dar es Salaam, Tanzania',
+    phone: '+255 762 349 216',
     email: 'info@nyereremarathon.com',
-    website: 'www.nyereremarathon.com'
+    website: 'www.nyereremarathon.co.tz'
   };
 
   socialMedia = [
@@ -24,7 +25,10 @@ export class ContactComponent implements OnInit {
     { platform: 'YouTube', icon: 'fab fa-youtube', url: 'https://youtube.com/nyereremarathon' }
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private scrollAnimationService: ScrollAnimationService
+  ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -34,6 +38,19 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Initialize form without showing errors
+    this.contactForm.markAsUntouched();
+  }
+
+  ngAfterViewInit(): void {
+    // Initialize scroll animations after view is rendered
+    setTimeout(() => {
+      this.scrollAnimationService.initScrollAnimations();
+    }, 100);
+  }
+
+  ngOnDestroy(): void {
+    this.scrollAnimationService.destroy();
   }
 
   onSubmit(): void {
@@ -45,9 +62,27 @@ export class ContactComponent implements OnInit {
         console.log('Form submitted:', this.contactForm.value);
         this.isSubmitting = false;
         this.contactForm.reset();
+        this.contactForm.markAsUntouched(); // Reset touched state
         // Here you would typically send the form data to your backend
       }, 2000);
+    } else {
+      // Mark all fields as touched to show validation errors
+      this.markFormGroupTouched();
     }
+  }
+
+  // Helper method to mark all form controls as touched
+  private markFormGroupTouched(): void {
+    Object.keys(this.contactForm.controls).forEach(key => {
+      const control = this.contactForm.get(key);
+      control?.markAsTouched();
+    });
+  }
+
+  // Check if field should show error
+  shouldShowError(fieldName: string): boolean {
+    const control = this.contactForm.get(fieldName);
+    return control ? (control.invalid && control.touched) : false;
   }
 
   getErrorMessage(field: string): string {

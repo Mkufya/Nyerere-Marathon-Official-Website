@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { ScrollAnimationService } from '../../services/scroll-animation.service';
 
 export interface Sponsor {
   id: number;
@@ -14,18 +15,29 @@ export interface Sponsor {
   templateUrl: './sponsors.component.html',
   styleUrls: ['./sponsors.component.scss']
 })
-export class SponsorsComponent implements OnInit {
+export class SponsorsComponent implements OnInit, AfterViewInit, OnDestroy {
   sponsors: Sponsor[] = [];
   platinumSponsors: Sponsor[] = [];
   goldSponsors: Sponsor[] = [];
   silverSponsors: Sponsor[] = [];
   bronzeSponsors: Sponsor[] = [];
 
-  constructor() { }
+  constructor(private scrollAnimationService: ScrollAnimationService) { }
 
   ngOnInit(): void {
     this.loadSponsors();
     this.categorizeSponsorsByTier();
+  }
+
+  ngAfterViewInit(): void {
+    // Initialize scroll animations after view is rendered
+    setTimeout(() => {
+      this.scrollAnimationService.initScrollAnimations();
+    }, 100);
+  }
+
+  ngOnDestroy(): void {
+    this.scrollAnimationService.destroy();
   }
 
   private loadSponsors(): void {

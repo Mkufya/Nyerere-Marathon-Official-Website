@@ -76,6 +76,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   toggleMobileMenu(): void {
     this.mobileMenuOpen = !this.mobileMenuOpen;
+    console.log('Mobile menu toggled:', this.mobileMenuOpen);
   }
 
   closeMobileMenu(): void {

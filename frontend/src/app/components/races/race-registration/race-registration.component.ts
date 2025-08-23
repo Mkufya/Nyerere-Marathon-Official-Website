@@ -55,6 +55,9 @@ export class RaceRegistrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Initialize form without showing errors
+    this.registrationForm.markAsUntouched();
+    
     // Check if user is authenticated
     if (!this.authService.isAuthenticated()) {
       this.router.navigate(['/login'], { 
@@ -144,6 +147,11 @@ export class RaceRegistrationComponent implements OnInit {
       return 'You must accept the waiver to proceed';
     }
     return '';
+  }
+
+  shouldShowError(fieldName: string): boolean {
+    const control = this.registrationForm.get(fieldName);
+    return control ? (control.invalid && control.touched) : false;
   }
 
   goBack(): void {

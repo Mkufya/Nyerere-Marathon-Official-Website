@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 export interface NewsItem {
   id: number;
@@ -15,21 +15,96 @@ export interface GalleryImage {
   caption: string;
 }
 
+
+
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss']
 })
-export class NewsComponent implements OnInit {
+export class NewsComponent implements OnInit, OnDestroy {
   newsItems: NewsItem[] = [];
   galleryImages: GalleryImage[] = [];
   selectedImage: GalleryImage | null = null;
+  
+  // Live streaming properties
+  liveStreamUrl = 'https://player.castr.com/live_31dabe40323511f08b8efff0016f3b67';
+  isLive = false;
+  private liveCheckInterval: any;
 
   constructor() { }
 
   ngOnInit(): void {
     this.loadNewsItems();
     this.loadGalleryImages();
+    this.initializeLiveStreaming();
+  }
+
+  ngOnDestroy(): void {
+    if (this.liveCheckInterval) {
+      clearInterval(this.liveCheckInterval);
+    }
+  }
+
+  private initializeLiveStreaming(): void {
+    // Set the target date for the marathon (October 11, 2025)
+    const targetDate = new Date('2025-10-11T06:00:00');
+    const now = new Date();
+    
+    // Check if we're past the target date (stream should be live)
+    if (now >= targetDate) {
+      this.isLive = true;
+    }
+    this.startLiveStatusCheck();
+  }
+
+  private startLiveStatusCheck(): void {
+    // Check live status every 30 seconds
+    this.liveCheckInterval = setInterval(() => {
+      this.checkLiveStatus();
+    }, 30000);
+    
+    // Initial check
+    this.checkLiveStatus();
+  }
+
+  private checkLiveStatus(): void {
+    // In a real implementation, you would make an API call to check if the stream is actually live
+    // For now, we'll simulate this based on the current time
+    const now = new Date();
+    const eventDate = new Date('2025-10-11T06:00:00');
+    const eventEndDate = new Date('2025-10-11T14:00:00'); // Assuming 8-hour event
+    
+    this.isLive = now >= eventDate && now <= eventEndDate;
+  }
+
+  openFullscreen(): void {
+    const iframe = document.querySelector('.live-stream-iframe') as HTMLIFrameElement;
+    if (iframe) {
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if ((iframe as any).webkitRequestFullscreen) {
+        (iframe as any).webkitRequestFullscreen();
+      } else if ((iframe as any).msRequestFullscreen) {
+        (iframe as any).msRequestFullscreen();
+      }
+    }
+  }
+
+  shareStream(): void {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Nyerere International Marathon 2025 - Live Stream',
+        text: 'Watch the live coverage of the Mwl.Nyerere International Marathon 2025!',
+        url: window.location.href
+      });
+    } else {
+      // Fallback: copy to clipboard
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        // You could show a toast notification here
+        console.log('Stream URL copied to clipboard');
+      });
+    }
   }
 
   private loadNewsItems(): void {

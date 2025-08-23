@@ -2,34 +2,34 @@
   <div class="navbar-container">
     <!-- Logo/Brand -->
     <div class="navbar-brand">
-      <a routerLink="/" class="brand-link">
-        <img src="assets/images/logo/Mwl Marathon logo 01_01.png" alt="Nyerere Marathon" class="logo">
+      <a routerLink="/" class="brand-link hover-scale-sm">
+        <img src="assets/images/logo/Mwl Marathon Official Logo.png" alt="Nyerere Marathon" class="logo">
       </a>
     </div>
 
     <!-- Navigation Links -->
     <nav class="navbar-nav">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link nav-link-animated">
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </a>
       
-      <a routerLink="/race-info" routerLinkActive="active" class="nav-link">
+      <a routerLink="/race-info" routerLinkActive="active" class="nav-link nav-link-animated">
         <mat-icon>assignment</mat-icon>
         <span>{{ getTranslation('nav.raceInfo') }}</span>
       </a>
       
-      <a routerLink="/news" routerLinkActive="active" class="nav-link">
+      <a routerLink="/news" routerLinkActive="active" class="nav-link nav-link-animated">
         <mat-icon>article</mat-icon>
         <span>{{ getTranslation('nav.newsMedia') }}</span>
       </a>
       
-      <a routerLink="/sponsors" routerLinkActive="active" class="nav-link">
+      <a routerLink="/sponsors" routerLinkActive="active" class="nav-link nav-link-animated">
         <mat-icon>business</mat-icon>
         <span>{{ getTranslation('nav.sponsors') }}</span>
       </a>
       
-      <a routerLink="/contact" routerLinkActive="active" class="nav-link">
+      <a routerLink="/contact" routerLinkActive="active" class="nav-link nav-link-animated">
         <mat-icon>contact_mail</mat-icon>
         <span>{{ getTranslation('nav.contact') }}</span>
       </a>
@@ -38,7 +38,7 @@
     <!-- Right Section -->
     <div class="navbar-actions">
       <!-- Language Selector -->
-      <button mat-button [matMenuTriggerFor]="languageMenu" class="language-btn">
+      <button mat-button [matMenuTriggerFor]="languageMenu" class="language-btn btn-animated">
         <mat-icon>language</mat-icon>
         {{ currentLanguage === 'en' ? 'English' : 'Kiswahili' }}
       </button>
@@ -55,7 +55,7 @@
 
       <!-- Login/User Profile -->
       <ng-container *ngIf="!isLoggedIn; else userProfile">
-        <button mat-raised-button color="primary" routerLink="/login" class="login-btn">
+        <button mat-raised-button color="primary" routerLink="/login" class="login-btn btn-animated hover-glow">
           <mat-icon>login</mat-icon>
           Login
         </button>
@@ -83,45 +83,54 @@
       </ng-template>
 
       <!-- Register Button -->
-      <button mat-raised-button color="accent" routerLink="/register" class="register-btn" *ngIf="!isLoggedIn">
+      <button mat-raised-button color="accent" routerLink="/register" class="register-btn btn-animated hover-glow" *ngIf="!isLoggedIn">
         <mat-icon>person_add</mat-icon>
         REGISTER
       </button>
     </div>
 
     <!-- Mobile Menu Toggle -->
-    <button mat-icon-button class="mobile-menu-btn" (click)="toggleMobileMenu()">
+    <button mat-icon-button class="mobile-menu-btn btn-animated" (click)="toggleMobileMenu()">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
 
+  <!-- Mobile Menu Backdrop -->
+  <div class="mobile-menu-backdrop" [class.active]="mobileMenuOpen" (click)="closeMobileMenu()"></div>
+  
   <!-- Mobile Menu -->
-  <div class="mobile-menu" [class.active]="mobileMenuOpen">
-    <a routerLink="/" (click)="closeMobileMenu()" class="mobile-nav-link">
+  <div class="mobile-menu" [class.active]="mobileMenuOpen" [style.display]="mobileMenuOpen ? 'block' : 'none'">
+    <div class="mobile-menu-header">
+      <h3>Navigation</h3>
+      <button mat-icon-button (click)="closeMobileMenu()" class="mobile-menu-close">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <a routerLink="/" (click)="closeMobileMenu()" class="mobile-nav-link nav-link-animated animate-slide-in-left animate-delay-1">
       <mat-icon>home</mat-icon>
       <span>Home</span>
     </a>
-    <a routerLink="/about" (click)="closeMobileMenu()" class="mobile-nav-link">
+    <a routerLink="/about" (click)="closeMobileMenu()" class="mobile-nav-link nav-link-animated animate-slide-in-left animate-delay-2">
       <mat-icon>info</mat-icon>
       <span>{{ getTranslation('nav.about') }}</span>
     </a>
-    <a routerLink="/races" (click)="closeMobileMenu()" class="mobile-nav-link">
+    <a routerLink="/races" (click)="closeMobileMenu()" class="mobile-nav-link nav-link-animated animate-slide-in-left animate-delay-3">
       <mat-icon>emoji_events</mat-icon>
       <span>{{ getTranslation('nav.races') }}</span>
     </a>
-    <a routerLink="/race-info" (click)="closeMobileMenu()" class="mobile-nav-link">
+    <a routerLink="/race-info" (click)="closeMobileMenu()" class="mobile-nav-link nav-link-animated animate-slide-in-left animate-delay-4">
       <mat-icon>assignment</mat-icon>
       <span>{{ getTranslation('nav.raceInfo') }}</span>
     </a>
-    <a routerLink="/news" (click)="closeMobileMenu()" class="mobile-nav-link">
+    <a routerLink="/news" (click)="closeMobileMenu()" class="mobile-nav-link nav-link-animated animate-slide-in-left animate-delay-5">
       <mat-icon>article</mat-icon>
       <span>{{ getTranslation('nav.newsMedia') }}</span>
     </a>
-    <a routerLink="/sponsors" (click)="closeMobileMenu()" class="mobile-nav-link">
+    <a routerLink="/sponsors" (click)="closeMobileMenu()" class="mobile-nav-link nav-link-animated animate-slide-in-left animate-delay-1">
       <mat-icon>business</mat-icon>
       <span>{{ getTranslation('nav.sponsors') }}</span>
     </a>
-    <a routerLink="/contact" (click)="closeMobileMenu()" class="mobile-nav-link">
+    <a routerLink="/contact" (click)="closeMobileMenu()" class="mobile-nav-link nav-link-animated animate-slide-in-left animate-delay-2">
       <mat-icon>contact_mail</mat-icon>
       <span>{{ getTranslation('nav.contact') }}</span>
     </a>

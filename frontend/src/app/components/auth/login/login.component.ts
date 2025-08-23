@@ -26,10 +26,10 @@ import { environment } from '../../../../environments/environment';
                   <mat-label>Email</mat-label>
                   <input matInput type="email" formControlName="email" placeholder="Enter your email">
                   <mat-icon matSuffix>email</mat-icon>
-                  <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+                  <mat-error *ngIf="shouldShowError('email') && loginForm.get('email')?.hasError('required')">
                     Email is required
                   </mat-error>
-                  <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+                  <mat-error *ngIf="shouldShowError('email') && loginForm.get('email')?.hasError('email')">
                     Please enter a valid email
                   </mat-error>
                 </mat-form-field>
@@ -43,7 +43,7 @@ import { environment } from '../../../../environments/environment';
                           [attr.aria-pressed]="hidePassword">
                     <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
-                  <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                  <mat-error *ngIf="shouldShowError('password') && loginForm.get('password')?.hasError('required')">
                     Password is required
                   </mat-error>
                 </mat-form-field>
@@ -103,6 +103,78 @@ import { environment } from '../../../../environments/environment';
     .text-primary:hover {
       text-decoration: underline;
     }
+    
+    // Fix form field layout and styling
+    .mat-form-field {
+      width: 100%;
+      
+      // Fix label positioning
+      .mat-form-field-label-wrapper {
+        top: -0.84375em;
+        padding-top: 0.84375em;
+      }
+      
+      // Ensure proper input area
+      .mat-form-field-infix {
+        padding: 0.5em 0;
+        border-top: 0.84375em solid transparent;
+        width: 100%;
+      }
+      
+      // Fix outline positioning
+      .mat-form-field-outline {
+        top: 0.25em;
+      }
+      
+      // Label styling
+      .mat-form-field-label {
+        top: 1.34375em;
+        left: 0;
+        right: 0;
+        position: absolute;
+        transform-origin: 0 0;
+        transition: color 200ms cubic-bezier(0.25, 0.8, 0.25, 1), transform 200ms cubic-bezier(0.25, 0.8, 0.25, 1);
+        pointer-events: none;
+      }
+      
+      // When label floats up
+      &.mat-form-field-should-float .mat-form-field-label,
+      &.mat-form-field-has-label.mat-form-field-can-float.mat-focused .mat-form-field-label {
+        transform: translateY(-1.34375em) scale(0.75);
+        width: 133.33333%;
+      }
+      
+      // Input and textarea styling
+      input, textarea {
+        width: 100%;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 8px 12px;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      
+      // Validation states
+      &.mat-form-field-invalid {
+        .mat-form-field-outline {
+          color: #f44336 !important;
+        }
+      }
+      
+      &.mat-form-field-valid {
+        .mat-form-field-outline {
+          color: #4caf50 !important;
+        }
+      }
+    }
+    
+    // Only show error styling when field is touched and invalid
+    .mat-form-field.mat-form-field-invalid:not(.mat-form-field-touched) {
+      .mat-form-field-outline {
+        color: rgba(0, 0, 0, 0.12) !important;
+      }
+    }
   `]
 })
 export class LoginComponent implements OnInit {
@@ -126,6 +198,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Initialize form without showing errors
+    this.loginForm.markAsUntouched();
+    
     // Get return url from route parameters or default to dashboard
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
     
@@ -190,6 +265,9 @@ export class LoginComponent implements OnInit {
       console.log('❌ Form values:', this.loginForm.value);
       console.log('❌ Form status:', this.loginForm.status);
       
+      // Mark all fields as touched to show validation errors
+      this.markFormGroupTouched();
+      
       // Show validation errors
       Object.keys(this.loginForm.controls).forEach(key => {
         const control = this.loginForm.get(key);
@@ -198,6 +276,18 @@ export class LoginComponent implements OnInit {
         }
       });
     }
+  }
+
+  private markFormGroupTouched(): void {
+    Object.keys(this.loginForm.controls).forEach(key => {
+      const control = this.loginForm.get(key);
+      control?.markAsTouched();
+    });
+  }
+
+  shouldShowError(fieldName: string): boolean {
+    const control = this.loginForm.get(fieldName);
+    return control ? (control.invalid && control.touched) : false;
   }
 
   testBackendConnection(): void {
