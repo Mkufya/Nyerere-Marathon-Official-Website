@@ -112,7 +112,7 @@ export class NewsComponent implements OnInit, OnDestroy {
       {
         id: 1,
         title: 'Registration Opens for 2025 Marathon',
-        date: new Date('2024-12-01'),
+        date: new Date('2025-09-01'),
         description: 'Early bird registration is now open for the Mwl.Nyerere International Marathon 2025. Take advantage of discounted rates until January 31st.',
         image: 'https://via.placeholder.com/400x250/1976d2/ffffff?text=Registration+Open',
         category: 'Registration'
@@ -120,7 +120,7 @@ export class NewsComponent implements OnInit, OnDestroy {
       {
         id: 2,
         title: 'Route Certification Complete',
-        date: new Date('2024-11-15'),
+        date: new Date('2025-09-10'),
         description: 'The marathon route has been officially certified by the International Association of Athletics Federations (IAAF) for the 2025 race.',
         image: 'https://via.placeholder.com/400x250/2e7d32/ffffff?text=Route+Certified',
         category: 'Course'
@@ -128,19 +128,12 @@ export class NewsComponent implements OnInit, OnDestroy {
       {
         id: 3,
         title: 'International Elite Athletes Confirmed',
-        date: new Date('2024-11-10'),
+        date: new Date('2025-08-10'),
         description: 'World-class athletes from Kenya, Ethiopia, and Tanzania have confirmed their participation in the 2025 marathon.',
         image: 'https://via.placeholder.com/400x250/f57c00/ffffff?text=Elite+Athletes',
         category: 'Athletes'
       },
-      {
-        id: 4,
-        title: 'Volunteer Program Launched',
-        date: new Date('2024-11-01'),
-        description: 'Join our volunteer program and be part of making the marathon a success. Various positions available with great benefits.',
-        image: 'https://via.placeholder.com/400x250/7b1fa2/ffffff?text=Volunteers',
-        category: 'Volunteers'
-      }
+
     ];
   }
 

@@ -13,7 +13,7 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
 
   contactInfo = {
     address: 'Mikocheni, Dar es Salaam, Tanzania',
-    phone: '+255 762 349 216',
+    phone: '+255 754 778 868',
     email: 'info@nyereremarathon.com',
     website: 'www.nyereremarathon.co.tz'
   };
